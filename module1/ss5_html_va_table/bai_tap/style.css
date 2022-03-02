@@ -1,0 +1,92 @@
+.main{
+    margin: 20px auto;
+    width: 520px;
+    background-color: #f1f1f1;
+}
+
+.wrapper{
+    padding: 10px;
+}
+
+.header{
+    background-color: orange;
+}
+
+.header-content{
+    margin: 0;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.body-content{
+    padding: 10px 70px;
+}
+
+.name-text,
+.email-text{
+    margin-top: 0;
+    margin-bottom: 20px;
+    display: inline-block;
+    color: blue
+}
+
+.email-text{
+    margin-left: 24px;
+}
+
+input{
+    margin-left: 4px;
+    color: orange;
+}
+
+.hobby-wrap{
+}
+
+.title-hobby{
+    color: blue;
+    display: inline;
+    margin-left: 10px;
+}
+
+.hobby-text{
+    color: orange;
+    display: inline;
+}
+
+
+    /* FORM ĐĂNG KÍ HỌC VIÊN */
+.second-main{
+    width: 500px;
+    margin: 0 auto;
+    background-color: #f1f1f1;
+}
+
+.second-header{
+    color: blue;
+    background-color: aquamarine;
+    margin: 10px;
+}
+
+.second-header h1{
+    margin: 0
+}
+
+.second-body{
+    padding: ;
+}
+
+.second-body p{
+    display: inline-block;
+    width: 100px;
+    margin: 5px;
+    color: blue;
+}
+
+select{
+    margin-left: 5px;
+}
+
+.button-wrap{
+    padding: 10px 0 0 117px;
+}
