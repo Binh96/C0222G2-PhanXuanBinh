@@ -3,9 +3,4 @@ I'm trying to use Git
 
 
 
-
-
-
-
-
-GIT & HTML
+Git & HTML
