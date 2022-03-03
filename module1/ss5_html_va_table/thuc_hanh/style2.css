@@ -1,0 +1,10 @@
+html{
+    color: grey;
+}
+td{
+    text-align: center;
+}
+.bg-red{
+    color: white;
+    background-color: red;
+}
