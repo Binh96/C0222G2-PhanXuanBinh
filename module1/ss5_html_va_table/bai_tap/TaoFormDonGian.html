@@ -13,32 +13,84 @@
     <div class="main">
         <div class="wrapper">
             <div class="header">
-                <h1 class="header-content">sở thích của bạn</h1>
+                <h1 class="header-content">sở thích của bạn</h1>       
             </div>
             <div class="body-content">
-                <form action="">
-                    <div class="input-name">
-                        <p class="name-text">Họ và tên</p>
-                        <input type="text">
-                    </div>
-                    <div class="input-email">
-                        <p class="email-text">Email</p>
-                        <input type="text"">
-                    </div>
-                    <div class="hobby-wrap">
-                        <p class="title-hobby">Sở thích</p>
-                        <input type="checkbox" class="hobby"> <p class="hobby-text">Thể thao</p>
-                        <input type="checkbox" class="hobby"> <p class="hobby-text">Âm nhạc</p>
-                        <input type="checkbox" class="hobby"> <p class="hobby-text">Đọc sách</p>
-                        <input type="checkbox" class="hobby"> <p class="hobby-text">Lướt web</p>
-                        <input type="checkbox" class="hobby"> <p class="hobby-text">Chơi game</p>
-                        <input type="checkbox" class="hobby"> <p class="hobby-text">Điện ảnh</p>
-                        <input type="checkbox" class="hobby"> <p class="hobby-text">Du lịch</p>
-                        <br>
-                        <button>Gữi thông tin</button>
-                        <button>Nhập lại</button>
-                    </div>
-                </form>
+                <table>
+                    <tr>
+                        <th class="text">Họ và tên</th>
+                        <th colspan="2">
+                            <form action="">
+                                <input type="text" class="size-L">
+                            </form>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="text">Email</th>
+                        <th colspan="2">
+                            <form action="">
+                                <input type="email" class="size-M">
+                            </form>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="text">Sở thích</th>
+                        <th class="choose">
+                            <form action="">
+                                <input type="checkbox"><span>Thể thao</span>
+                            </form>
+                        </th>
+                        <th class="choose">
+                            <form action="">
+                                <input type="checkbox"><span>Âm nhạc</span>
+                            </form>
+                        </th>
+                        <th class="choose">
+                            <form action="">
+                                <input type="checkbox"><span>Đọc sách</span>
+                            </form>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="text"></th>
+                        <th class="choose">
+                            <form action="">
+                                <input type="checkbox"><span>Lướt web</span>
+                            </form>
+                        </th>
+                        <th class="choose">
+                            <form action="">
+                                <input type="checkbox""><span>Chơi game</span>
+                            </form>
+                        </th>
+                        <th class="choose">
+                            <form action="">
+                                <input type="checkbox"><span>Điện ảnh</span>
+                            </form>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="text"></th>
+                        <th class="choose">
+                            <form action="">
+                                <input type="checkbox"><span>Du lịch</span>
+                            </form>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="text"></th>
+                        <th>
+                            <form action="">
+                                <input type="submit" value="Gữi thông tin" name="send">
+                            </form>
+                        </th>
+                        <th>
+                            <form action="">
+                                <input type="reset" value="reset">
+                            </form>
+                        </th>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
@@ -51,45 +103,78 @@
             <h1 style="color: blue;">ĐĂNG KÍ HỌC VIÊN</h1>
         </div>
         <div class="second-body">
-            <form action="">
-                <div class="input-form">
-                    <p>Họ và tên</p>
-                    <input type="text">
-                </div>
-                <div class="input-form">
-                    <p for="">Ngày sinh</p>
-                    <input type="text">
-                </div>
-                <div class="input-form">
-                    <p for="">Giới tính</p>
-                    <input type="radio">Nam
-                    <input type="radio">Nữ
-                </div>
-                <div class="input-form">
-                    <p for="">Địa chỉ</p>
-                    <input type="text">
-                </div>
-                <div class="input-form">
-                    <p for="">Lớp</p>
-                    <select name="" id="">
-                        <option >-chọn lớp-</option>
-                        <option >Front-end</option>
-                        <option >Back-end</option>
-                    </select>
-                </div>
-                <div class="input-form">
-                    <p for="">Email</p>
-                    <input type="email">
-                </div>
-                <div class="input-form">
-                    <p for="">Họ và tên</p>
-                    <input type="number">
-                </div>
-                <div class="button-wrap">
-                    <button>Đăng ký</button>
-                    <button>Nhập lại</button>
-                </div>
-            </form>
+            <table>
+                <tr>
+                    <td class="detail">Họ và tên</td>
+                    <td>
+                        <form action="">
+                            <input type="text" name="name">
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="detail">Ngày sinh</td>
+                    <td>
+                        <form action="">
+                            <input type="text" name="dayOfBirth">
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="detail">Giới tính</td>
+                    <td>
+                        <form action="">
+                            <input type="radio"> <span>Nam</span>
+                            <input type="radio"> <span>Nữ</span>
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="detail">Địa chỉ</td>
+                    <td>
+                        <form action="">
+                            <textarea name="address" id="" cols="21" rows="3"></textarea>
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="detail">Lớp</td>
+                    <td>
+                        <form action="">
+                            <select name="class" >
+                                <option>-Chọn lớp-</option>
+                                <option>Front-end</option>
+                                <option>Back-end</option>
+                            </select>
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="detail">Email</td>
+                    <td>
+                        <form action="">
+                            <input type="email" name="email">
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="detail">Điện thoại</td>
+                    <td>
+                        <form action="">
+                            <input type="tel" name="tel">
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <th>
+                        <form action="">
+                            <input type="submit" value="Đăng kí">
+                            <input type="reset" value="Nhập lại">
+                        </form>
+                    </th>
+                </tr>
+            </table>
         </div>
     </div>
 </body>
