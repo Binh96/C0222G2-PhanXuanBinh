@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family: "Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+}
+
+.header{
+    padding: 10px;
+    border-bottom: 1px dotted #ccc;
+}
+
+.header-text{
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.header-para{
+    font-size: 12px;
+}
+
+.body-content{
+    padding: 2px;
+}
+
+.form{
+    padding: 5px;
+}
+
+.form:hover{
+    background-color: #fff7c0;
+}
+
+.form-title{
+    font-size: 12px;
+}
+
+select{
+    font-size: 15px;
+    padding: 2px 0;
+    margin-top: 5px;
+    width: 50%;
+}
+
+.gender-choice,
+.product-choice,
+.daily-choice{
+    display: block;
+    margin: 10px 0;
+}
+
+.gender,
+.product,
+.daily{
+    margin-left: 2px;
+    position: relative;
+    top: -2px;
+    font-size: 13px;
+    color: #444;
+}
+
+.size-L{
+    width: 71px;
+}
+
+.size-M{
+    width: 17px;
+}
