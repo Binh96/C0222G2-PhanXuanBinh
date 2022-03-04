@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thuc Hanh Js</title>
+    <style>
+        h1{
+            color: blueviolet;
+            font-size: 36px;
+        }
+        .btn{
+            border: none;
+            outline: none;
+            padding: 20px;
+            background-color: #ccc;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello!! </h1>
+    <!-- Cách 1 sử dụng onclick -->
+    <!-- <button onclick="clickButton()">Click me</button> -->
+
+
+    <!-- Cách 2 sử dụng addEventlistener -->
+    <!-- <button class="btn" id="demo">Hit me!</button> -->
+
+    <!-- Cách 3 -->
+    <!-- <button onclick="alert('Xin chào!')">Click me</button> -->
+
+    <!-- <button type="button" onclick="showMessenge()">Click me!</button>
+
+    <div id="demo">
+
+    </div>
+    <button class="btn-2" onclick="showMessenge2()">Click me</button>
+
+    <button onclick="showMessenge3()">Cick me!</button>
+    <button onclick="showMessenge4()">Click me!</button>
+    <script src="HienThiDauRa.js">
+
+    </script> -->
+    <script>
+        function iterArr(arr) {
+            var sum = 0;
+            for(let i=0; i<=arr.length;i++){
+                 sum+=arr[i];
+                }
+  //Your code here
+            return sum;
+            }
+            let array=[1,2,3,4,5];
+            let temp= array.length;
+            for(let i=0; i<=temp;i++){
+                iterArr(i);
+            }
+        console.log(iterArr());
+    </script>
+</body>
+</html>
