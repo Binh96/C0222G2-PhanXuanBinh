@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máy tính đơn giản</title>
+    <link rel="stylesheet" href="Calculator.css">
+</head>
+<body>
+    <div class="main">
+        <table>
+            <tr>
+                <th colspan="4">
+                    <div class="box"></div>
+                </th>
+            </tr>
+            <tr>
+                <td class="keyboard">
+                    <button type="submit" data-number>1</button>
+                </td>
+                <td class="keyboard">
+                    <button type="submit" data-number>2</button>
+                </td>
+                <td class="keyboard">
+                    <button type="submit" data-number>3</button>
+                </td>
+                <td class="keyboard">
+                    <button type="submit" data-operation>+</button>
+                </td>
+            </tr>
+            <tr>
+                <td class="keyboard">
+                    <button type="submit" data-number>4</button>
+                </td>
+                <td class="keyboard">
+                    <button type="submit" data-number>5</button>
+                </td>
+                <td class="keyboard">
+                    <button type="submit" data-number>6</button>
+                </td>
+                <td class="keyboard">
+                    <button type="submit" data-operation>-</button>
+                </td>
+            </tr>
+            <tr>
+                <td class="keyboard">
+                    <button type="submit" data-number>7</button>
+                </td>
+                <td class="keyboard">
+                    <button type="submit" data-number>8</button>
+                </td>
+                <td class="keyboard">
+                    <button type="submit" data-number>9</button>
+                </td>
+                <td class="keyboard">
+                    <button type="submit" data-operation>*</button>
+                </td>
+            </tr>
+            <tr>
+                <td class="keyboard">
+                    <button type="submit" data-delete>C</button>
+                </td>
+                <td class="keyboard">
+                    <button type="submit" data-number>0</button>
+                </td>
+                <td class="keyboard">
+                    <button type="submit" data-equal>=</button>
+                </td>
+                <td class="keyboard">
+                    <button type="submit" data-operation>/</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        const $ = document.querySelector.bind(document);
+        const $$ = document.querySelectorAll.bind(document);
+        let appendNumber = [];
+            //  Get value number button
+        function number(){
+            let numberButton = $$('[data-number]');
+            numberButton.forEach(button => {
+                button.addEventListener('click', () =>{
+                    appendNumber.push(button);
+                    console.log(appendNumber);
+                    $('.box').innerText = appendNumber;
+                });
+            });
+        }
+            //  Get operation button
+        function operation(){
+
+        }
+            // Do compute
+        function compute(){
+
+        }
+
+        number();
+
+    </script>
+</body>
+</html>

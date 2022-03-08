@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do you love me</title>
+    <style>
+        .main{
+            text-align: center;
+            position: relative;
+        }
+        h1{ 
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin-top: 100px;
+        }
+        .btns1{
+            position: absolute;
+            top: 150px;
+            left: 40%;
+            transform: translateX(-50%);
+            margin: 0 20px;
+        }
+        .btns2{
+            position: absolute;
+            top: 150px;
+            left: 50%;
+            transform: translateX(-50%);
+            margin: 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1>Do you love me?</h1>
+        <button class="btns1" value="yes" onclick="sayYes()">Yes</button>
+        <button class="btns2" id="btnNo" onmouseover="sayNo()">No</button>
+    </div>
+    <script>
+        let btnNo = document.querySelector('#btnNo');
+        function sayYes(){
+            alert('Yeah, me too!');
+        }
+
+        function sayNo(){
+            let x = Math.round(Math.random()*window.innerWidth);
+            let y = Math.round(Math.random()*window.innerHeight);
+
+            btnNo.style.left = x + 'px';
+            btnNo.style.top = y + 'px;'
+        }
+    </script>
+</body>
+</html>

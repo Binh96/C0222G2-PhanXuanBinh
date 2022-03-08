@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 15px;
+    color: blue;
+}
+
+.main{
+    height: 100vh;
+}
+
+table{
+    margin: 50px auto;
+}
+
+button{
+    color: blue;
+    outline: none;
+    border: none;
+    width: 100%;
+    padding: 10px;
+}
+
+button:hover{
+    background-color: #ccc;
+}
+
+.box{
+    width: 118px;
+    height: 21px;
+    background-color: #fff;
+    border: 1px solid #000;
+    text-align: right;
+    padding: 2px 5px;
+}
