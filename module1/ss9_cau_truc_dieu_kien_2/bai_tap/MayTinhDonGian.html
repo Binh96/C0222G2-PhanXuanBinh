@@ -12,92 +12,107 @@
         <table>
             <tr>
                 <th colspan="4">
-                    <div class="box"></div>
+                    <input type="text" id="show">
                 </th>
             </tr>
             <tr>
                 <td class="keyboard">
-                    <button type="submit" data-number>1</button>
+                    <button type="submit" data-number onclick="nhap(1)">1</button>
                 </td>
                 <td class="keyboard">
-                    <button type="submit" data-number>2</button>
+                    <button type="submit" data-number onclick="nhap(2)">2</button>
                 </td>
                 <td class="keyboard">
-                    <button type="submit" data-number>3</button>
+                    <button type="submit" data-number onclick="nhap(3)">3</button>
                 </td>
                 <td class="keyboard">
-                    <button type="submit" data-operation>+</button>
-                </td>
-            </tr>
-            <tr>
-                <td class="keyboard">
-                    <button type="submit" data-number>4</button>
-                </td>
-                <td class="keyboard">
-                    <button type="submit" data-number>5</button>
-                </td>
-                <td class="keyboard">
-                    <button type="submit" data-number>6</button>
-                </td>
-                <td class="keyboard">
-                    <button type="submit" data-operation>-</button>
+                    <button type="submit" data-operation onclick="nhap('+')">+</button>
                 </td>
             </tr>
             <tr>
                 <td class="keyboard">
-                    <button type="submit" data-number>7</button>
+                    <button type="submit" data-number onclick="nhap(4)">4</button>
                 </td>
                 <td class="keyboard">
-                    <button type="submit" data-number>8</button>
+                    <button type="submit" data-number onclick="nhap(5)">5</button>
                 </td>
                 <td class="keyboard">
-                    <button type="submit" data-number>9</button>
+                    <button type="submit" data-number onclick="nhap(6)">6</button>
                 </td>
                 <td class="keyboard">
-                    <button type="submit" data-operation>*</button>
+                    <button type="submit" data-operation onclick="nhap('-')">-</button>
                 </td>
             </tr>
             <tr>
                 <td class="keyboard">
-                    <button type="submit" data-delete>C</button>
+                    <button type="submit" data-number onclick="nhap(7)">7</button>
                 </td>
                 <td class="keyboard">
-                    <button type="submit" data-number>0</button>
+                    <button type="submit" data-number onclick="nhap(8)">8</button>
                 </td>
                 <td class="keyboard">
-                    <button type="submit" data-equal>=</button>
+                    <button type="submit" data-number onclick="nhap(9)">9</button>
                 </td>
                 <td class="keyboard">
-                    <button type="submit" data-operation>/</button>
+                    <button type="submit" data-operation onclick="nhap('*')">*</button>
+                </td>
+            </tr>
+            <tr>
+                <td class="keyboard">
+                    <button type="submit" data-delete onclick="del()">C</button>
+                </td>
+                <td class="keyboard">
+                    <button type="submit" data-number onclick="nhap(0)">0</button>
+                </td>
+                <td class="keyboard">
+                    <button type="submit" onclick="compute()" data-equal>=</button>
+                </td>
+                <td class="keyboard">
+                    <button type="submit" data-operation onclick="nhap('/')">/</button>
                 </td>
             </tr>
         </table>
     </div>
     <script>
-        const $ = document.querySelector.bind(document);
-        const $$ = document.querySelectorAll.bind(document);
-        let appendNumber = [];
-            //  Get value number button
-        function number(){
-            let numberButton = $$('[data-number]');
-            numberButton.forEach(button => {
-                button.addEventListener('click', () =>{
-                    appendNumber.push(button);
-                    console.log(appendNumber);
-                    $('.box').innerText = appendNumber;
-                });
-            });
-        }
-            //  Get operation button
-        function operation(){
+        // const $ = document.querySelector.bind(document);
+        // const $$ = document.querySelectorAll.bind(document);
+        // let previousNumber='';
+        // let currentNumber='';
+        //     //  Get value number button
+        // function number(){
+        //     let numberButton = $$('[data-number]');
+        //     let numberLength = numberButton.length;
+        //     for(let i=0; i< numberLength; i++){
+        //         numberButton.onclick = function (){
+        //             console.log(numberButton.innerHTML);
+        //         }
+        //     }
+        // }
+        //     //  Get operation button
+        // function operation(){
 
+        // }
+        //     // Do compute
+        // function compute(){
+
+        // }
+
+        // number();
+
+        function nhap(so){
+            let string = document.querySelector('#show').value;
+             document.querySelector('#show').value=string + so;
         }
-            // Do compute
+
         function compute(){
-
+            let string = document.querySelector('#show').value;
+            let result = eval(string);
+            document.querySelector('#show').value = result;
         }
 
-        number();
+        function del(){
+            document.querySelector('#show').value ="";
+        }
 
     </script>
 </body>

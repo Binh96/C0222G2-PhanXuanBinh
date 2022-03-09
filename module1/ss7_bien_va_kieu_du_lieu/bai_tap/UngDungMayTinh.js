@@ -17,23 +17,20 @@ for(let i=0; i< btns.length; i++){
         let result;
         if(value == 'sub'){
             result = num1 - num2;
-            $('h3').innerHTML= result;
             // console.log(result = num1 - num2)
         }
         else if(value == 'div'){
             result = num1 / num2;
-            $('h3').innerHTML= result;
-            console.log(result = num1 / num2)
+            // console.log(result = num1 / num2)
         }
         else if(value == 'mul'){
             result = num1 * num2;
-            $('h3').innerHTML= result;
-            console.log(result = num1 * num2)
+            // console.log(result = num1 * num2)
         }
         else{
             result = num1 + num2;
-            $('h3').innerHTML= result;
-            console.log(result = num1 + num2)
+            // console.log(result = num1 + num2)
         }
+        $('h3').innerHTML= result;
     }
 }

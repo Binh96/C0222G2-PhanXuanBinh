@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Good Fast Cheap</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body{
+            background-color: rgb(189, 84, 84);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .toggels-container{
+            width: 200px;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .toggles{
+            visibility: hidden;
+        }
+
+        .label{
+            position: relative;
+            display: block;
+            width: 80px;
+            height: 40px;
+            background-color: #ddd;
+            border-radius: 20px;
+        }
+
+        span{
+            color: #fff;
+            font-size: 24px;
+        }
+
+        .toggles:checked + .label{
+            background: #3A506B;
+        }
+
+        .ball{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color:#fff; 
+            /* animation: slideOff .3s linear forwards; */
+        }
+
+        .toggles:checked + .label .ball{
+            animation: slideOn .3s linear forwards;
+        }
+
+        @keyframes slideOn {
+            0%{
+                transform: translateX(0);
+            }
+
+            100%{
+                transform: translateX(40px);
+            }
+        }
+        @keyframes slideOff{
+            100%{
+                transform: translateX(40px);
+            }
+
+            0%{
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="toggels-container">
+        <input type="checkbox" id="cheap" class="toggles">
+        <label for="cheap" class="label">
+            <div class="ball"></div>
+        </label>
+        <span>Cheap</span>
+    </div>
+    <div class="toggels-container">
+        <input type="checkbox" id="good" class="toggles">
+        <label for="good" class="label">
+            <div class="ball"></div>
+        </label>
+        <span>Good</span>
+    </div>
+    <div class="toggels-container">
+        <input type="checkbox" id="fast" class="toggles">
+        <label for="fast" class="label">
+            <div class="ball"></div>
+        </label>
+        <span>Fast</span>
+    </div>
+    <script>
+        const toggles = document.querySelectorAll('.toggles');
+        const cheap = document.getElementById('cheap')
+        const good = document.getElementById('good')
+        const fast = document.getElementById('fast')
+
+        toggles.forEach(toggle => toggle.addEventListener('change', (button) =>
+            doSomething(button.target)))
+
+            function doSomething(value){
+                console.log(value);
+            if(good.checked && cheap.checked && fast.checked){
+                if(good === value){
+                    fast.checked = false;
+                }
+                else if(cheap === value){
+                    good.checked = false;
+                }
+                else
+                    cheap.checked = false;
+                }
+            }  
+    </script>
+</body>
+</html>
