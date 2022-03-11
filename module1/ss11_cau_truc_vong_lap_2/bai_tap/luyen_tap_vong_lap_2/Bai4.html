@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 4</title>
+</head>
+<body>
+    <script>
+        let m=7; //width;
+        let n=5; //height;
+        for(let i=1; i<=n; i++){
+            for(let j=1; j<=m;j++){
+                if((i==1) || (i==n) || (j==1)||(j==m)){
+                    document.write("*");
+                }
+                else
+                    document.write("&nbsp&nbsp");
+            }
+            document.write("<br>");
+        }
+    </script>
+</body>
+</html>

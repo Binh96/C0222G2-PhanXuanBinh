@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 8</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .main{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height:100vh;
+            background-color: coral;
+        }
+
+        .btn{
+            border: none;
+            outline: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            width: 200px; 
+            height: 50px;
+            font-size: 20px;
+            font-weight: normal;
+            color: brown;
+        }
+        .btn:hover{
+            background-color: #ddd;
+            color: orangered;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+            <button class="btn" id="play" onclick="gameOn()">Play</button>
+        </div>
+    </div>
+    <script>
+         function gameOn(){
+            let button = document.getElementById('play');
+            let getStartNumber = parseInt(prompt("Nhập số bạn muốn đoán trong khoảng bắt đầu:"));
+            let getEndNumber = parseInt(prompt("Nhập số bạn muốn đoán trong khoảng kết thúc:"));
+            let randomNumber=0;
+            let yourNumber = parseInt(prompt("Nhập giá trị bạn muốn đoán:"));
+            let flag = false;
+            while((yourNumber > getEndNumber) || (yourNumber < getStartNumber)){
+                    alert("Mời Chọn lại");
+                    yourNumber = parseInt(prompt("Nhập giá trị bạn muốn đoán:"))
+            }
+            randomNumber = Math.floor(Math.random() * (getEndNumber-getStartNumber) + getStartNumber)
+            console.log(randomNumber)
+            if(yourNumber === randomNumber){
+                alert("Bạn đã đoán đúng");
+            }
+            else{
+                alert("Bạn đã đoán sai!")
+            }
+         }
+    </script>
+</body>
+</html>

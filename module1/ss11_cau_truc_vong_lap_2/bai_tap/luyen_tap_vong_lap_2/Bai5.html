@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 5</title>
+</head>
+<body>
+    <script>
+        // Tiền lãi = số tiền vay x số lãi hàng tháng
+        // Nếu dưới 12 tháng thì tiền lãi là 0.69% một tháng
+        // Nếu trên 12 tháng thì tiền lãi là 0.875% một tháng
+        // Tiền gốc là tiền phải trả hàng tháng: số tiền vay / số tháng vay
+        // Số tiền phải trả hàng tháng: tiền lãi + tiền phải trả hàng tháng
+        // Số tiền lãi  ngân hàng nhận được: tổng các lãi.
+
+
+        let loan = parseFloat(prompt("Nhập số tiền vay:"));
+        let month = parseFloat(prompt("Số tháng cho vay:"));
+        let monthlyInterest = parseFloat(prompt("Số tiền lãi hàng tháng:"));
+            monthlyInterest= monthlyInterest/100;
+        let loanInterest= 0;                                              
+        let tienGoc= 0;         
+        let tienDaTra=0; 
+        let tienPhaiTra=0;                                                 
+        for(let i=1; i<= month; i++){
+            tienDaTra += tienGoc;
+            if(i<=12){
+                tienGoc= parseInt(loan/month); 
+                tienLai=((loan-tienDaTra)*monthlyInterest);
+                tienPhaiTra= Math.round(tienLai + tienGoc);
+                console.log("Tiền phải trả tháng "+ i+" : "+ tienPhaiTra);      
+            }
+            else{
+                monthlyInterest=0.875/100;
+                tienGoc= parseInt(loan/month); 
+                tienLai=((loan-tienDaTra)*monthlyInterest);
+                tienPhaiTra= Math.round(tienLai + tienGoc);
+                console.log("Tiền phải trả tháng "+ i+" : "+ tienPhaiTra);
+            }                                         
+        }
+
+    </script>
+</body>
+</html>
