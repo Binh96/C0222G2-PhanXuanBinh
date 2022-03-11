@@ -48,18 +48,31 @@
             let getEndNumber = parseInt(prompt("Nhập số bạn muốn đoán trong khoảng kết thúc:"));
             let randomNumber=0;
             let yourNumber = parseInt(prompt("Nhập giá trị bạn muốn đoán:"));
-            let flag = false;
+                // kiểm tra số nhập vào có đúng khoảng mong muốn
             while((yourNumber > getEndNumber) || (yourNumber < getStartNumber)){
                     alert("Mời Chọn lại");
                     yourNumber = parseInt(prompt("Nhập giá trị bạn muốn đoán:"))
             }
-            randomNumber = Math.floor(Math.random() * (getEndNumber-getStartNumber) + getStartNumber)
-            console.log(randomNumber)
-            if(yourNumber === randomNumber){
-                alert("Bạn đã đoán đúng");
-            }
-            else{
-                alert("Bạn đã đoán sai!")
+                // Kiểm tra yourNumber với randomNumber
+            randomNumber = Math.floor(Math.random() * (getEndNumber-getStartNumber) + getStartNumber);
+            // console.log(randomNumber);
+            let flag=true;  
+
+            while(flag){
+                randomNumber = Math.floor(Math.random() * (getEndNumber-getStartNumber) + getStartNumber);
+                console.log(randomNumber);
+                if(yourNumber===randomNumber){
+                    alert("Bạn đã đoán đúng");
+                    break;
+                }
+                if(yourNumber > randomNumber){
+                    alert("Bạn đã nhập số lớn hơn! Mời nhập lại!");
+                    yourNumber = parseInt(prompt("Nhập giá trị bạn muốn đoán:"))
+                }
+                if(yourNumber < randomNumber){
+                    alert("Bạn đã nhập số nhỏ hơn! Mời nhập lại!");
+                    yourNumber = parseInt(prompt("Nhập giá trị bạn muốn đoán:"))
+                }
             }
          }
     </script>
