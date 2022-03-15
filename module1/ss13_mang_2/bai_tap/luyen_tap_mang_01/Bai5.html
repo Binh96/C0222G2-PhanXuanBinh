@@ -4,22 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bài 6</title>
+    <title>Bài 5</title>
 </head>
 <body>
     <script>
-        let tong =0;
+        let str="-1da22-4-23";
+        let count=0;
         let i=0;
-        let count= 1;
-        while(count<=30){
-            i++;
-            if(i%7==0){
-                tong+=i;
-                console.log(i);
+        while(i<str.length){
+            if(str[i]==='-'&& !isNaN(str[i+1])){
                 count++;
             }
+            i++;
         }
-        console.log(tong);
+        console.log(`có ${count} phần tử âm trong mảng`);
     </script>
 </body>
 </html>

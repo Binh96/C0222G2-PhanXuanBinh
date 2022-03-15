@@ -8,18 +8,17 @@
 </head>
 <body>
     <script>
-        let tong =0;
-        let i=0;
-        let count= 1;
-        while(count<=30){
-            i++;
-            if(i%7==0){
-                tong+=i;
-                console.log(i);
-                count++;
+        let arr= Array();
+        let str = prompt("Nhập 1 chuỗi:");
+        for(let i=0; i< str.length; i++){
+            arr.push(str[i]);
+        }
+        for(let i=0; i<arr.length; i++){
+            if(arr[i]=='-'){
+                arr[i]='_';
             }
         }
-        console.log(tong);
+        console.log(arr);
     </script>
 </body>
 </html>

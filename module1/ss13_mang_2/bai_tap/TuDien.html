@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Từ điển</title>
+</head>
+<body>
+    <div class="main">
+        <form action="">
+            <input type="text" id="word">
+        </form>
+        <button id="search">Tìm kiếm</button>
+        <br>
+        <br>
+        <p id="show"></p>
+    </div>
+    <script>
+        let button = document.getElementById('search');
+        // console.log(typeof inputValue);
+        let volcabularyEnglish= ["banana", "apple", "hello", "hi"];
+        let volcabularyVietNam= ["chuối", "táo", "xin chào", "chào"];
+        button.onclick = function (){
+            let inputValue = document.getElementById('word').value;
+            if(volcabularyEnglish.includes(inputValue)){
+                for(let i=0; i< volcabularyEnglish.length; i++){
+                    if(volcabularyEnglish[i] == inputValue){
+                        document.getElementById('show').innerHTML = `${inputValue} là: ${volcabularyVietNam[i]}`;
+                    }
+                }
+            }
+            else{
+                document.getElementById('show').innerHTML = ` Không tìm thấy ${inputValue} trong từ điển`;
+            }
+        }
+    </script>
+</body>
+</html>

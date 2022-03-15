@@ -4,22 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bài 6</title>
+    <title>Document</title>
 </head>
 <body>
     <script>
-        let tong =0;
-        let i=0;
-        let count= 1;
-        while(count<=30){
-            i++;
-            if(i%7==0){
-                tong+=i;
-                console.log(i);
+        let arr = Array();
+        let str = prompt("Nhập chuỗi");
+        let count=0;
+        let flag=true;
+        for(let i=0; i<str.length; i++){
+            arr.push(str[i]);
+            if(!isNaN(arr[i])){
                 count++;
             }
         }
-        console.log(tong);
+        console.log(count)
     </script>
 </body>
 </html>

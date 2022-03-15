@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 4</title>
+</head>
+<body>
+    <script>
+        let arr = Array();
+        let arrLength= parseInt(prompt("Nhập: "));
+        console.log(arrLength);
+        while(arrLength>0){
+            let num = parseInt(prompt());
+            arr.push(num);
+            arrLength--;
+        }
+        let i = arr.length -1;
+        while(i>=0){
+            console.log(arr[i]);
+            i--;
+        }
+    </script>
+</body>
+</html>

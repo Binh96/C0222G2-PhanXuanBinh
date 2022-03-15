@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 3</title>
+</head>
+<body>
+    <script>
+        let num = prompt();
+        let result =[];
+        let upperCase= "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        let lowerCase= "abcdefghijklmnopqrstuvwxyz";
+        for(let i=0; i< num.length; i++){
+            if(upperCase.indexOf(num[i]) !== -1){
+                result.push(num[i].toLowerCase());
+            }
+            else if(lowerCase.indexOf(num[i]) !== -1){
+                result.push(num[i].toUpperCase());
+            }
+            else{
+                result.push(num[i])
+            }
+        }
+        console.log(result.join(''));
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 7</title>
+</head>
+<body>
+    <script>
+        let arr = Array();
+        let numArr=10;
+        while(numArr>0){
+            numArr--;
+            let num = prompt("Nhập phần tử: ");
+            arr.push(num);
+        }
+        let flag=false;
+        let element = prompt("Nhập phần tử muốn xóa");
+        for(let i=0; i< arr.length; i++){ 
+            if(element === arr[i]){
+                flag= true;
+                break;
+            }
+        }
+        let temp;
+        let last = arr.length-1;
+        if(flag==true){
+            alert("có phần tử trong mảng");
+            for(let i=0; i< arr.length; i++){
+                if(element === arr[i]){
+                    arr.splice(arr[i-1], 1)
+                    arr.push(0);
+                }
+            }
+            console.log(arr)
+        }
+        else{
+            alert("không có phần tử trong mảng")
+        }
+    </script>
+</body>
+</html>

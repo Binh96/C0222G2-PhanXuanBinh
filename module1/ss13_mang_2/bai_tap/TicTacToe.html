@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: bisque;
+            height: 100vh;
+        }
+        .wrapper{
+            display: flex;
+            flex-wrap: wrap;
+            width: 300px;
+            height: 300px;
+        }
+
+        table{
+            font-size: 60px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="wrapper">
+            <p id="ketqua"></p>
+        </div>
+    </div>
+    <script>
+        let arr = Array(3);
+        let checkPlayer1= true;
+        //Tạo mảng hai chiều
+        for(let i=0; i<arr.length; i++){
+            arr[i] = Array(3);
+            for(let j=0; j<arr[i].length; j++){
+                arr[i][j]='';
+            }
+        }
+
+        display();
+
+        function play(i,j){
+            if(checkPlayer1 && !checkPlay(i,j)){
+                arr[i][j]='x';
+                checkPlayer1 = false;
+                if(checkWin()){
+                    alert("Người chơi một chiến thắng")
+                }
+            }
+            else if(!checkPlayer1 && !checkPlay(i,j)){
+                arr[i][j]='o';
+                checkPlayer1= true;
+                if(checkWin()){
+                    alert("Người chơi hai chiến thắng")
+                }
+            }
+            display();
+        }
+
+        function checkWin(){
+            for(let i=0; i<arr.length; i++){
+                for(let j=0; j<arr[i].length; j++){
+                    if(arr[i][j]){
+                        if (arr[i][j+1]=="x"&&arr[i][j+2]=="x"){
+                            return true;
+                        }
+                        if (arr[i+1][j]=="x"&&arr[i+2][j]=="x"){
+                            return true;
+                        }
+                        if (arr[i+1][j+1]=="x"&&arr[i+2][j+2]=="x"){
+                            return true;
+                        }
+                        if (arr[i+1][j-1]=="x"&&arr[i+2][j-2]=="x"){
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+
+        function checkPlay(i,j){
+            if(arr[i][j] != ''){
+                return true;
+            }
+            return false;
+        }
+
+        function display(){
+            let tableString = '<table border="1" style="background-color: white">';
+                for(let i=0; i< 3; i++){
+                    tableString+='<tr>';
+                    for(let j=0; j< 3; j++){
+                        tableString += '<td onclick="play('+ i+','+j+')" style="height:98px; width: 98px;">'
+                            +arr[i][j] + '</td>';
+                    }
+                    tableString+='</tr>';
+                }
+            tableString += '</table>';
+            document.getElementById('ketqua').innerHTML  = tableString;
+        }
+    </script>
+</body>
+</html>
