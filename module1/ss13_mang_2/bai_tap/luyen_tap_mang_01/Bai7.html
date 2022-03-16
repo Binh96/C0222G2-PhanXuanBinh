@@ -15,12 +15,14 @@
             let num = prompt("Nhập phần tử: ");
             arr.push(num);
         }
+        console.log(arr)
         let flag=false;
         let element = prompt("Nhập phần tử muốn xóa");
+        let count=0;
         for(let i=0; i< arr.length; i++){ 
-            if(element === arr[i]){
+            if(arr[i]==element){
+                count++;
                 flag= true;
-                break;
             }
         }
         let temp;
@@ -29,9 +31,11 @@
             alert("có phần tử trong mảng");
             for(let i=0; i< arr.length; i++){
                 if(element === arr[i]){
-                    arr.splice(arr[i-1], 1)
-                    arr.push(0);
+                    arr.splice(arr[i-1], count)
                 }
+            }
+            for(let i=0; i<count; i++){
+                arr.push(0);
             }
             console.log(arr)
         }

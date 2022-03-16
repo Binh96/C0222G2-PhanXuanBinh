@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyển đổi đơn vị</title>
+</head>
+<body>
+    <script>
+        let number=parseInt(prompt("Nhập số muốn chuyển:"));
+        console.log(meterToFeet(number));
+        console.log(feetToMeter(number));
+
+        function meterToFeet(meter){
+            let feet=3.279*meter;
+            return meter;
+        }
+
+        function feetToMeter(feet){
+            let met= 0.305*feet;
+            return met;
+        }
+    </script>
+</body>
+</html>
