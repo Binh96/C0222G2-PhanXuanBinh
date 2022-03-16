@@ -10,26 +10,11 @@
     <script>
         let str1= prompt("Nhập chuỗi 1:");
         let str2= prompt("Nhập chuỗi 2:");
-        let flag=false;
-        if(str1.length<str2.length || str2.length<str1.length){
-            alert("hai chuỗi không bằng nhau");
+        if(str1 === str2){
+            alert("Hai mảng giống nhau");
         }
-        else{
-            for(let i=0; i< str1.length; i++){
-                if(str1[i]!=str2[i]){
-                    flag=true;
-                    break;
-                }
-                else{
-                    flag=false;
-                }
-            }
-            if(flag===true){
-                alert("Hai mảng không giống nhau");
-            }
-            else{
-                alert("Hai mảng giống nhau");
-            }
+        else{   
+            alert("Hai mảng không giống nhau")
         }
     </script>
 </body>
