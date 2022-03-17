@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý sản phẩm</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        header{
+            text-align: center;
+        }
+
+        section{
+            margin: 20px 0 20px 10px;
+        }
+
+        .mr-lr-20{
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .del{
+            display: none;
+        }
+
+        .heading{
+            margin: 10px 0;
+        }
+
+        #input{
+            margin-right: 30px;
+            min-width: 300px;
+            padding: 10px 15px;
+            outline: none;
+        }
+
+        .btn{
+            color: beige;
+            width: 100px;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            padding: 10px;
+            background-color:#50af50;
+        }
+
+        .btn:hover{
+            background-color: #78b478;
+        }
+
+        /* Display product */
+        #displayProduct{
+            width: 50%;
+        }
+
+        .title{
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .title p{
+            color: red;
+        }
+
+        .product{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-radius: 2px;
+        }
+
+        .product:nth-child(even){
+            background-color: #e9e9e9;
+        }
+
+        .product p{
+            font-size: 18px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <header>
+            <h1>
+                Quản lý sản phẩm
+            </h1>
+        </header>
+        <section id="addNewProduct">
+            <div class="heading">
+                <h1>Add New Product</h1>
+            </div>
+            <div class="form">
+                <input type="text" id="input" placeholder="New product" required>
+                <button class="btn" onclick="addNewProduct()">Add</button>
+            </div>
+        </section>
+        <section id="displayProduct">
+            <div class="heading">
+                <h1>Display All Product</h1>
+            </div>
+            <div class="title">
+                <h3>Product name</h3>
+                <p><span id="quantity"></span> products</p>
+            </div>
+            <div id="product-list">
+            </div>
+        </section>
+    </div>
+    <script>
+        let productElement = document.getElementById('product-list');
+        let products = ["SamSung Galaxy", "Nokia 6", "Sony Xperia", "Appel Iphone 8 Plus"];
+
+        displayProductList(products);
+
+
+        function displayProductList(product1){
+            let bc = "";
+            for(let i=0; i< product1.length; i++){
+                bc+=`<div class="product">
+                            <p>${product1[i]}</p>
+                            <div class="btn-container">
+                                <button class="btn mr-lr-20">Edit</button>
+                                <button class="btn mr-lr-20" onclick="delProduct(${i})">Delete</button>
+                            </div>
+                        </div>`;
+            }
+            console.log(product1);
+            productElement.innerHTML = bc;
+            document.getElementById('quantity').innerHTML=product1.length;
+        }
+
+        function addNewProduct(){
+            let inputValue = document.getElementById("input").value;
+            products.push(inputValue);
+            displayProductList(products);
+        }
+
+        function editProduct(){
+
+        }
+
+        function delProduct(element){
+            let productList = document.querySelectorAll(".product");
+            console.log(element);
+            console.log(productList)
+            for(let i=0; i< productList.length; i++){
+                productList[i].onclick = function (){
+                    console.log(i);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

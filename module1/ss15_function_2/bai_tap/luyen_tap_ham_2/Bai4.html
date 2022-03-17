@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 4</title>
+</head>
+<body>
+    <script>
+        // Bài 4: Viết hàm kiểm tra xem ký tự nhập vào có phải là ký tự số không. 
+        // Nếu là ký tự số hàm trả về true, ngược lại trả về false.
+
+        let unknow= parseInt(prompt("Nhập vào một ký tự"));
+        console.log(checkNumber(unknow));
+        function checkNumber(num){
+            let numberCharecters= [0,1,2,3,4,5,6,7,8,9];
+            let length= numberCharecters.length;
+            let flag=false;
+            for(let i=0; i< length; i++){
+                if(numberCharecters[i] === num){
+                    flag=true;
+                    break;
+                }
+                else{
+                    flag =false;
+                }
+            }
+            if(flag==1){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

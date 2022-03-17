@@ -9,37 +9,38 @@
 <body>
     <script>
         let arr = Array();
-        let numArr=10;
+        let numArr=5;
+        let arr2=[];
         while(numArr>0){
             numArr--;
             let num = prompt("Nhập phần tử: ");
             arr.push(num);
         }
-        console.log(arr)
-        let flag=false;
-        let element = prompt("Nhập phần tử muốn xóa");
-        let count=0;
-        for(let i=0; i< arr.length; i++){ 
-            if(arr[i]==element){
-                count++;
-                flag= true;
-            }
-        }
-        if(flag==true){
-            alert("có phần tử trong mảng");
+        let elementWantToDel = prompt("Nhập phần tử muốn xóa: ");
+        console.log(arr);
+        findIndex(arr, elementWantToDel); 
+        console.log(arr2)
+        delElement(arr2);    
+
+
+        // tìm index của phần tử trong mảng
+        function findIndex(arr, element){
+            let count;
             for(let i=0; i< arr.length; i++){
-                if(element === arr[i]){
-                    arr.splice(arr[i-1], count)
+                if(arr[i] === element){
+                    arr2.push(i);
                 }
             }
-            for(let i=0; i<count; i++){
-                arr.push(0);
+        }
+        
+        function delElement(element){
+            for(let i=0; i< element.length; i++){
+                for(let j=element.length; j<= i; j++){
+
+                }
             }
-            console.log(arr)
         }
-        else{
-            alert("không có phần tử trong mảng")
-        }
+
     </script>
 </body>
 </html>

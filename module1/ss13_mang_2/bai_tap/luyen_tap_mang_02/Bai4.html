@@ -10,16 +10,16 @@
     <script>
         let arr="Hello! It's me, i'm Binh";
         let count=0;
-        let flag=true;
+        let characterSpecialAndNum=[0,1,2,3,4,5,6,7,8,9,
+                                    '`','~','!','@','#','$','%',
+                                    '^','&','*','(',')','{','{','"',
+                                    ':',';',"'","<",'>',',','.','?',
+                                    '/','|'
+                                    ];
+        let lengthOfChar = characterSpecialAndNum.length;
         for(let i=0; i< arr.length; i++){
-            if(arr[i] != ' ' && (arr[i]%1 != 0)){
-                if(flag){
-                    count++;
-                    flag=false;
-                }   
-            }
-            else{
-                flag=true;
+            if(arr[i] != ' '){
+                
             }
         }
         console.log(count);

@@ -8,30 +8,26 @@
 </head>
 <body>
     <script>
-        let num = parseInt(prompt("Nhập số nguyên: "));
-        isPrime(num);
 
-        function isPrime(number){
-            let n=0;
-            while(n<1000){
-                let flag = false;
-                if(number<2){
-                    console.log("Không phải là số nguyên tố");
-                }
-                else{
-                    for(let i=2; i<=1000; i++){
-                        if(number%i==0){
-                            flag=false;
-                            break;
-                        }
-                    }
-                }
-                if(flag==true){
-                    console.log("là số nguyên tố");
-                }
-                n++;
+    function isPrime(num){
+        if(num<2){
+            return false;
+        }
+        
+        for(let i=2; i <= Math.sqrt(num); i++){
+            if(num%i==0){
+                return false;
             }
         }
+        return true;
+    }
+    
+    for(let i=2; i<1000; i++){
+        if(isPrime(i) == true){
+            console.log(i);
+        }
+    }
+
     </script>
 </body>
 </html>

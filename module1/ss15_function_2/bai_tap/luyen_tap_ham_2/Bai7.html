@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 7</title>
+</head>
+<body>
+    <script>
+        // Bài 7: Viết hàm truyền vào 2 số nguyên bất kì, thực hiện đổi chỗ hai số nguyên đó.
+        let numA = parseInt(prompt("Nhập vào số nguyên thứ nhất:"));
+        let numB = parseInt(prompt("Nhập vào số nguyên thứ hai: "));
+        swapNumber(numA, numB);
+
+        function swapNumber(numA, numB){
+            let temp;
+            temp=numA;
+            numA=numB;
+            numB=temp;
+            console.log(numA, numB);
+        }
+    </script>
+</body>
+</html>
