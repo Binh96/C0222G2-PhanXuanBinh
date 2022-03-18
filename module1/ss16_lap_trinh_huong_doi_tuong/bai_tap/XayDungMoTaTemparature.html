@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mô Tả lớp Temparature</title>
+</head>
+<body>
+    <script>
+        let Temparature = function(temp){
+            if(temp> -273){
+                this.temp=temp;
+            }
+            else{
+                alert("Lỗi nhiệt độ quá thấp");
+            }
+
+            this.cToF = function(){
+                return (temp*1.8)+32;
+            }
+            this.cToKenvin = function(){
+                return temp+273.15;
+            }
+        }
+        let temp = new Temparature(parseInt(prompt("Nhập độ c")));
+
+        console.log(temp.cToF());
+        console.log(temp.cToKenvin());
+    </script>
+</body>
+</html>

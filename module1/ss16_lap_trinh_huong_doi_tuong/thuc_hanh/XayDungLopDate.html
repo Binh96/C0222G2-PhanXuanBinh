@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xây dựng lớp date</title>
+</head>
+<body>
+
+    <!-- Đối tượng là Dat -->
+    <!-- Gồm các thành phần  -->
+
+    <!-- Thuộc tính:
+    day (ngày) sẽ nhận vào giá trị dạng số nguyên
+    month (tháng) sẽ nhận vào giá trị dạng số nguyên
+    year (năm) sẽ nhận vào giá trị dạng số nguyên -->
+
+    <!-- Phương thức: lấy giờ, đặt giờ, hiển thị giờ
+    Date(day, month, year) là phương thức khởi tạo để tạo đối tượng với 3 tham số.
+    getDay(), getMonth(), getYear() là phương thức trả về ngày, tháng, năm 
+    setDay(), setMonth(), setYear() là phương thức thiết đặt lại giá trị mới cho ngày tháng năm -->
+
+    <script>
+        let MyDate = function(day, month, year){
+            this.day=day;
+            this.month = month;
+            this.year = year;
+            // Phương thức trả về ngày tháng năm
+            this.getDay = function(){
+                return this.day;
+            }
+            this.getMonth = function(){
+                return this.month;
+            }
+            this.getYear = function(){
+                return this.year;
+            }
+            // Phương thức đặt lại giờ
+            this.setDay = function(){
+                this.day = day;
+            }
+            this.setMonth= function(){
+                this.Month= month;
+            }
+            this.setYear = function(){
+                this.year = year;
+            }
+        }
+
+        let date = new MyDate(2,2,2007);
+
+        let day = date.getDay();
+        let month = date.getMonth();
+        let year = date.getYear();
+        alert(day + "/" + month + "/" + year);
+
+        date.setDay(10);
+        date.setMonth(10);
+        date.setYear(2019);
+
+        alert(day + "/" + month + "/" + year);
+    </script>
+</body>
+</html>
