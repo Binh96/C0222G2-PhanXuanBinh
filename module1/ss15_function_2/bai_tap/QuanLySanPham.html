@@ -105,7 +105,7 @@
                 for(let i=0; i< product.length; i++){
                     table+='<tr class="product">';
                     table+='<td style="width: 200px;">'+ product[i]+'</td>';
-                    table+='<td><button type="button" class="btn" onclick="">Edit</button></td>';
+                    table+='<td><button type="button" class="btn" onclick="editProduct('+i+')">Edit</button></td>';
                     table+='<td><button type="button" class="btn" onclick="delProduct('+i+')">Delete</button></td>';
                     table+='</tr>'
                 }
@@ -120,8 +120,15 @@
             displayProduct(products);
         }
 
-        function editProduct(){
-            
+        function editProduct(element){
+            let newProduct = prompt("sửa sản phẩm: ");
+            if(newProduct!= ""){
+                products[element] = newProduct;
+                displayProduct(products);
+            }
+            else{
+                alert("Chưa nhập sản phẩm! sản phẩm chưa được sửa");
+            }
         }
 
         function delProduct(element){

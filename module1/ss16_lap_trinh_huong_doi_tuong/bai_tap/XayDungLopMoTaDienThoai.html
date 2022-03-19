@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xây dựng lớp mô tả điện thoại</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .main{
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .mobile-nokia{
+            width: 240px;
+            height: 400px;
+            background-color: black;
+        }
+        .mobile-iphone{
+            margin-left: 20px;
+            width: 240px;
+            height: 400px;
+            background-color: black;
+        }
+        .monitor{
+            margin: 5px auto;
+            width: 90%;
+            height: 140px;
+            background-color: #fff;
+        }
+
+        .button{
+            width: 70%;
+            margin: 10px auto;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn{
+            margin: 0 10px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+        }
+
+        .btn.btn-green{
+            background-color: rgb(39, 202, 39);
+            color: white;
+        }
+
+        .btn.btn-red{
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="mobile-nokia">
+            <div class="monitor">
+
+            </div>
+            <div class="button">
+                <button type="submit" class="btn btn-green" id="buttonOn" value="" onclick="onOff()">On/Off</button>
+            </div>
+        </div>
+        <div class="mobile-iphone">
+            
+        </div>  
+    </div>
+
+    <script>
+
+
+        class Mobile{
+            constructor(pin){
+                this.pin = pin;
+            }
+
+            checkStatusOnOrOff(status){
+                if(status){
+                    console.log("Điện thoại đang bật");
+                }
+                else{
+                    console.log("Điện thoại đang tắt");
+                }
+            }
+
+            turnOnOrOff(status){
+                let monitor = document.querySelector(".monitor");
+                if(status){
+                    monitor.style.backgroundColor = "white";
+                    this.checkStatusOnOrOff(status);
+                }
+                else{
+                    monitor.style.backgroundColor = "red";
+                    this.checkStatusOnOrOff(status)
+                }
+            }
+
+
+
+        }
+
+        let mobile = new Mobile();
+        
+        let flag=false;
+
+        function onOff(){
+
+            if(flag){
+                mobile.turnOnOrOff(flag);
+                flag=false;
+            }
+            else{
+                mobile.turnOnOrOff(flag);
+                flag=true;
+            }
+        }
+        
+    </script>
+</body>
+</html>

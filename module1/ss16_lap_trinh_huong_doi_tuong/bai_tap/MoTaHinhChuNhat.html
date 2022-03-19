@@ -5,24 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xây dựng lớp mô tả hình chữ nhật</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
 </head>
 <body>
+    <canvas id="myCanvas">
+
+    </canvas>
     <script>
-        let Rectangle = function(width, height){
-            this.width = width;
-            this.height = height;
-            this.getArea= function(){
-                return width*height;
+        let getCanvas = document.getElementById('myCanvas');
+        let ctx = getCanvas.getContext("2d");
+    
+        class Rectangle {
+            constructor(width, height){
+                this.width = width;
+                this.height= height;
             }
-            this.getPrimeter =function(){
-                return (width+height)*2;
+            getArea(){
+                return this.width*this.height;
+            }
+            getPrimeter (){
+                return (this.width+this.height)*2;
+            }
+
+            drawRactangel(){
+                ctx.moveTo(0,0);
+                ctx.fillStyle= "Cyan";
+                ctx.fillRect(40, 40, this.width, this.height);
+                ctx.stroke();
             }
         }
 
-        let rectangle = new Rectangle(10, 20);
-
-
+        let rectangle = new Rectangle(parseInt(prompt("Nhập chiều dài")), parseInt(prompt("Nhập chiều cao:")));
         console.log(rectangle.getArea(),rectangle.getPrimeter());
+        rectangle.drawRactangel();
     </script>
 </body>
 </html>

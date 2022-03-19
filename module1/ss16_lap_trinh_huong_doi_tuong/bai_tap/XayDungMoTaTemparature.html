@@ -8,19 +8,21 @@
 </head>
 <body>
     <script>
-        let Temparature = function(temp){
-            if(temp> -273){
-                this.temp=temp;
-            }
-            else{
-                alert("Lỗi nhiệt độ quá thấp");
+        class Temparature{
+            constructor(temp){
+                if(temp> -273){
+                    this.temp=temp;
+                }
+                else{
+                    alert("Lỗi nhiệt độ quá thấp");
+                }
             }
 
-            this.cToF = function(){
-                return (temp*1.8)+32;
+            cToF(){
+                return (this.temp*1.8)+32;
             }
-            this.cToKenvin = function(){
-                return temp+273.15;
+            cToKenvin(){
+                return this.temp+273.15;
             }
         }
         let temp = new Temparature(parseInt(prompt("Nhập độ c")));
