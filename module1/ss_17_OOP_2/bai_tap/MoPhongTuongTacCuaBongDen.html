@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mô phỏng tương tác của bóng đèn</title>
+    <style>
+        #lamp{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="lamp"></div>
+    <button id="onOff">
+        On/Off
+    </button>
+
+    <script>
+        
+        class ElectricLamp{
+            constructor(lamp){
+                this.status = false;
+                this.lamp = lamp;
+            }
+            turnOn(){
+                this.status = true;
+                this.lamp.style.backgroundColor= 'black';
+                console.log("Đèn đang được bật");
+            }
+            turnOff(){
+                this.status = false;
+                this.lamp.style.backgroundColor= 'white';
+                console.log("Đèn đang được tắt");
+            }
+        }
+
+        class Button{
+            constructor(status){
+                this.status = status;
+                this.lamp = null;
+            }
+            connectToLamp(ElectricLamp){
+                this.lamp = ElectricLamp;
+            }
+            switchOn(){
+                this.status=true;
+                this.lamp.turnOn();
+            }
+            switchOff(){
+                this.status=false;
+                this.lamp.turnOff();
+            }
+        }
+
+        let buttonOnOff = document.getElementById('onOff');
+        let lampElement = document.getElementById('lamp');
+        let lamp = new ElectricLamp(lampElement);
+        
+        let status = false;
+        buttonOnOff.onclick = () =>{
+            let button = new Button(status);
+            if(status){
+                button.connectToLamp(lamp);
+                button.switchOn();
+                status= false;
+            }
+            else{
+                button.connectToLamp(lamp);
+                status= true;
+                button.switchOff();
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mô phỏng câu chuyện Adam và Eva</title>
+</head>
+<body>
+    <button id="eat">Eat</button>
+    <script>
+        class Apple{
+            constructor(weigth){
+                this.weigth = weigth;
+            }
+            decrease(){
+                if(this.weigth>0){
+                    this.weigth--;
+                }
+            }
+
+            getWeigthApple(){
+                return this.weigth;
+            }
+
+            isEmpty(){
+                if(this.weigth===0){
+                   return false; 
+                }
+                else{
+                    return true;
+                }
+            }
+        }
+
+        class Human{
+            constructor(name, gender, weigth){
+                this.name= name;
+                this.gender=gender;
+                this.weigth = weigth;
+            }
+
+            isMale(){
+                if(this.gender==='male'){
+                    return true;
+                }
+                else{
+                    return false;
+                }
+            }
+
+            setGender(boolean){
+                this.gender = boolean;
+            }
+
+            checkApple(apple){
+                console.log(apple.getWeigthApple());
+                return apple.getWeigthApple();
+            }
+
+            eat(apple){
+                apple.decrease();
+            }
+
+            say(str){
+                console.log(str);
+            }
+
+            setWeigth(weigth){
+                this.weigth = weigth;
+            }
+
+            getWeigth(){
+                console.log(this.weigth);
+                return this.weigth;
+            }
+        }
+
+        let adam = new Human('adam', 'male', 65);
+        let eva = new Human('eva', 'female', 45);
+        const apple = new Apple(5);
+        let adamTurn =false;
+
+        if(apple.isEmpty()){
+            document.getElementById('eat').onclick= () => {
+                if(adamTurn){
+                    adam.eat(apple);
+                    adam.say("Đến lượt em nè");
+                    adam.setWeigth(adam.weigth++);
+                    adam.getWeigth();
+                    if(!adam.checkApple(apple)){
+                        adam.say("Hết táo rồi để a đi kiếm thêm");
+                    }
+                    adamTurn=false;
+                }
+                else{
+                    eva.eat(apple);
+                    eva.say("Đến lượt anh nè");
+                    eva.setWeigth(eva.weigth++);
+                    eva.getWeigth();
+                    if(!eva.checkApple(apple)){
+                        eva.say("Hết táo rồi đi kiếm thêm đi");
+                    }
+                    adamTurn=true;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

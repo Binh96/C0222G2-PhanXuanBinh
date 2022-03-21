@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mô phỏng remote và tivi</title>
+</head>
+<body>
+    <div class="main">
+        <button id="increaseChannel">Channel +</button>
+        <button id="decreaseChannel">Channel -</button>
+        <button id="increaseVolume">Volume +</button>
+        <button id="decreaseVolume">Volume -</button>
+        <button id="onOff">On/Off</button>
+    </div>
+
+    <script>
+        class Remote{
+            constructor(){
+                this.code = null;
+            }
+                // tăng/giảm kênh
+            switchChannel(code){
+                let increaseChannel = document.getElementById('increaseChannel');
+                let decreaseChannel = document.getElementById('decreaseChannel');
+                let channel =0;
+                this.code = code;
+                increaseChannel.onclick = () =>{
+                    channel++;
+                    this.code.tiviChannel(channel);
+                    if(channel===99){
+                        channel=0;
+                    }
+                };
+                decreaseChannel.onclick = () => {
+                    if(channel > 0){
+                        channel--;
+                        this.code.tiviChannel(channel);
+                        if(channel===0){
+                            channel=99;
+                        }
+                    }
+                }
+            }
+                // tăng/giảm volume
+            controlVolume(){
+                let increaseVolume = document.getElementById('increaseVolume');
+                let decreaseVolume = document.getElementById('decreaseVolume');   
+                let volume = 0;
+                increaseVolume.onclick = () => {
+                    if(volume<=50){
+                        volume++;
+                        this.code.indexVolume(volume);
+                    }
+                }
+                decreaseVolume.onclick = () => {
+                    if(volume>=0){
+                        if(volume === 0){
+                            console.log("mute");
+                        }
+                        --volume;
+                        this.code.indexVolume(volume);
+                    }
+                }
+            }
+                    // Bật/tắt tivi
+            buttonOnOff(code){
+                let buttonOnOff= document.getElementById('onOff');
+                this.code=code;
+                buttonOnOff.onclick= () =>{
+                    if(this.code.getStatus()){
+                        this.code.turnOff();
+                        this.code.setStatus(false);
+                    }
+                    else{
+                        this.code.turnOn();
+                        this.code.setStatus(true);
+                    }
+                }
+            }
+        }
+
+        class Television{
+            constructor(){
+                this.channelPresent = null;
+                this.volumePresent = null;
+                this.status= false;
+            }
+
+            getStatus(){
+                return this.status;
+            }
+
+            setStatus(status){
+                this.status =status;
+            }
+
+            turnOn(){
+                this.status= true;
+                console.log("ti vi đang mở");
+            }
+
+            turnOff(){
+                this.status = false;
+                console.log("ti vi đang tắt");
+            }
+
+            tiviChannel(channel){
+                this.channelPresent = channel;
+                console.log("kênh "+this.channelPresent);
+            }
+
+            indexVolume(volume){
+                this.volumePresent = volume;
+                console.log(this.volumePresent);
+            }
+
+        }
+
+        let remote = new Remote();
+        let tivi = new Television();
+        
+    </script>
+</body>
+</html>

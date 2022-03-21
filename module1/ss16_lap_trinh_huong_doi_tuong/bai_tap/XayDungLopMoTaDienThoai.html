@@ -27,10 +27,23 @@
             background-color: black;
         }
         .monitor{
+            position: relative;
             margin: 5px auto;
             width: 90%;
             height: 140px;
             background-color: #fff;
+            padding: 10px;
+        }
+
+        #inputMess{
+            display: none;
+            text-align: right;
+            width: 92%;
+            outline: none;
+            position: absolute;
+            bottom: 0;
+            right: 2px;
+            padding: 5px;
         }
 
         .button{
@@ -62,66 +75,126 @@
     <div class="main">
         <div class="mobile-nokia">
             <div class="monitor">
-
+                <form action="">
+                    <input type="text" id="inputMess">
+                </form>
             </div>
             <div class="button">
-                <button type="submit" class="btn btn-green" id="buttonOn" value="" onclick="onOff()">On/Off</button>
+                <button type="submit" class="btn btn-green" id="buttonOn" >On/Off</button>
+                <button type="submit" class="btn btn-red" id="buttonMess" >mess</button>
             </div>
+            <button type="submit" class="btn" id="sendMess">Send</button>
+            <button type="submit" class="btn" id="checkMess">Check mess</button>
         </div>
-        <div class="mobile-iphone">
-            
-        </div>  
     </div>
 
     <script>
 
 
         class Mobile{
-            constructor(pin){
-                this.pin = pin;
+            constructor(id, name, pin){
+                this.id = id;
+                this.name = name;
+                this.status= true;
+                this.messenger = "";    // vùng nhớ soạn thảo
+                this.getMessenger = []; // tin gữi đến
+                this.messengerWasSent=[];   // tin đã gữi
             }
 
-            checkStatusOnOrOff(status){
-                if(status){
-                    console.log("Điện thoại đang bật");
+                // Bật/ tắt máy
+            turnOnOff(){
+                this.status = !this.status;
+            }
+
+            showMonitor(monitor){
+                monitor.style.backgroundColor ='white';
+            }
+
+            hideMonitor(monitor){
+                monitor.style.backgroundColor ='black';
+            }
+
+                // Kiểm tra trạng thái máy
+            checkStatus(){
+                if(this.status){
+                    console.log(this.status);
+                    return this.status;
                 }
                 else{
-                    console.log("Điện thoại đang tắt");
+                    console.log(this.status);
+                    return this.status;
                 }
             }
-
-            turnOnOrOff(status){
-                let monitor = document.querySelector(".monitor");
-                if(status){
-                    monitor.style.backgroundColor = "white";
-                    this.checkStatusOnOrOff(status);
-                }
-                else{
-                    monitor.style.backgroundColor = "red";
-                    this.checkStatusOnOrOff(status)
-                }
+            // sạc pin
+            charging(){
+                this.pin = 100;
+            }
+            // nhận tin
+            getMessage(messenger){
+                this.getMessage = messenger;
+            }
+            // soạn tin nhắn
+            messaging(text){
+                this.messenger = text;
+            }
+            // gữi tin nhắn
+            sendMessage(mobile, message){
+                this.messaging(message);
+                this.messengerWasSent.push(this.messenger);
+                mobile.getMessage(this.messenger);
+                this.messenger="";
             }
 
+            showMessageWasSent(){
+                console.log(this.messengerWasSent);
+                return this.messengerWasSent;
+            }
 
+            showGetMessage(){
+                console.log(this.getMessage);
+                return this.getMessage;
+            }
+
+            showMessageApp(mobile){
+                mobile.style.display ='block';
+            }
+            hideMessageApp(mobile){
+                mobile.style.display ='none';
+            }
 
         }
 
-        let mobile = new Mobile();
-        
-        let flag=false;
+        let nokia = new Mobile(1, 'nokia', 100);
+        let iphone = new Mobile(2, 'iphone', 80);
+        let buttonOnOff= document.getElementById('buttonOn');
+        let displayMonitor = document.querySelector('.monitor');
+        let buttonMess = document.getElementById('buttonMess');
+        let inputMess = document.getElementById('inputMess');
+        console.log(inputMess);
+        nokia.hideMonitor(displayMonitor);
 
-        function onOff(){
-
-            if(flag){
-                mobile.turnOnOrOff(flag);
-                flag=false;
+        buttonOnOff.onclick=()=>{
+            if(nokia.checkStatus()){
+                nokia.showMonitor(displayMonitor);
+                buttonMess.onclick = () =>{
+                    if(nokia.checkStatus()){
+                        nokia.showMessageApp(inputMess);
+                    }
+                    else{
+                        nokia.hideMessageApp(inputMess);
+                    }
+                }
+                nokia.turnOnOff();
             }
             else{
-                mobile.turnOnOrOff(flag);
-                flag=true;
+                nokia.turnOnOff();
+                nokia.hideMonitor(displayMonitor);
+                nokia.hideMessageApp(inputMess);
             }
         }
+
         
+
     </script>
 </body>
 </html>
