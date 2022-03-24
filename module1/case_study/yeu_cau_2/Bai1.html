@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 1</title>
+</head>
+<body>
+    <div class="main">
+        
+    </div>
+    <script>
+        let money = parseInt(prompt("Nhập lương:"));
+        let actualMoney=0;
+        if(money>=15000000){
+            actualMoney= money - (money * 20/100);
+            alert("Số lương thực nhận: "+actualMoney);
+        }
+        else if(money<15000000 && money >= 7000000){
+            actualMoney= money - (money * 15/100);
+            alert("Số lương thực nhận: "+actualMoney);
+        }
+        else{
+            actualMoney= money - (money * 10/100);
+            alert("Số lương thực nhận: "+actualMoney);
+        }
+    </script>
+</body>
+</html>

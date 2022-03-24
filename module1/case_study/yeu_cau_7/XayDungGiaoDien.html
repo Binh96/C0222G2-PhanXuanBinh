@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xây dựng giao diện</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .main{
+            width: 100%;
+            height: 500px;
+        }
+
+        header{
+            padding: 20px 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #333;
+        }
+
+        .logo{
+            font-size: 35px;
+            width: 7%;
+            position: relative;
+            left: 20px;
+            top: -2px;
+        }
+
+        .heading{
+            width: 90%;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        .bodyContent{
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .sidebar{
+            height: 100%;
+            padding-top: 10px;
+            margin-left: 30px;
+            width: 20%;
+            border-right: 1px solid #333;
+        }
+
+        .list-item{
+            margin: 10px 0;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <header>
+            <img class="logo" src="Google__G__Logo.svg.png"></img>
+            <h1 class="heading">
+                Hệ thống quản lý bài tập Casestudy Module 1
+            </h1>
+        </header>
+        <div class="bodyContent">
+            <div class="sidebar">
+                <ul class="list">
+                    <li class="list-item">
+                        <select name="" id="">
+                            <option value="">Bài tập 1</option>
+                        </select>
+                    </li>
+                    <li class="list-item">
+                        <select name="" id="">
+                            <option value="">Bài tập 2</option>
+                        </select>
+                    </li>
+                    <li class="list-item">
+                        <select name="" id="">
+                            <option value="">Bài tập 3</option>
+                        </select>
+                    </li>
+                    <li class="list-item">
+                        <select name="" id="">
+                            <option value="">Bài tập 4</option>
+                        </select>
+                    </li>
+                    <li class="list-item">
+                        <select name="" id="">
+                            <option value="">Bài tập 5</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+            <div class="main-content">
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

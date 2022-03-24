@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 4</title>
+</head>
+<body>
+    <script>
+        let number= parseInt(prompt("Nhập một số: "));
+        let m=[];
+        let string='';
+        while(number!=0){
+            let n;
+                n=number%10;
+                number=Math.floor(number/10);;
+                console.log(n);
+                m.push(n);
+        }
+        for(let i=m.length; i>=0; i--){
+            switch(m[i]){
+                case 1:
+                    string+=' một ';
+                    break;
+                case 2:
+                    string+=' hai ';
+                    break;
+                case 3:
+                    string+=' ba ';
+                    break;
+                case 4:
+                    string+=' bốn ';
+                    break;
+                case 5:
+                    string+=' năm ';
+                    break;
+                case 6:
+                    string+=' sáu ';
+                    break;
+                case 7:
+                    string+=' bảy ';
+                    break;
+                case 8:
+                    string+=' tám ';
+                    break;
+                case 9:
+                    string+=' chín ';
+                    break;
+                case 0:
+                    string+=' không ';
+                    break;
+            }        
+        }
+        console.log(string);
+    </script>
+</body>
+</html>

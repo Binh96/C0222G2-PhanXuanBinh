@@ -17,8 +17,8 @@
 
     <script>
         class Remote{
-            constructor(){
-                this.code = null;
+            constructor(code){
+                this.code = code;
             }
                 // tăng/giảm kênh
             switchChannel(code){
@@ -67,17 +67,21 @@
                     // Bật/tắt tivi
             buttonOnOff(code){
                 let buttonOnOff= document.getElementById('onOff');
-                this.code=code;
-                buttonOnOff.onclick= () =>{
-                    if(this.code.getStatus()){
-                        this.code.turnOff();
-                        this.code.setStatus(false);
+                this.code= code;
+                buttonOnOff.onclick = ()=>{
+                    if(code.getStatus()){
+                        code.setStatus(false);
+                        code.turnOn();
+                        this.controlVolume();
+                        this.switchChannel(this.code);
+                        console.log(code.getStatus());
                     }
                     else{
-                        this.code.turnOn();
+                        this.code.turnOff();
                         this.code.setStatus(true);
+                        console.log(code.getStatus());
                     }
-                }
+                };
             }
         }
 
@@ -97,12 +101,10 @@
             }
 
             turnOn(){
-                this.status= true;
                 console.log("ti vi đang mở");
             }
 
             turnOff(){
-                this.status = false;
                 console.log("ti vi đang tắt");
             }
 
@@ -120,6 +122,8 @@
 
         let remote = new Remote();
         let tivi = new Television();
+       
+        remote.buttonOnOff(tivi);
         
     </script>
 </body>

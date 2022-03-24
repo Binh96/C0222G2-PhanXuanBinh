@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 3</title>
+</head>
+<body>
+    <script>
+        let array2D = [[1,2,3,4],
+                       [5,6,7,8],
+                       [9,10,11,12]
+                        ];
+        let max = array2D[0][0];
+        let min = array2D[0][0]; 
+
+        maxNumber(array2D);
+        minNumber(array2D);
+
+        function maxNumber(arr){
+            console.log(arr);
+            for(let i=0; i<arr.length; i++){
+                for(let j=0; j<arr[i].length; j++){
+                    if(arr[i][j]>max){
+                        max=arr[i][j];
+                    }
+                }
+            }
+            console.log(max);
+        }
+
+        function minNumber(arr){
+            for(let i=0; i<arr.length; i++){
+                for(let j=0; j<arr[i].length; j++){
+                    if(arr[i][j]<min){
+                        min=arr[i][j];
+                    }
+                }
+            }
+            console.log(min);
+        }
+    </script>
+</body>
+</html>
