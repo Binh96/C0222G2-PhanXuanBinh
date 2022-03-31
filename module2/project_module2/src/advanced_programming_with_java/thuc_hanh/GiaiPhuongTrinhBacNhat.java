@@ -1,4 +1,4 @@
-package advanced_programming_with_java;
+package advanced_programming_with_java.thuc_hanh;
 import java.util.Scanner;
 public class GiaiPhuongTrinhBacNhat {
     public static void main(String[] args) {
@@ -31,3 +31,4 @@ public class GiaiPhuongTrinhBacNhat {
         }
     }
 }
+

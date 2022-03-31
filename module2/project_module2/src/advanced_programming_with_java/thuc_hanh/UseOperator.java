@@ -1,4 +1,4 @@
-package advanced_programming_with_java;
+package advanced_programming_with_java.thuc_hanh;
 import java.util.Scanner;
 public class UseOperator {
 
@@ -20,3 +20,4 @@ public class UseOperator {
         }
     }
 }
+

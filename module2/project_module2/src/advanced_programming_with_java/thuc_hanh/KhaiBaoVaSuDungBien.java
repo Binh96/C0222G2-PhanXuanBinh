@@ -1,4 +1,4 @@
-package advanced_programming_with_java;
+package advanced_programming_with_java.thuc_hanh;
 
 public class KhaiBaoVaSuDungBien {
     public static void main(String[] args) {
@@ -16,3 +16,4 @@ public class KhaiBaoVaSuDungBien {
         System.out.println("s = " + s);
     }
 }
+

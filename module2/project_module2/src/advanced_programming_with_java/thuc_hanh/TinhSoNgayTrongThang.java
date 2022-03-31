@@ -1,4 +1,4 @@
-package advanced_programming_with_java;
+package advanced_programming_with_java.thuc_hanh;
 
 import java.util.Scanner;
 
@@ -37,3 +37,4 @@ public class TinhSoNgayTrongThang {
         else System.out.print("Invalid input!");
     }
 }
+
