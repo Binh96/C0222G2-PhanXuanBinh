@@ -2,7 +2,7 @@ package advanced_programming_with_java.bai_tap;
 
 import java.util.Scanner;
 
-public class DocSoThanhChu {
+public class numberToWord {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -100,7 +100,6 @@ public class DocSoThanhChu {
             }
             else {
                 int m = dozens / 10;
-                System.out.println(m);
                 switch (m) {
                     case 2 -> str += "twenty ";
                     case 3 -> str += "thirty ";

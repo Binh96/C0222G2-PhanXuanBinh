@@ -36,8 +36,8 @@
             <input type="text" class="input2" disabled>
         </div>
         <div class="button-containner">
-            <button id="buy">Mua vé</button>
-            <button id="result">Xem kết quả</button>
+            <button id="buy" onclick="buyTicket()">Mua vé</button>
+            <button id="result" onclick="result()">Xem kết quả</button>
         </div>
         <div class="notice">
             <p id="winner"></p>
@@ -47,30 +47,9 @@
 
     <script>
 
-        class Human{
-            constructor(name, age) {
-                this.name = name;
-                this.age = age;
-            }
-
-            input(){
-                let count=0;
-                let arr=[];
-                for(let i=0; i< 6; i++){
-                    let number = parseInt(prompt("Nhập số thứ " + (i+1)+" :"));
-                    if(number>99||number<=0|| number==" "){
-                        alert("Bạn đã nhập không đúng quy định\n Mời nhập lại: ");
-                        number = parseInt(prompt("Nhập số thứ " + (i+1)+" :"));
-                    }
-                    arr.push(number);
-                }
-                return arr;
-            }
-        }
-
-        class SystemNumber{
+        class LuckyNumber{
             constructor(number){
-                this.number = number;
+                this.number = number ;
             }
 
             getNumber(){
@@ -78,96 +57,71 @@
             }
 
             setNumber(number){
-                this.number = number;
+                this.number =number;
             }
 
-            setRandomNumber(){
-                let number=0;
-                let max = 99, min = 1;
-                let arr=[];
-                for(let i=0; i< 6; i++){
-                    number = Math.floor(Math.random()*99)+1;
-                    arr.push(number);
-                }
+            getRandomNumber(){
+                let random;
+                let arr= [];
+                for(let i=0; i<this.number.length; i++){
+                    random= Math.floor(Math.random()*99)+1;
+                    arr.push(random);
+                } 
                 this.number = arr;
             }
+        }
 
-            compareNumber(arr1, arr2){
-                let price = document.getElementById('winner');
-                let count=0;
-                let flag= false;
-                console.log(arr1);
-                console.log(arr2);
-                
-                if(arr1[5]==arr2[5]&&arr1[4]==arr2[4]&&arr1[3]==arr2[3]&&arr1[2]==arr2[2]&&arr1[1]==arr2[1]&&arr1[0]===arr2[0]){
-                    price.innerHTML = "Bạn đã giành giải nhất";
-                }
-                else if(arr1[5]==arr2[5]&&arr1[4]==arr2[4]&&arr1[3]==arr2[3]&&arr1[2]==arr2[2]&&arr1[1]==arr2[1]){
-                    price.innerHTML = "Bạn đã giành giải nhì";
-                }
-                else if(arr1[3]==arr2[3]&&arr1[4]==arr2[4]&&arr1[5]==arr2[5]){
-                    price.innerHTML = "Bạn đã giành giải ba";
-                }
-                else{
-                    price.innerHTML = "Chúc bạn may mắn lần sau";
-                }
+        let luckyNumber = new LuckyNumber()
 
+        function displayNumber(){
+            let getInputElement = document.querySelectorAll(".input2");
+            // for(let i=0; i<){
+            //     for(){
+
+            //     }
+            // }
+        }
+
+        function buyTicket(){
+            alert("Bạn có thể mua tối đa 4 vé");
+            let quantity = parseInt(prompt("Số vé bạn muốn mua: "));
+            let input = parseInt(prompt("Buy ticket! please \n1. To own your number\n2. to get random number"));
+
+            switch(input){
+                case 1: 
+                    while(quantity>0){
+                        let arr=[];
+                        for(let i=0; i<6; i++){
+                            let number = parseInt(prompt("Nhập ô thứ "+(i+1)+" :"));
+                            arr.push(number);
+                        }
+                        luckyNumber.setNumber(arr);
+                        quantity--;
+                    }
+                    displayNumber();
+                    break;
+
+                case 2:
+                    while(quantity>0){
+                        let arrSon = new Array();
+                        for(let i=0; i<6; i++){
+                            let number = Math.floor(Math.random()*99)+1;
+                            arrSon.push(number);
+                        }
+                        arr.push(arrSon);
+                        arrSon=[];
+                        luckyNumber.setNumber(arr);
+                        quantity--;
+                    }
+                    arr=[];
+                    break;
             }
+        }
+
+        function result(){
+            console.log(luckyNumber.getNumber());
+            let getInputResultElement = document.querySelectorAll(".input");
             
-        }
-
-
-        let vietLot = new SystemNumber();
-        let human = new Human();
-        let buttonBuyTicket = document.getElementById("buy");
-        let buttonResult = document.getElementById("result");
-        let getInputElement = document.querySelectorAll(".input2");
-        let getInputResultElement = document.querySelectorAll(".input");
-
-        let quantityTicket = new Array();
-
-        // Mua vé
-
-        buttonBuyTicket.onclick = () => {
-
-            let choose = parseInt(prompt("Buy ticket! please \n1. To own your number\n2. to get random number"));
-
-            if(choose=== 1){
-                vietLot.setNumber(human.input());
-                let number = vietLot.getNumber().length;
-                    for(let i=0; i<number; i++){
-                        getInputElement[i].value = vietLot.getNumber()[i];
-                    }
-                console.log(vietLot.getNumber());
-                console.log(number);
-            }
-
-            if(choose === 2){
-                vietLot.setRandomNumber();
-                let number = vietLot.getNumber().length;
-                    for(let i=0; i<number; i++){
-                        getInputElement[i].value = vietLot.getNumber()[i];
-                    }
-            }
-        }
-
-                    // Xem kết quả
-        let flag = true;
-        buttonResult.onclick = () => {
-            if(flag){
-                vietLot.setRandomNumber();
-                let number = vietLot.getNumber().length;
-                let arr1= [];
-                let arr2= [];
-                    for(let i=0; i<number; i++){
-                        getInputResultElement[i].value = vietLot.getNumber()[i];
-                        arr2.push(vietLot.getNumber()[i]);
-                        arr1.push(parseInt(getInputElement[i].value));
-                    }
-                console.log(arr1,arr2);
-                vietLot.compareNumber(arr1,arr2);
-            }
-            flag=true;
         }
 
     </script>

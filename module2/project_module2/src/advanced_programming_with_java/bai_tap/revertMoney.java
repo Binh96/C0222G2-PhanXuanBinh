@@ -2,7 +2,7 @@ package advanced_programming_with_java.bai_tap;
 
 import java.util.Scanner;
 
-public class ChuyenDoiTienTe {
+public class revertMoney {
     public static void main(String[] args) {
         float tiGiaVnd = 23000;
 

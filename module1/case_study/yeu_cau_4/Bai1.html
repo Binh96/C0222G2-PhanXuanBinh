@@ -11,7 +11,7 @@
         let str = "tRuong    TaN   HAI ";
         let arr = str.toLowerCase().split(" ");
 
-    let longWord= "";
+    let longestWord= "";
 
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] === "") {
@@ -21,14 +21,12 @@
 
         arr[i] = arr[i][0].toUpperCase() + arr[i].substring(1, arr[i].length);
 
-        if (arr[i].length > longWord.length) {
-            longWord = arr[i];
+        if (arr[i].length > longestWord.length) {
+            longestWord = arr[i];
         }
     }
     let str2 = arr.join(" ");
 
-
-    console.log(str1);
     console.log(str2);
     console.log(longestWord);
     </script>
