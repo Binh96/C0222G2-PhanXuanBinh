@@ -33,8 +33,8 @@ public class SumOfColumnArray2D {
         System.out.print("\nEnter column you want calculator: ");
         int column = input.nextInt();
         int sum=0;
-        for(int i=0; i< size2; i++){
-            sum += array[column][i];
+        for(int i=0; i< size1; i++){
+            sum += array[i][column];
         }
         System.out.print("\nResult: "+ sum);
     }
