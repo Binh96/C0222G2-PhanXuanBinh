@@ -35,17 +35,17 @@ public class FindMaxIn2DArray {
         //    Tim phan tu lon nhat
 
         float max = array[0][0];
-        int index = 0;
-        int index2 = 0;
+//        int index = 0;
+//        int index2 = 0;
         for(int i=0; i<sizeOfArray; i++){
             for(int j=0; j<sizeOfArraySon; j++){
                 if(max < array[i][j]) {
                     max = array[i][j];
-                    index = i;
-                    index2 = j;
+//                    index = i;
+//                    index2 = j;
                 }
             }
         }
-        System.out.print("Max element of array "+ index + " and index sibling "+index2);
+        System.out.print("Max element of array: "+ max);
     }
 }
