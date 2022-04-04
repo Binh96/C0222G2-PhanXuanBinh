@@ -30,7 +30,7 @@ public class RemoveElement {
             System.out.print(array[j]+ "\t");
         }
 
-        System.out.print("Enter element you want to remove: ");
+        System.out.print("\nEnter element you want to remove: ");
         int delElement = input.nextInt();
         int index = 0;
         for(int j = 0; j < array.length; j++){

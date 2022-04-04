@@ -1,6 +1,6 @@
 package ss3_array.bai_tap;
 
-import java.lang.reflect.Array;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -41,17 +41,25 @@ public class AddElement {
         }
         array = Arrays.copyOf(array, array.length +1);
         int temp;
-        for(int j = index; j < array.length-1; j++) {
-            for(int k=j+1; k<array.length; k++){
-                temp = array[k];
-                array[k] = array[j];
+        temp = array[index];
+        array[index] = array[array.length-1];
+        array[array.length-1] = temp;
+        for(int j = 0; j < array.length; j++){
+            if (j == index) {
+                array[index] = addElement;
+                break;
             }
         }
-        array[index] = addElement;
-        System.out.print("\nArray length: "+ array.length);
-        System.out.print("\nArray after add element: ");
-        for(int j= 0; j< array.length; j++){
-            System.out.print(array[j] + "\t");
+        int temp2;
+        for(int j= index+1; j< array.length; j++){
+            temp2 = array[j];
+            array[j]= array[array.length-1];
+            array[array.length-1] = temp2;
+        }
+
+        System.out.print("Array after add element: ");
+        for(int j=0; j< array.length; j++){
+            System.out.print(array[j]+"\t");
         }
     }
 }
