@@ -4,6 +4,8 @@ public class Circle {
     private double radius;
     private String color = "no color";
     protected final double PI = 3.141592654;
+
+    private double area = radius*radius*PI;
     public Circle(){
 
     }
@@ -30,7 +32,7 @@ public class Circle {
     }
 
     public double getArea(){
-        return radius * radius * PI;
+        return area;
     }
 
     @Override
