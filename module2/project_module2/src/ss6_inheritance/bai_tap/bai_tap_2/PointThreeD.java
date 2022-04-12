@@ -31,7 +31,7 @@ public class PointThreeD extends PointTwoDimension{
     @Override
     public String toString() {
         return "PointThreeD" +
-                " z= " + z +
+                " [" + getXYZ()[0]+", "+ getXYZ()[1] +", "+ getXYZ()[2] + "]"+
                 " which is subclass " + super.toString();
     }
 }

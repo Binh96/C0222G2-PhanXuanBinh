@@ -5,7 +5,10 @@ public class PointThreeDTest {
         PointThreeD pointThreeD = new PointThreeD();
         System.out.println(pointThreeD);
 
-        PointThreeD pointThreeD1 = new PointThreeD(2.3f, 4.5f, 21.3f);
+        PointThreeD pointThreeD1 = new PointThreeD(6.7f, 2.8f, 21.3f);
         System.out.println(pointThreeD1);
+
+        PointThreeD pointThreeD2 = new PointThreeD(1f, 2f, 3f);
+        System.out.println(pointThreeD2);
     }
 }
