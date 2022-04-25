@@ -1,4 +1,4 @@
-package ss16_file_text.bai_tap;
+package ss16_file_text.bai_tap.copy_file;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -6,18 +6,18 @@ import java.util.List;
 
 public class CopyFileText {
     public static void main(String[] args) {
+        int count = 0;
         CopyFileText copyFileText = new CopyFileText();
-        List<String> text = copyFileText.readFile("E:\\WorkSpace\\CodeGym\\C0222G2-PhanXuanBinh\\module2\\project_module2\\src\\ss16_file_text\\bai_tap\\text.txt");
+        List<String> text = copyFileText.readFile("ss16_file_text/bai_tap/copy_file/sourceFile.txt");
         StringBuilder lines = new StringBuilder();
         for(String line : text){
             lines.append(line);
         }
-        copyFileText.writeFile("ss16_file_text/bai_tap/textResult.txt", lines);
+        copyFileText.writeFile("ss16_file_text/bai_tap/copy_file/targetFile.txt", lines);
     }
 
     public List<String> readFile(String filePath){
         List<String> text = new ArrayList<>();
-
         try{
             File file = new File(filePath);
             if(!file.exists()){
