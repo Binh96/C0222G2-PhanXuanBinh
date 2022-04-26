@@ -6,7 +6,6 @@ import java.util.List;
 
 public class CopyFileText {
     public static void main(String[] args) {
-        int count = 0;
         CopyFileText copyFileText = new CopyFileText();
         List<String> text = copyFileText.readFile("ss16_file_text/bai_tap/copy_file/sourceFile.txt");
         StringBuilder lines = new StringBuilder();
@@ -18,6 +17,7 @@ public class CopyFileText {
 
     public List<String> readFile(String filePath){
         List<String> text = new ArrayList<>();
+        int count=0;
         try{
             File file = new File(filePath);
             if(!file.exists()){
@@ -29,6 +29,7 @@ public class CopyFileText {
             while((line = br.readLine()) != null){
                 text.add(line);
             }
+            System.out.println("Number of character: " + text.size());
             br.close();
         }
         catch (Exception e){
