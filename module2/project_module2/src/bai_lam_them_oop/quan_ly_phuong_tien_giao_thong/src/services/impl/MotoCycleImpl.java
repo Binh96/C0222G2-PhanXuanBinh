@@ -1,7 +1,7 @@
-package services.impl;
+package bai_lam_them_oop.quan_ly_phuong_tien_giao_thong.src.services.impl;
 
-import services.MotoCycleService;
-import modules.MotoCycles;
+import bai_lam_them_oop.quan_ly_phuong_tien_giao_thong.src.services.MotoCycleService;
+import bai_lam_them_oop.quan_ly_phuong_tien_giao_thong.src.modules.MotoCycles;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -32,7 +32,7 @@ public class MotoCycleImpl implements MotoCycleService {
 
     @Override
     public void display() {
-        for (modules.MotoCycles bike : motoCycles) {
+        for (MotoCycles bike : motoCycles) {
             System.out.println(bike);
         }
     }

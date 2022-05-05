@@ -1,8 +1,8 @@
-package services.impl;
+package bai_lam_them_oop.quan_ly_phuong_tien_giao_thong.src.services.impl;
 
-import modules.MotoCycles;
-import services.ProductBrandService;
-import modules.ProductBrand;
+import bai_lam_them_oop.quan_ly_phuong_tien_giao_thong.src.modules.MotoCycles;
+import bai_lam_them_oop.quan_ly_phuong_tien_giao_thong.src.services.ProductBrandService;
+import bai_lam_them_oop.quan_ly_phuong_tien_giao_thong.src.modules.ProductBrand;
 
 import java.util.ArrayList;
 

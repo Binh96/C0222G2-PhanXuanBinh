@@ -1,7 +1,7 @@
-package services.impl;
+package bai_lam_them_oop.quan_ly_phuong_tien_giao_thong.src.services.impl;
 
-import services.TruckService;
-import modules.Trucks;
+import bai_lam_them_oop.quan_ly_phuong_tien_giao_thong.src.services.TruckService;
+import bai_lam_them_oop.quan_ly_phuong_tien_giao_thong.src.modules.Trucks;
 import java.util.ArrayList;
 import java.util.Scanner;
 
