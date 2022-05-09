@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c54b46ff-6d1e-4dea-84f5-df541c574749" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/csv-plugin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/.idea/java.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/manager.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/out/production/manager/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/out/production/manager/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/out/production/manager/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/out/production/manager/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/out/production/manager/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/out/production/manager/.idea/src.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/out/production/manager/manager.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/.idea/src.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/controller/Menu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/controller/SubMenu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/manager.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/modules/Booking.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/modules/BookingComparator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/modules/Customer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/modules/Employee.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/modules/Facility.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/modules/House.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/modules/Person.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/modules/Room.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/modules/Villa.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/out/production/manager/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/out/production/manager/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/out/production/manager/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/out/production/manager/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/out/production/manager/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/out/production/manager/.idea/src.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/out/production/manager/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/out/production/manager/manager.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/services/FacilityService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/services/Services.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/services/iBookingService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/services/iContactService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/services/iCustomerService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/services/iEmployeeService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/services/impl/BookingServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/services/impl/ContactServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/services/impl/CustomerServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/services/impl/EmployeeServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/services/impl/FacilityServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/utils/AgeEx.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/utils/ComparatorBooking.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/utils/Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/utils/Validate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/manager/src/view/Main.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="28qP4t36fCjb0nWPub5eWF4bveA" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../LearnJava/case_study/java/manager" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c54b46ff-6d1e-4dea-84f5-df541c574749" name="Changes" comment="" />
+      <created>1651940957729</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1651940957729</updated>
+    </task>
+    <servers />
+  </component>
+</project>
