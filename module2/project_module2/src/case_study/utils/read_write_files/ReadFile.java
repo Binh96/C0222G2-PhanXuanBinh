@@ -15,7 +15,7 @@ public class ReadFile {
         try{
             FileReader fr = new FileReader(path);
             BufferedReader br = new BufferedReader(fr);
-            String line = "";
+            String line;
             while((line = br.readLine()) != null){
                 stringList.add(line);
             }
@@ -34,7 +34,7 @@ public class ReadFile {
         try{
             FileReader fr = new FileReader(path);
             BufferedReader br = new BufferedReader(fr);
-            String line = "";
+            String line;
             while((line = br.readLine()) != null){
                 if(line.isEmpty()){
                     continue;
@@ -54,7 +54,7 @@ public class ReadFile {
         try{
             FileReader fr = new FileReader(path);
             BufferedReader br = new BufferedReader(fr);
-            String line = "";
+            String line;
             while((line = br.readLine()) != null){
                 if(line.isEmpty()){
                     continue;
@@ -74,7 +74,7 @@ public class ReadFile {
         try{
             FileReader fr = new FileReader(path);
             BufferedReader br = new BufferedReader(fr);
-            String line = "";
+            String line;
             while((line = br.readLine()) != null){
                 if(line.isEmpty()){
                     continue;
@@ -94,7 +94,7 @@ public class ReadFile {
         try{
             FileReader fr = new FileReader(path);
             BufferedReader br = new BufferedReader(fr);
-            String line = "";
+            String line;
             while((line = br.readLine()) != null){
                 if(line.isEmpty()){
                     continue;
@@ -114,7 +114,7 @@ public class ReadFile {
         try{
             FileReader fr = new FileReader(path);
             BufferedReader br = new BufferedReader(fr);
-            String line = "";
+            String line;
             while((line = br.readLine()) != null){
                 if(line.isEmpty()){
                     continue;
