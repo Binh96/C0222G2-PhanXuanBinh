@@ -1,10 +1,4 @@
-create database student_management;
 use student_management;
-create table class(
-	id int,
-    name_student varchar(45),
-	primary key(id)
-);
 
 create table teacher(
 	id int,
@@ -13,4 +7,3 @@ create table teacher(
     country varchar(45),
     primary key(id)
 );
-
