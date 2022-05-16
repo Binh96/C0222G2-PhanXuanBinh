@@ -203,27 +203,12 @@ values (5, 2, 4),
 set foreign_key_checks = 1;
 
 select * from nhan_vien where (ho_va_ten like 'h%' or ho_va_ten like 'k%' or ho_va_ten like 't%') and char_length(ho_va_ten) < 15;
+use furama_resort;
 select * from khach_hang where timestampdiff(year, ngay_sinh, now()) between 18 and 50 and dia_chi like '%đà nẵng%' or dia_chi like '%quảng trị%';
 
+
 use furama_resort;
-create table kiem_tra(
-	ma_khach_hang int,
-    ten_khach_hang varchar(45),
-    so_lan_dat_phong int
-);
+select khach_hang.ma_khach_hang, khach_hang.ho_ten, count(hop_dong.ma_khach_hang) as so_lan_dat_phong from khach_hang 
+inner join hop_dong on hop_dong.ma_khach_hang = khach_hang.ma_khach_hang where khach_hang.ma_loai_khach like 1 group by ma_khach_hang order by count(hop_dong.ma_khach_hang);
 
-insert into kiem_tra(ma_khach_hang, ten_khach_hang) select ma_khach_hang, ho_ten from khach_hang where ma_loai_khach like 1; 
-
-create table booking(
-	ma_khach_hang int,
-    ten_khach_hang varchar(45),
-    ten_loai_khach varchar(45),
-    ma_hop_dong int,
-    ten_dich_vu varchar(45),
-    ngay_lam_hop_dong datetime,
-    ngay_ket_thuc_hop_dong datetime,
-    tong_tien long
-);
-insert into booking (ma_khach_hang, ten_khach_hang, ten_loai_khach, ma_hop_dong, ten_dich_vu, ngay_lam_hop_dong, ngay_ket_thuc_hop_dong, tong_tien)
-select ma_khach_hang, ho_ten, ma_loai_khach from khach_hang;
 
