@@ -129,20 +129,17 @@ insert into loai_khach(ma_loai_khach, ten_loai_khach) value (1, 'Diamond'), (2, 
 insert into kieu_thue(ma_kieu_thue, ten_kieu_thue) value (1, 'Year'), (2, 'Month'), (3, 'Day'), (4, 'Hour');
 insert into loai_dich_vu(ma_loai_dich_vu, ten_loai_dich_vu) value (1, 'Villa'), (2, 'House'), (3, 'Room');
 
-
-SET FOREIGN_KEY_CHECKS=0;
 insert into nhan_vien(ho_va_ten, ngay_sinh, so_cmnd, luong, so_dien_thoai, email, dia_chi, ma_vi_tri, ma_trinh_do, ma_bo_phan)
 value ('Nguyễn Văn An', '1970-11-07', '456231786', 1000000, '0901234121', 'annguyen@gmail.com', '295 Nguyễn Tất Thành, Đà Nẵng', 1, 3, 1),
 ('Lê Văn Bình', '1997-04-09', '654231234', 7000000, '0934212314', 'binhlv@gmail.com', '22 Yên Bái, Đà Nẵng', 1, 2, 2),
 ('Hồ Thị Yến', '1995-12-12', '456231786', 1000000, '0901234121', 'thiyen@gmail.com', 'K234/11 Điện Biên Phủ, Gia Lai', 1, 3, 2),
-('Võ Công Toản', '1980-04-04', '456231786', 1000000, '0901234121', 'toan0404@gmail.com', '77 Hoàng Diệu, Quảng Trị', 1, 4, 1),
-('Nguyễn Bỉnh Phát', '1999-12-09', '456231786', 1000000, '0901234121', 'phatphat@gmail.com', '294 Nguyễn Tất Thành, Đà Nẵng', 2, 1, 1),
-('Khúc Nguyễn An Nghi', '2000-11-08', '456231786', 1000000, '0901234121', 'annghi20@gmail.com', '4 Nguyễn Chí Thanh, Huế', 2, 2, 3),
-('Nguyễn Hữu Hà', '1993-01-01', '456231786', 1000000, '0901234121', 'nhh0101@gmail.com', '111 Hùng Vương, Hà Nội', 2, 3, 2),
-('Nguyễn Hà Đông', '1989-09-03', '456231786', 1000000, '0901234121', 'donghanguyen@gmail.com', '43 Yên Bái, Đà Nẵng', 2, 4, 4),
+('Võ Công Toản', '1980-04-04', '123231365', 17000000, '0374443232', 'toan0404@gmail.com', '77 Hoàng Diệu, Quảng Trị', 1, 4, 1),
+('Nguyễn Bỉnh Phát', '1999-12-09', '454363232', 6000000, '0902341231', 'phatphat@gmail.com', '294 Nguyễn Tất Thành, Đà Nẵng', 2, 1, 1),
+('Khúc Nguyễn An Nghi', '2000-11-08', '964542311', 7000000, '0978653213', 'annghi20@gmail.com', '4 Nguyễn Chí Thanh, Huế', 2, 2, 3),
+('Nguyễn Hữu Hà', '1993-01-01', '534323231', 8000000, '0941234553', 'nhh0101@gmail.com', '111 Hùng Vương, Hà Nội', 2, 3, 2),
+('Nguyễn Hà Đông', '1989-09-03', '234414123', 9000000, '0642123111', 'donghanguyen@gmail.com', '43 Yên Bái, Đà Nẵng', 2, 4, 4),
 ('Tòng Hoang', '1982-09-03', '256781231', '6000000', '0245144444', 'hoangtong@gmail.com', '213 Hàm Nghi, Đà Nẵng', 2, 4, 4),
 ('Nguyễn Công Đạo',	'1994-01-08', '755434346', '8000000', '0988767111',	'nguyencongdao12@gmail.com', '6 Hoà Khánh, Đồng Nai', 2, 3, 2);
-SET FOREIGN_KEY_CHECKS=1;
 
 
 insert into khach_hang(ho_ten, ngay_sinh, gioi_tinh,so_cmnd, so_dien_thoai, email, dia_chi, ma_loai_khach)
@@ -202,13 +199,40 @@ values (5, 2, 4),
 (2,	12,	2);
 set foreign_key_checks = 1;
 
+-- task 2
 select * from nhan_vien where (ho_va_ten like 'h%' or ho_va_ten like 'k%' or ho_va_ten like 't%') and char_length(ho_va_ten) < 15;
 use furama_resort;
+
+-- task 3
 select * from khach_hang where timestampdiff(year, ngay_sinh, now()) between 18 and 50 and dia_chi like '%đà nẵng%' or dia_chi like '%quảng trị%';
 
-
+-- task 4
 use furama_resort;
 select khach_hang.ma_khach_hang, khach_hang.ho_ten, count(hop_dong.ma_khach_hang) as so_lan_dat_phong from khach_hang 
 inner join hop_dong on hop_dong.ma_khach_hang = khach_hang.ma_khach_hang where khach_hang.ma_loai_khach like 1 group by ma_khach_hang order by count(hop_dong.ma_khach_hang);
 
+-- task 5
+use furama_resort;
+select khach_hang.ma_khach_hang, khach_hang.ho_ten, loai_khach.ten_loai_khach, dich_vu.ten_dich_vu, hop_dong.ma_hop_dong, hop_dong.ngay_lam_hop_dong, hop_dong.ngay_ket_thuc,
+(dich_vu.chi_phi_thue + hop_dong_chi_tiet.so_luong) as tong_tien
+from khach_hang
+left join hop_dong on hop_dong.ma_khach_hang = khach_hang.ma_khach_hang
+left join loai_khach on khach_hang.ma_loai_khach = loai_khach.ma_loai_khach
+left join dich_vu on hop_dong.ma_dich_vu = dich_vu.ma_dich_vu
+left join hop_dong_chi_tiet on hop_dong_chi_tiet.ma_hop_dong = hop_dong.ma_hop_dong group by hop_dong.ma_hop_dong;
+
+-- task 6
+use furama_resort;
+select hop_dong.ma_dich_vu, dich_vu.ten_dich_vu, dich_vu.dien_tich, dich_vu.chi_phi_thue, loai_dich_vu.ten_loai_dich_vu
+from hop_dong
+inner join dich_vu on dich_vu.ma_dich_vu = hop_dong.ma_dich_vu
+inner join loai_dich_vu on dich_vu.ma_loai_dich_vu = loai_dich_vu.ma_loai_dich_vu where year(ngay_lam_hop_dong) = 2021 and month(ngay_lam_hop_dong) > 3 group by ma_dich_vu;
+
+
+-- task 7
+use furama_resort;
+select hop_dong.ma_dich_vu, dich_vu.ten_dich_vu, dich_vu.dien_tich, dich_vu.so_nguoi_toi_da, dich_vu.chi_phi_thue, loai_dich_vu.ten_loai_dich_vu
+from hop_dong
+inner join dich_vu on dich_vu.ma_dich_vu = hop_dong.ma_dich_vu
+inner join loai_dich_vu on dich_vu.ma_loai_dich_vu = loai_dich_vu.ma_loai_dich_vu where year(ngay_lam_hop_dong) = 2020 and year(ngay_lam_hop_dong) != 2021 group by ma_dich_vu;
 

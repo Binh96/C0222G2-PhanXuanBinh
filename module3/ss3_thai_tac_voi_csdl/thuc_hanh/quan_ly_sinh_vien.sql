@@ -1,0 +1,25 @@
+use quan_ly_sinh_vien;
+
+
+insert into class 
+values (1, 'A1', '2008-12-20', 1);
+insert into class 
+values(2, 'A2', '2008-12-22', 1);
+insert into class 
+values(3, 'A3', curdate(), 0);
+
+
+insert into Student (StudentName, Address, Phone, Status, ClassId)
+values ('Hung', 'Ha Noi', '0912113113', 1, 1);
+insert into Student (StudentName, Address, Status, ClassId)
+values ('Hoa', 'Hai phong', 1, 1);
+insert into Student (StudentName, Address, Phone, Status, ClassId)
+values ('Manh', 'HCM', '0123123123', 0, 2);
+
+set foreign_key_checks = 0;
+insert into Mark (SubId, StudentId, Mark, ExamTimes)
+values (1, 1, 8, 1),
+       (1, 2, 10, 2),
+       (2, 1, 12, 1);
+       
+set foreign_key_checks = 1;
