@@ -25,10 +25,10 @@ left join order_bill ob on ob.c_id = c.c_id
 left join order_detail od on od.p_id = p.p_id group by od.o_id;
 
 use quan_ly_ban_hang;
-select c.c_name, p.p_name from customer c
-inner join order_bill ob on ob.c_id = c.c_id
+select c.c_name, p.p_name from order_bill ob
+inner join customer c on ob.c_id = c.c_id
 inner join order_detail od on od.o_id = ob.o_id
-inner join product p on od.p_id = p.p_id group by ob.o_id;
+inner join product p on od.p_id = p.p_id;
 
 use quan_ly_ban_hang;
 select c.c_name from customer c where not exists (select c_name from order_bill where c.c_id = order_bill.c_id);
@@ -36,4 +36,4 @@ select c.c_name from customer c where not exists (select c_name from order_bill 
 use quan_ly_ban_hang;
 select ob.o_id, ob.o_date, (p.p_price * od.od_qty) as gia_tien from order_bill ob
 inner join order_detail od on od.o_id = ob.o_id
-inner join product p on p.p_id = od.p_id group by ob.o_id;
+inner join product p on p.p_id = od.p_id;

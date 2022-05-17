@@ -20,7 +20,7 @@ CREATE TABLE Student(
     FOREIGN KEY (ClassId) REFERENCES Class (ClassID)
 );
 
-CREATE TABLE Subject(
+CREATE TABLE Subjects(
     SubId   INT AUTO_INCREMENT PRIMARY KEY,
     SubName VARCHAR(30),
     Credit  TINYINT DEFAULT 1 CHECK ( Credit >= 1 ),

@@ -209,12 +209,12 @@ select * from khach_hang where timestampdiff(year, ngay_sinh, now()) between 18 
 -- task 4
 use furama_resort;
 select khach_hang.ma_khach_hang, khach_hang.ho_ten, count(hop_dong.ma_khach_hang) as so_lan_dat_phong from khach_hang 
-inner join hop_dong on hop_dong.ma_khach_hang = khach_hang.ma_khach_hang where khach_hang.ma_loai_khach like 1 group by ma_khach_hang order by count(hop_dong.ma_khach_hang);
+inner join hop_dong on hop_dong.ma_khach_hang = khach_hang.ma_khach_hang where khach_hang.ma_loai_khach like 1 group by ma_khach_hang order by so_lan_dat_phong;
 
 -- task 5
 use furama_resort;
 select khach_hang.ma_khach_hang, khach_hang.ho_ten, loai_khach.ten_loai_khach, dich_vu.ten_dich_vu, hop_dong.ma_hop_dong, hop_dong.ngay_lam_hop_dong, hop_dong.ngay_ket_thuc,
-(dich_vu.chi_phi_thue + hop_dong_chi_tiet.so_luong) as tong_tien
+(dich_vu.chi_phi_thue + hop_dong_chi_tiet.so_luong * hop_dong_chi_tiet.ma_dich_vu_di_kem) as tong_tien
 from khach_hang
 left join hop_dong on hop_dong.ma_khach_hang = khach_hang.ma_khach_hang
 left join loai_khach on khach_hang.ma_loai_khach = loai_khach.ma_loai_khach
@@ -231,8 +231,26 @@ inner join loai_dich_vu on dich_vu.ma_loai_dich_vu = loai_dich_vu.ma_loai_dich_v
 
 -- task 7
 use furama_resort;
-select hop_dong.ma_dich_vu, dich_vu.ten_dich_vu, dich_vu.dien_tich, dich_vu.so_nguoi_toi_da, dich_vu.chi_phi_thue, loai_dich_vu.ten_loai_dich_vu
+select hop_dong.ma_dich_vu, dich_vu.ten_dich_vu, dich_vu.dien_tich, dich_vu.so_nguoi_toi_da, dich_vu.chi_phi_thue, 
+loai_dich_vu.ten_loai_dich_vu
 from hop_dong
 inner join dich_vu on dich_vu.ma_dich_vu = hop_dong.ma_dich_vu
-inner join loai_dich_vu on dich_vu.ma_loai_dich_vu = loai_dich_vu.ma_loai_dich_vu where year(ngay_lam_hop_dong) = 2020 and year(ngay_lam_hop_dong) != 2021 group by ma_dich_vu;
+inner join loai_dich_vu on dich_vu.ma_loai_dich_vu = loai_dich_vu.ma_loai_dich_vu 
+where hop_dong.ma_dich_vu not in 
+(select ma_dich_vu from hop_dong where year(ngay_lam_hop_dong) = 2021)
+group by ma_dich_vu;
+
+-- task 8
+-- way 1
+use furama_resort;
+select distinct ho_ten from khach_hang;
+-- way 2
+use furama_resort;
+select ho_ten from khach_hang group by ho_ten;
+-- way 3
+use furama_resort;
+select ho_ten from 
+
+
+
 
