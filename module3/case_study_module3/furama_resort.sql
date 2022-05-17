@@ -212,14 +212,16 @@ select khach_hang.ma_khach_hang, khach_hang.ho_ten, count(hop_dong.ma_khach_hang
 inner join hop_dong on hop_dong.ma_khach_hang = khach_hang.ma_khach_hang where khach_hang.ma_loai_khach like 1 group by ma_khach_hang order by so_lan_dat_phong;
 
 -- task 5
-use furama_resort;
+use furama_resort; 
 select khach_hang.ma_khach_hang, khach_hang.ho_ten, loai_khach.ten_loai_khach, dich_vu.ten_dich_vu, hop_dong.ma_hop_dong, hop_dong.ngay_lam_hop_dong, hop_dong.ngay_ket_thuc,
-(dich_vu.chi_phi_thue + hop_dong_chi_tiet.so_luong * hop_dong_chi_tiet.ma_dich_vu_di_kem) as tong_tien
+dich_vu.chi_phi_thue +(ifnull(hop_dong_chi_tiet.so_luong * dich_vu_di_kem.gia, 0)) as tong_tien
 from khach_hang
 left join hop_dong on hop_dong.ma_khach_hang = khach_hang.ma_khach_hang
 left join loai_khach on khach_hang.ma_loai_khach = loai_khach.ma_loai_khach
 left join dich_vu on hop_dong.ma_dich_vu = dich_vu.ma_dich_vu
-left join hop_dong_chi_tiet on hop_dong_chi_tiet.ma_hop_dong = hop_dong.ma_hop_dong group by hop_dong.ma_hop_dong;
+left join hop_dong_chi_tiet on hop_dong_chi_tiet.ma_hop_dong = hop_dong.ma_hop_dong
+left join dich_vu_di_kem on dich_vu_di_kem.ma_dich_vu_di_kem = hop_dong_chi_tiet.ma_dich_vu_di_kem
+group by hop_dong.ma_hop_dong;
 
 -- task 6
 use furama_resort;
@@ -249,7 +251,73 @@ use furama_resort;
 select ho_ten from khach_hang group by ho_ten;
 -- way 3
 use furama_resort;
-select ho_ten from 
+select ho_ten from khach_hang
+union
+select ho_ten from khach_hang;
+
+-- task 9
+select month(h.ngay_lam_hop_dong) as thang,  count(year(h.ngay_lam_hop_dong) and month(h.ngay_lam_hop_dong)) as tong_doanh_thu from hop_dong h 
+where year(h.ngay_lam_hop_dong) = 2021 group by thang order by thang;
+
+-- task 10
+
+select h.ma_hop_dong, h.ngay_lam_hop_dong, h.ngay_ket_thuc, h.tien_dat_coc, ifnull(sum(hdct.so_luong), 0) as so_luong_dich_vu_di_kem from hop_dong h
+left join hop_dong_chi_tiet hdct on hdct.ma_hop_dong = h.ma_hop_dong
+group by h.ma_hop_dong;
+
+-- task 11
+select dvdk.ma_dich_vu_di_kem, dvdk.ten_dich_vu_di_kem from dich_vu_di_kem dvdk
+inner join hop_dong_chi_tiet hdct on hdct.ma_dich_vu_di_kem = dvdk.ma_dich_vu_di_kem
+inner join hop_dong hd on hd.ma_hop_dong = hdct.ma_hop_dong
+inner join khach_hang kh on kh.ma_khach_hang = hd.ma_khach_hang
+inner join loai_khach lk on lk.ma_loai_khach = kh.ma_loai_khach
+where lk.ten_loai_khach = 'Diamond' and kh.dia_chi like '%Quảng Ngãi%' or kh.dia_chi like '%Vinh%'
+order by dvdk.ma_dich_vu_di_kem;
+
+-- task 12
+select hd.ma_hop_dong, nv.ho_va_ten, kh.ho_ten, kh.so_dien_thoai, ldv.ten_loai_dich_vu,
+ifnull(sum(hdct.so_luong), 0) as so_luong_dich_vu_di_kem, hd.tien_dat_coc
+from hop_dong hd
+left join hop_dong_chi_tiet hdct on hdct.ma_hop_dong = hd.ma_hop_dong
+inner join nhan_vien nv on nv.ma_nhan_vien = hd.ma_nhan_vien
+inner join khach_hang kh on kh.ma_khach_hang = hd.ma_khach_hang
+inner join dich_vu dv on dv.ma_dich_vu  = hd.ma_dich_vu
+inner join loai_dich_vu ldv on ldv.ma_loai_dich_vu = dv.ma_loai_dich_vu
+where (year(hd.ngay_lam_hop_dong) = 2021 and month(hd.ngay_lam_hop_dong) between 7 and 12)
+or (year(hd.ngay_lam_hop_dong) = 2020 and month(hd.ngay_lam_hop_dong) between 9 and 12)
+group by hd.ma_hop_dong
+order by hd.ma_hop_dong;
+
+-- task 13
+select 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
