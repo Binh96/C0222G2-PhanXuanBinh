@@ -256,16 +256,18 @@ union
 select ho_ten from khach_hang;
 
 -- task 9
+use furama_resort;
 select month(h.ngay_lam_hop_dong) as thang,  count(year(h.ngay_lam_hop_dong) and month(h.ngay_lam_hop_dong)) as tong_doanh_thu from hop_dong h 
 where year(h.ngay_lam_hop_dong) = 2021 group by thang order by thang;
 
 -- task 10
-
+use furama_resort;
 select h.ma_hop_dong, h.ngay_lam_hop_dong, h.ngay_ket_thuc, h.tien_dat_coc, ifnull(sum(hdct.so_luong), 0) as so_luong_dich_vu_di_kem from hop_dong h
 left join hop_dong_chi_tiet hdct on hdct.ma_hop_dong = h.ma_hop_dong
 group by h.ma_hop_dong;
 
 -- task 11
+use furama_resort;
 select dvdk.ma_dich_vu_di_kem, dvdk.ten_dich_vu_di_kem from dich_vu_di_kem dvdk
 inner join hop_dong_chi_tiet hdct on hdct.ma_dich_vu_di_kem = dvdk.ma_dich_vu_di_kem
 inner join hop_dong hd on hd.ma_hop_dong = hdct.ma_hop_dong
@@ -275,6 +277,7 @@ where lk.ten_loai_khach = 'Diamond' and kh.dia_chi like '%Quảng Ngãi%' or kh.
 order by dvdk.ma_dich_vu_di_kem;
 
 -- task 12
+use furama_resort;
 select hd.ma_hop_dong, nv.ho_va_ten, kh.ho_ten, kh.so_dien_thoai, ldv.ten_loai_dich_vu,
 ifnull(sum(hdct.so_luong), 0) as so_luong_dich_vu_di_kem, hd.tien_dat_coc
 from hop_dong hd
@@ -289,12 +292,31 @@ group by hd.ma_hop_dong
 order by hd.ma_hop_dong;
 
 -- task 13
-select dvdk.ma_dich_vu_di_kem, dvdk.ten_dich_vu_di_kem, count(hdct.ma_dich_vu_di_kem) as tong from dich_vu_di_kem dvdk
-left join hop_dong_chi_tiet hdct on hdct.ma_dich_vu_di_kem = dvdk.ma_dich_vu_di_kem
-inner join hop_dong hd on hd.ma_hop_dong = hdct.ma_hop_dong
-group by hdct.ma_dich_vu_di_kem;
+use furama_resort;
+select hdct.ma_dich_vu_di_kem, dvdk.ten_dich_vu_di_kem, sum(hdct.so_luong) as so_lan_su_dung
+from hop_dong_chi_tiet hdct
+inner join dich_vu_di_kem dvdk on dvdk.ma_dich_vu_di_kem = hdct.ma_dich_vu_di_kem
+group by hdct.ma_dich_vu_di_kem
+having sum(hdct.so_luong) = (select max(hdct.so_luong)from hop_dong_chi_tiet hdct); 
 
+-- task 14
+select hd.ma_hop_dong, ldv.ten_loai_dich_vu, dvdk.ten_dich_vu_di_kem, count(hdct.ma_dich_vu_di_kem) as so_lan_su_dung
+from hop_dong_chi_tiet hdct
+inner join hop_dong hd on  hd.ma_hop_dong = hdct.ma_hop_dong
+inner join dich_vu dv on dv.ma_dich_vu = hd.ma_dich_vu
+inner join loai_dich_vu ldv on ldv.ma_loai_dich_vu = dv.ma_loai_dich_vu
+inner join dich_vu_di_kem dvdk on dvdk.ma_dich_vu_di_kem = hdct.ma_dich_vu_di_kem
+group by hdct.ma_hop_dong
+having count(hdct.ma_dich_vu_di_kem) = 1;
 
+-- test 
+select hd.ma_hop_dong, ldv.ten_loai_dich_vu, dvdk.ten_dich_vu_di_kem, count(hdct.ma_dich_vu_di_kem) as so_lan_su_dung
+from hop_dong hd
+inner join hop_dong_chi_tiet hdct on hdct.ma_hop_dong = hd.ma_hop_dong
+inner join dich_vu dv on dv.ma_dich_vu = hd.ma_dich_vu
+inner join loai_dich_vu ldv on ldv.ma_loai_dich_vu = dv.ma_loai_dich_vu
+inner join dich_vu_di_kem dvdk on dvdk.ma_dich_vu_di_kem = hdct.ma_dich_vu_di_kem
+group by hd.ma_hop_dong;
 
 
 
