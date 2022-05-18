@@ -6,19 +6,22 @@ use furama_resort;
 create table vi_tri(
 	ma_vi_tri int,
     ten_vi_tri varchar(45),
-    primary key(ma_vi_tri)
+    primary key(ma_vi_tri),
+    `status` bit default 0
 );
 
 create table trinh_do(
 	ma_trinh_do int,
     ten_trinh_do varchar(45),
-    primary key(ma_trinh_do)
+    primary key(ma_trinh_do),
+    `status` bit default 0
 );
 
 create table bo_phan(
 	ma_bo_phan int,
     ten_bo_phan varchar(45),
-    primary key(ma_bo_phan)
+    primary key(ma_bo_phan),
+    `status` bit default 0
 );
 
 create table nhan_vien(
@@ -33,6 +36,7 @@ create table nhan_vien(
     ma_vi_tri int,
     ma_trinh_do int,
     ma_bo_phan int,
+    `status` bit default 0,
     foreign key(ma_vi_tri) references vi_tri(ma_vi_tri),
     foreign key(ma_trinh_do) references trinh_do(ma_trinh_do),
     foreign key(ma_bo_phan) references bo_phan(ma_bo_phan),
@@ -42,7 +46,8 @@ create table nhan_vien(
 create table loai_khach(
 	ma_loai_khach int,
     ten_loai_khach varchar(45),
-    primary key(ma_loai_khach)
+    primary key(ma_loai_khach),
+    `status` bit default 0
 );
 
 create table khach_hang(
@@ -56,18 +61,21 @@ create table khach_hang(
     so_dien_thoai varchar(45),
     email varchar(45),
     dia_chi varchar(45),
+    `status` bit default 0,
     primary key(ma_khach_hang)
 );
 
 create table loai_dich_vu(
 	ma_loai_dich_vu int,
     ten_loai_dich_vu varchar(45),
+    `status` bit default 0,
     primary key(ma_loai_dich_vu)
 );
 
 create table kieu_thue(
 	ma_kieu_thue int,
     ten_kieu_thue varchar(45),
+    `status` bit default 0,
     primary key(ma_kieu_thue)
 );
 
@@ -85,6 +93,7 @@ create table dich_vu(
     mo_ta_tien_nghi_khac varchar(45),
     dien_tich_ho_boi double,
     so_tang int,
+    `status` bit default 0,
     primary key(ma_dich_vu)
 );
 
@@ -96,6 +105,7 @@ create table hop_dong(
     ma_nhan_vien int,
     ma_khach_hang int,
     ma_dich_vu int,
+    `status` bit default 0,
     foreign key(ma_nhan_vien) references nhan_vien(ma_nhan_vien),
     foreign key(ma_khach_hang) references khach_hang(ma_khach_hang),
     foreign key(ma_dich_vu) references dich_vu(ma_dich_vu),
@@ -109,6 +119,7 @@ create table dich_vu_di_kem(
     gia double,
     don_vi varchar(10),
     trang_thai varchar(45),
+    `status` bit default 0,
     primary key(ma_dich_vu_di_kem)
 );
 
@@ -119,6 +130,7 @@ create table hop_dong_chi_tiet(
     foreign key(ma_hop_dong) references hop_dong(ma_hop_dong),
     foreign key(ma_dich_vu_di_kem) references dich_vu_di_kem(ma_dich_vu_di_kem),
     so_luong int,
+    `status` bit default 0,
     primary key(ma_hop_dong_chi_tiet)
 );
 
@@ -300,28 +312,67 @@ group by hdct.ma_dich_vu_di_kem
 having sum(hdct.so_luong) = (select max(hdct.so_luong)from hop_dong_chi_tiet hdct); 
 
 -- task 14
+use furama_resort;
 select hd.ma_hop_dong, ldv.ten_loai_dich_vu, dvdk.ten_dich_vu_di_kem, count(hdct.ma_dich_vu_di_kem) as so_lan_su_dung
 from hop_dong_chi_tiet hdct
-inner join hop_dong hd on  hd.ma_hop_dong = hdct.ma_hop_dong
+inner join hop_dong hd on hdct.ma_hop_dong = hd.ma_hop_dong
 inner join dich_vu dv on dv.ma_dich_vu = hd.ma_dich_vu
 inner join loai_dich_vu ldv on ldv.ma_loai_dich_vu = dv.ma_loai_dich_vu
 inner join dich_vu_di_kem dvdk on dvdk.ma_dich_vu_di_kem = hdct.ma_dich_vu_di_kem
-group by hdct.ma_hop_dong
-having count(hdct.ma_dich_vu_di_kem) = 1;
-
--- test 
-select hd.ma_hop_dong, ldv.ten_loai_dich_vu, dvdk.ten_dich_vu_di_kem, count(hdct.ma_dich_vu_di_kem) as so_lan_su_dung
-from hop_dong hd
-inner join hop_dong_chi_tiet hdct on hdct.ma_hop_dong = hd.ma_hop_dong
-inner join dich_vu dv on dv.ma_dich_vu = hd.ma_dich_vu
-inner join loai_dich_vu ldv on ldv.ma_loai_dich_vu = dv.ma_loai_dich_vu
-inner join dich_vu_di_kem dvdk on dvdk.ma_dich_vu_di_kem = hdct.ma_dich_vu_di_kem
-group by hd.ma_hop_dong;
+group by dvdk.ten_dich_vu_di_kem
+having count(hdct.ma_dich_vu_di_kem) = 1
+order by hd.ma_hop_dong;
 
 
+-- task 15
+select nv.ma_nhan_vien, nv.ho_va_ten, td.ten_trinh_do, bp.ten_bo_phan, nv.so_dien_thoai, nv.dia_chi
+from nhan_vien nv
+inner join hop_dong hd on hd.ma_nhan_vien = nv.ma_nhan_vien
+inner join trinh_do td on td.ma_trinh_do = nv.ma_trinh_do
+inner join bo_phan bp on bp.ma_bo_phan = nv.ma_bo_phan
+group by nv.ma_nhan_vien
+having count(nv.ma_nhan_vien) <= 3;
 
 
+-- task 16
+set sql_safe_updates = 0; 
+update nhan_vien
+set nhan_vien.`status` = 1
+where nhan_vien.ma_nhan_vien not in (select distinct hd.ma_nhan_vien from hop_dong hd);
+set sql_safe_updates = 1;
 
+-- task 17
+set sql_safe_updates = 0; 
+update khach_hang
+set khach_hang.ma_loai_khach = 1
+where khach_hang.ma_khach_hang 
+in (select distinct hd.ma_khach_hang from hop_dong hd 
+inner join dich_vu on dich_vu.ma_dich_vu = hd.ma_dich_vu
+inner join hop_dong_chi_tiet on hop_dong_chi_tiet.ma_hop_dong = hd.ma_hop_dong
+inner join dich_vu_di_kem on dich_vu_di_kem.ma_dich_vu_di_kem = hop_dong_chi_tiet.ma_dich_vu_di_kem
+where dich_vu.chi_phi_thue +(ifnull(hop_dong_chi_tiet.so_luong * dich_vu_di_kem.gia, 0)) > 10000000 and year(hd.ngay_lam_hop_dong) = 2021) ;
+set sql_safe_updates = 1;
+
+
+-- task 18
+set sql_safe_updates = 0; 
+update khach_hang
+set khach_hang.`status` = 1
+where khach_hang.ma_khach_hang in (select distinct hd.ma_khach_hang from hop_dong hd where year(hd.ngay_lam_hop_dong) = 2020);
+set sql_safe_updates = 1;
+
+
+-- task 19
+set sql_safe_updates = 0; 
+update dich_vu_di_kem
+set dich_vu_di_kem.gia = gia * 2
+where dich_vu_di_kem.ma_dich_vu_di_kem in (select hdct.ma_dich_vu_di_kem from hop_dong_chi_tiet hdct 
+inner join hop_dong hd on hd.ma_hop_dong = hdct.ma_hop_dong
+where hdct.so_luong > 10 and year(hd.ngay_lam_hop_dong) = 2020);
+set sql_safe_updates = 1;
+
+
+-- task 20
 
 
 
