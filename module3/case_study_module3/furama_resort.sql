@@ -289,7 +289,10 @@ group by hd.ma_hop_dong
 order by hd.ma_hop_dong;
 
 -- task 13
-select 
+select dvdk.ma_dich_vu_di_kem, dvdk.ten_dich_vu_di_kem, count(hdct.ma_dich_vu_di_kem) as tong from dich_vu_di_kem dvdk
+left join hop_dong_chi_tiet hdct on hdct.ma_dich_vu_di_kem = dvdk.ma_dich_vu_di_kem
+inner join hop_dong hd on hd.ma_hop_dong = hdct.ma_hop_dong
+group by hdct.ma_dich_vu_di_kem;
 
 
 
