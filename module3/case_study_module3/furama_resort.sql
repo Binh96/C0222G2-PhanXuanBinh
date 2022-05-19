@@ -373,8 +373,15 @@ set sql_safe_updates = 1;
 
 
 -- task 20
+use furama_resort;
+create view danh_sach as
+select nv.ma_nhan_vien, nv.ho_va_ten, nv.email, nv.so_dien_thoai, nv.ngay_sinh, nv.dia_chi
+from nhan_vien nv;
 
-
+use furama_resort;
+create view danh_sach_khach_hang as
+select kh.ma_khach_hang, kh.ho_ten, kh.email, kh.so_dien_thoai, kh.ngay_sinh, kh.dia_chi
+from khach_hang kh;
 
 
 
