@@ -237,10 +237,14 @@ group by hop_dong.ma_hop_dong;
 
 -- task 6
 use furama_resort;
-select hop_dong.ma_dich_vu, dich_vu.ten_dich_vu, dich_vu.dien_tich, dich_vu.chi_phi_thue, loai_dich_vu.ten_loai_dich_vu
-from hop_dong
-inner join dich_vu on dich_vu.ma_dich_vu = hop_dong.ma_dich_vu
-inner join loai_dich_vu on dich_vu.ma_loai_dich_vu = loai_dich_vu.ma_loai_dich_vu where year(ngay_lam_hop_dong) = 2021 and month(ngay_lam_hop_dong) > 3 group by ma_dich_vu;
+select dv.ma_dich_vu, dv.ten_dich_vu, dv.dien_tich, dv.chi_phi_thue, loai_dich_vu.ten_loai_dich_vu
+from dich_vu dv
+inner join hop_dong hd on dv.ma_dich_vu = hd.ma_dich_vu
+inner join loai_dich_vu on dv.ma_loai_dich_vu = loai_dich_vu.ma_loai_dich_vu 
+where dv.ma_dich_vu not in (select hd.ma_dich_vu from hop_dong hd where (quarter(hd.ngay_lam_hop_dong) = 1) and 
+year(hd.ngay_lam_hop_dong) = 2021)
+group by ma_dich_vu
+order by ma_dich_vu;
 
 
 -- task 7
@@ -291,20 +295,19 @@ order by dvdk.ma_dich_vu_di_kem;
 -- task 12. Hiển thị thông tin của tất cả các dịch vụ đã từng được khách hàng đặt vào 3 tháng cuối năm 2020 
 -- nhưng chưa từng được khách hàng đặt vào 6 tháng đầu năm 2021.
 use furama_resort;
-select hd.ma_hop_dong, nv.ho_va_ten, kh.ho_ten, kh.so_dien_thoai, ldv.ten_loai_dich_vu,
+select hd.ma_hop_dong, nv.ho_va_ten, kh.ho_ten, kh.so_dien_thoai, dv.ten_dich_vu,
 ifnull(sum(hdct.so_luong), 0) as so_luong_dich_vu_di_kem, hd.tien_dat_coc
 from hop_dong hd
 left join hop_dong_chi_tiet hdct on hdct.ma_hop_dong = hd.ma_hop_dong
 inner join nhan_vien nv on nv.ma_nhan_vien = hd.ma_nhan_vien
 inner join khach_hang kh on kh.ma_khach_hang = hd.ma_khach_hang
 inner join dich_vu dv on dv.ma_dich_vu  = hd.ma_dich_vu
-inner join loai_dich_vu ldv on ldv.ma_loai_dich_vu = dv.ma_loai_dich_vu
-where (year(hd.ngay_lam_hop_dong) = 2021 and month(hd.ngay_lam_hop_dong) between 7 and 12)
-or (year(hd.ngay_lam_hop_dong) = 2020 and month(hd.ngay_lam_hop_dong) between 9 and 12)
+where (hd.ngay_lam_hop_dong between '2020-10-01' and '2020-12-31') and hd.ma_dich_vu not in (select hd.ma_dich_vu from hop_dong hd 
+where (hd.ngay_lam_hop_dong between '2021-01-01' and '2021-06-30'))
 group by hd.ma_hop_dong
 order by hd.ma_hop_dong;
 
--- task 13 13.	Hiển thị thông tin các Dịch vụ đi kèm được sử dụng nhiều nhất bởi các Khách hàng đã đặt phòng.
+-- task 13 Hiển thị thông tin các Dịch vụ đi kèm được sử dụng nhiều nhất bởi các Khách hàng đã đặt phòng.
 --  (Lưu ý là có thể có nhiều dịch vụ có số lần sử dụng nhiều như nhau).
 use furama_resort;
 select hdct.ma_dich_vu_di_kem, dvdk.ten_dich_vu_di_kem, sum(hdct.so_luong) as so_lan_su_dung
