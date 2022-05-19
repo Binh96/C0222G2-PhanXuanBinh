@@ -288,7 +288,8 @@ inner join loai_khach lk on lk.ma_loai_khach = kh.ma_loai_khach
 where lk.ten_loai_khach = 'Diamond' and kh.dia_chi like '%Quảng Ngãi%' or kh.dia_chi like '%Vinh%'
 order by dvdk.ma_dich_vu_di_kem;
 
--- task 12
+-- task 12. Hiển thị thông tin của tất cả các dịch vụ đã từng được khách hàng đặt vào 3 tháng cuối năm 2020 
+-- nhưng chưa từng được khách hàng đặt vào 6 tháng đầu năm 2021.
 use furama_resort;
 select hd.ma_hop_dong, nv.ho_va_ten, kh.ho_ten, kh.so_dien_thoai, ldv.ten_loai_dich_vu,
 ifnull(sum(hdct.so_luong), 0) as so_luong_dich_vu_di_kem, hd.tien_dat_coc
@@ -303,7 +304,8 @@ or (year(hd.ngay_lam_hop_dong) = 2020 and month(hd.ngay_lam_hop_dong) between 9 
 group by hd.ma_hop_dong
 order by hd.ma_hop_dong;
 
--- task 13
+-- task 13 13.	Hiển thị thông tin các Dịch vụ đi kèm được sử dụng nhiều nhất bởi các Khách hàng đã đặt phòng.
+--  (Lưu ý là có thể có nhiều dịch vụ có số lần sử dụng nhiều như nhau).
 use furama_resort;
 select hdct.ma_dich_vu_di_kem, dvdk.ten_dich_vu_di_kem, sum(hdct.so_luong) as so_lan_su_dung
 from hop_dong_chi_tiet hdct
@@ -311,7 +313,8 @@ inner join dich_vu_di_kem dvdk on dvdk.ma_dich_vu_di_kem = hdct.ma_dich_vu_di_ke
 group by hdct.ma_dich_vu_di_kem
 having sum(hdct.so_luong) = (select max(hdct.so_luong)from hop_dong_chi_tiet hdct); 
 
--- task 14
+-- task 14 14.	Hiển thị thông tin tất cả các Dịch vụ đi kèm chỉ mới được sử dụng một lần duy nhất. 
+ -- Thông tin hiển thị bao gồm ma_hop_dong, ten_loai_dich_vu, ten_dich_vu_di_kem, so_lan_su_dung 
 use furama_resort;
 select hd.ma_hop_dong, ldv.ten_loai_dich_vu, dvdk.ten_dich_vu_di_kem, count(hdct.ma_dich_vu_di_kem) as so_lan_su_dung
 from hop_dong_chi_tiet hdct
@@ -376,10 +379,8 @@ set sql_safe_updates = 1;
 use furama_resort;
 create view danh_sach as
 select nv.ma_nhan_vien, nv.ho_va_ten, nv.email, nv.so_dien_thoai, nv.ngay_sinh, nv.dia_chi
-from nhan_vien nv;
-
-use furama_resort;
-create view danh_sach_khach_hang as
+from nhan_vien nv
+union 
 select kh.ma_khach_hang, kh.ho_ten, kh.email, kh.so_dien_thoai, kh.ngay_sinh, kh.dia_chi
 from khach_hang kh;
 
