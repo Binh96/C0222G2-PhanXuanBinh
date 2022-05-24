@@ -136,7 +136,7 @@ create table hop_dong_chi_tiet(
 
 insert into vi_tri(ma_vi_tri, ten_vi_tri) values (1, 'Quản lý'), (2, 'Nhân viên');
 insert into trinh_do(ma_trinh_do, ten_trinh_do) values (1, 'Trung Cấp'), (2, 'Cao Đẳng'), (3, 'Đại Học'), (4, 'Sau Đại Học');
-insert into bo_phan(ma_bo_phan, ten_bo_phan) values (1, 'Trung Cấp'), (2, 'Cao Đẳng'), (3, 'Đại Học'), (4, 'Sau Đại Học');
+insert into bo_phan(ma_bo_phan, ten_bo_phan) values (1, 'Sale-Marketing'), (2, 'Hành chính'), (3, 'Phục vụ'), (4, 'Quản lý');
 insert into loai_khach(ma_loai_khach, ten_loai_khach) value (1, 'Diamond'), (2, 'Platinum'), (3, 'Gold'), (4, 'Silver'), (5, 'Member');
 insert into kieu_thue(ma_kieu_thue, ten_kieu_thue) value (1, 'Year'), (2, 'Month'), (3, 'Day'), (4, 'Hour');
 insert into loai_dich_vu(ma_loai_dich_vu, ten_loai_dich_vu) value (1, 'Villa'), (2, 'House'), (3, 'Room');
@@ -212,18 +212,26 @@ values (5, 2, 4),
 set foreign_key_checks = 1;
 
 -- task 2
+-- Hiển thị thông tin của tất cả nhân viên 
+-- có trong hệ thống có tên bắt đầu là một trong các ký tự “H”, “T” hoặc “K” và có tối đa 15 kí tự.
 select * from nhan_vien where (ho_va_ten like 'h%' or ho_va_ten like 'k%' or ho_va_ten like 't%') and char_length(ho_va_ten) < 15;
 use furama_resort;
 
 -- task 3
+-- Hiển thị thông tin của tất cả khách hàng có độ tuổi từ 18 đến 50 tuổi và có địa chỉ ở “Đà Nẵng” hoặc “Quảng Trị”.
 select * from khach_hang where timestampdiff(year, ngay_sinh, now()) between 18 and 50 and dia_chi like '%đà nẵng%' or dia_chi like '%quảng trị%';
 
 -- task 4
+-- Đếm xem tương ứng với mỗi khách hàng đã từng đặt phòng bao nhiêu lần. 
+-- Kết quả hiển thị được sắp xếp tăng dần theo số lần đặt phòng của khách hàng. 
+-- Chỉ đếm những khách hàng nào có Tên loại khách hàng là “Diamond”.
 use furama_resort;
 select khach_hang.ma_khach_hang, khach_hang.ho_ten, count(hop_dong.ma_khach_hang) as so_lan_dat_phong from khach_hang 
 inner join hop_dong on hop_dong.ma_khach_hang = khach_hang.ma_khach_hang where khach_hang.ma_loai_khach like 1 group by ma_khach_hang order by so_lan_dat_phong;
 
 -- task 5
+-- Hiển thị ma_khach_hang, ho_ten, ten_loai_khach, ma_hop_dong, ten_dich_vu, ngay_lam_hop_dong, ngay_ket_thuc, tong_tien
+-- cho tất cả các khách hàng đã từng đặt phòng. (những khách hàng nào chưa từng đặt phòng cũng phải hiển thị ra). 
 use furama_resort; 
 select khach_hang.ma_khach_hang, khach_hang.ho_ten, loai_khach.ten_loai_khach, dich_vu.ten_dich_vu, hop_dong.ma_hop_dong, hop_dong.ngay_lam_hop_dong, hop_dong.ngay_ket_thuc,
 dich_vu.chi_phi_thue +(ifnull(hop_dong_chi_tiet.so_luong * dich_vu_di_kem.gia, 0)) as tong_tien
@@ -233,9 +241,11 @@ left join loai_khach on khach_hang.ma_loai_khach = loai_khach.ma_loai_khach
 left join dich_vu on hop_dong.ma_dich_vu = dich_vu.ma_dich_vu
 left join hop_dong_chi_tiet on hop_dong_chi_tiet.ma_hop_dong = hop_dong.ma_hop_dong
 left join dich_vu_di_kem on dich_vu_di_kem.ma_dich_vu_di_kem = hop_dong_chi_tiet.ma_dich_vu_di_kem
-group by hop_dong.ma_hop_dong;
+group by hop_dong.ma_hop_dong, khach_hang.ma_khach_hang, khach_hang.ho_ten, loai_khach.ten_loai_khach, dich_vu.ten_dich_vu, hop_dong.ma_hop_dong, hop_dong.ngay_lam_hop_dong, hop_dong.ngay_ket_thuc;
 
 -- task 6
+-- Hiển thị ma_dich_vu, ten_dich_vu, dien_tich, chi_phi_thue, ten_loai_dich_vu 
+-- của tất cả các loại dịch vụ chưa từng được khách hàng thực hiện đặt từ quý 1 của năm 2021 (Quý 1 là tháng 1, 2, 3).
 use furama_resort;
 select dv.ma_dich_vu, dv.ten_dich_vu, dv.dien_tich, dv.chi_phi_thue, loai_dich_vu.ten_loai_dich_vu
 from dich_vu dv
@@ -248,6 +258,8 @@ order by ma_dich_vu;
 
 
 -- task 7
+-- Hiển thị thông tin ma_dich_vu, ten_dich_vu, dien_tich, so_nguoi_toi_da, chi_phi_thue, ten_loai_dich_vu của 
+-- tất cả các loại dịch vụ đã từng được khách hàng đặt phòng trong năm 2020 nhưng chưa từng được khách hàng đặt phòng trong năm 2021.
 use furama_resort;
 select hop_dong.ma_dich_vu, dich_vu.ten_dich_vu, dich_vu.dien_tich, dich_vu.so_nguoi_toi_da, dich_vu.chi_phi_thue, 
 loai_dich_vu.ten_loai_dich_vu
@@ -255,10 +267,11 @@ from hop_dong
 inner join dich_vu on dich_vu.ma_dich_vu = hop_dong.ma_dich_vu
 inner join loai_dich_vu on dich_vu.ma_loai_dich_vu = loai_dich_vu.ma_loai_dich_vu 
 where hop_dong.ma_dich_vu not in 
-(select ma_dich_vu from hop_dong where year(ngay_lam_hop_dong) = 2021)
+(select ma_dich_vu from hop_dong where year(ngay_lam_hop_dong) = 2021) and year(ngay_lam_hop_dong) = 2020
 group by ma_dich_vu;
 
 -- task 8
+-- Hiển thị thông tin ho_ten khách hàng có trong hệ thống, với yêu cầu ho_ten không trùng nhau.
 -- way 1
 use furama_resort;
 select distinct ho_ten from khach_hang;
@@ -272,17 +285,23 @@ union
 select ho_ten from khach_hang;
 
 -- task 9
+-- Thực hiện thống kê doanh thu theo tháng, 
+-- nghĩa là tương ứng với mỗi tháng trong năm 2021 thì sẽ có bao nhiêu khách hàng thực hiện đặt phòng.
 use furama_resort;
 select month(h.ngay_lam_hop_dong) as thang,  count(year(h.ngay_lam_hop_dong) and month(h.ngay_lam_hop_dong)) as tong_doanh_thu from hop_dong h 
 where year(h.ngay_lam_hop_dong) = 2021 group by thang order by thang;
 
 -- task 10
+-- Hiển thị thông tin tương ứng với từng hợp đồng thì đã sử dụng bao nhiêu dịch vụ đi kèm. 
+-- Kết quả hiển thị bao gồm ma_hop_dong, ngay_lam_hop_dong, ngay_ket_thuc, tien_dat_coc, so_luong_dich_vu_di_kem 
 use furama_resort;
 select h.ma_hop_dong, h.ngay_lam_hop_dong, h.ngay_ket_thuc, h.tien_dat_coc, ifnull(sum(hdct.so_luong), 0) as so_luong_dich_vu_di_kem from hop_dong h
 left join hop_dong_chi_tiet hdct on hdct.ma_hop_dong = h.ma_hop_dong
 group by h.ma_hop_dong;
 
 -- task 11
+-- Hiển thị thông tin các dịch vụ đi kèm đã được 
+-- sử dụng bởi những khách hàng có ten_loai_khach là “Diamond” và có dia_chi ở “Vinh” hoặc “Quảng Ngãi”.
 use furama_resort;
 select dvdk.ma_dich_vu_di_kem, dvdk.ten_dich_vu_di_kem from dich_vu_di_kem dvdk
 inner join hop_dong_chi_tiet hdct on hdct.ma_dich_vu_di_kem = dvdk.ma_dich_vu_di_kem
@@ -302,7 +321,7 @@ left join hop_dong_chi_tiet hdct on hdct.ma_hop_dong = hd.ma_hop_dong
 inner join nhan_vien nv on nv.ma_nhan_vien = hd.ma_nhan_vien
 inner join khach_hang kh on kh.ma_khach_hang = hd.ma_khach_hang
 inner join dich_vu dv on dv.ma_dich_vu  = hd.ma_dich_vu
-where (hd.ngay_lam_hop_dong between '2020-10-01' and '2020-12-31') and hd.ma_dich_vu not in (select hd.ma_dich_vu from hop_dong hd 
+where (hd.ngay_lam_hop_dong between '2020-10-01' and '2020-12-31') and hd.ma_khach_hang not in (select hd.ma_khach_hang from hop_dong hd 
 where (hd.ngay_lam_hop_dong between '2021-01-01' and '2021-06-30'))
 group by hd.ma_hop_dong
 order by hd.ma_hop_dong;
@@ -314,10 +333,11 @@ select hdct.ma_dich_vu_di_kem, dvdk.ten_dich_vu_di_kem, sum(hdct.so_luong) as so
 from hop_dong_chi_tiet hdct
 inner join dich_vu_di_kem dvdk on dvdk.ma_dich_vu_di_kem = hdct.ma_dich_vu_di_kem
 group by hdct.ma_dich_vu_di_kem
-having sum(hdct.so_luong) = (select max(hdct.so_luong)from hop_dong_chi_tiet hdct); 
+having so_lan_su_dung = (select max(hdct.so_luong) from hop_dong_chi_tiet hdct); 
 
--- task 14 14.	Hiển thị thông tin tất cả các Dịch vụ đi kèm chỉ mới được sử dụng một lần duy nhất. 
- -- Thông tin hiển thị bao gồm ma_hop_dong, ten_loai_dich_vu, ten_dich_vu_di_kem, so_lan_su_dung 
+-- task 14 
+-- Hiển thị thông tin tất cả các Dịch vụ đi kèm chỉ mới được sử dụng một lần duy nhất. 
+-- Thông tin hiển thị bao gồm ma_hop_dong, ten_loai_dich_vu, ten_dich_vu_di_kem, so_lan_su_dung 
 use furama_resort;
 select hd.ma_hop_dong, ldv.ten_loai_dich_vu, dvdk.ten_dich_vu_di_kem, count(hdct.ma_dich_vu_di_kem) as so_lan_su_dung
 from hop_dong_chi_tiet hdct
@@ -331,6 +351,8 @@ order by hd.ma_hop_dong;
 
 
 -- task 15
+-- Hiển thi thông tin của tất cả nhân viên bao gồm ma_nhan_vien, 
+-- ho_ten, ten_trinh_do, ten_bo_phan, so_dien_thoai, dia_chi mới chỉ lập được tối đa 3 hợp đồng từ năm 2020 đến 2021.
 select nv.ma_nhan_vien, nv.ho_va_ten, td.ten_trinh_do, bp.ten_bo_phan, nv.so_dien_thoai, nv.dia_chi
 from nhan_vien nv
 inner join hop_dong hd on hd.ma_nhan_vien = nv.ma_nhan_vien
@@ -339,8 +361,9 @@ inner join bo_phan bp on bp.ma_bo_phan = nv.ma_bo_phan
 group by nv.ma_nhan_vien
 having count(nv.ma_nhan_vien) <= 3;
 
-
 -- task 16
+-- Xóa những Nhân viên chưa từng lập được hợp đồng nào từ năm 2019 đến năm 2021.
+use furama_resort;
 set sql_safe_updates = 0; 
 update nhan_vien
 set nhan_vien.`status` = 1
@@ -348,6 +371,8 @@ where nhan_vien.ma_nhan_vien not in (select distinct hd.ma_nhan_vien from hop_do
 set sql_safe_updates = 1;
 
 -- task 17
+-- Cập nhật thông tin những khách hàng có ten_loai_khach từ Platinum lên Diamond, 
+-- chỉ cập nhật những khách hàng đã từng đặt phòng với Tổng Tiền thanh toán trong năm 2021 là lớn hơn 10.000.000 VNĐ.
 set sql_safe_updates = 0; 
 update khach_hang
 set khach_hang.ma_loai_khach = 1
@@ -361,6 +386,7 @@ set sql_safe_updates = 1;
 
 
 -- task 18
+-- Xóa những khách hàng có hợp đồng trước năm 2021 (chú ý ràng buộc giữa các bảng).
 set sql_safe_updates = 0; 
 update khach_hang
 set khach_hang.`status` = 1
@@ -369,6 +395,7 @@ set sql_safe_updates = 1;
 
 
 -- task 19
+-- Cập nhật giá cho các dịch vụ đi kèm được sử dụng trên 10 lần trong năm 2020 lên gấp đôi.
 set sql_safe_updates = 0; 
 update dich_vu_di_kem
 set dich_vu_di_kem.gia = gia * 2
@@ -379,6 +406,8 @@ set sql_safe_updates = 1;
 
 
 -- task 20
+-- Hiển thị thông tin của tất cả các nhân viên và khách hàng có trong hệ thống,
+-- thông tin hiển thị bao gồm id (ma_nhan_vien, ma_khach_hang), ho_ten, email, so_dien_thoai, ngay_sinh, dia_chi.
 use furama_resort;
 create view danh_sach as
 select nv.ma_nhan_vien, nv.ho_va_ten, nv.email, nv.so_dien_thoai, nv.ngay_sinh, nv.dia_chi
@@ -386,25 +415,6 @@ from nhan_vien nv
 union 
 select kh.ma_khach_hang, kh.ho_ten, kh.email, kh.so_dien_thoai, kh.ngay_sinh, kh.dia_chi
 from khach_hang kh;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -1,0 +1,195 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.header{
+    display: flex;
+    background-color: #000;
+    color: #fff;
+    padding: 20px 50px;
+    justify-content: space-between;
+}
+
+.logo-box{
+    display: flex;
+}
+
+.form{
+    position: relative;
+    top: 5px;
+}
+
+.main{
+    height: 100%;
+    width: 100%;
+}
+
+#logo{
+    margin-right: 15px;
+}
+
+.form{
+    margin-left: 50px;
+}
+
+.icon-search{
+    position: absolute;
+    right: 10px;
+    top: 7px;
+    color: #d3dae2;
+    cursor: pointer;
+}
+
+.search-input{
+    border: none;
+    padding: 8px;
+    min-width: 350px;
+    border-radius: 15px;
+    outline: none;
+    background-color: #444648;
+    color: #fff;
+}
+
+.button{
+    min-width: 100px;
+    background-color: #3f94d5;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    margin: 0 3px;
+    cursor: pointer;
+}
+
+.button:hover{
+    background-color: #5da3d9;
+}
+
+.text-color{
+    color: orange;
+}
+
+.nav{
+    width: 100%;
+    background-color: #18191a;
+}
+
+.nav-bar{
+    text-align: center;
+}
+
+.nav-list{
+    display: inline-block;
+    font-size: 18px;
+    color: #fff;
+}
+
+.nav-list .nav-link{
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+    color: #fff;
+}
+
+.nav-link:hover{
+    background-color: #ccc;
+    color: #000;
+}
+
+.content{
+    padding: 20px;
+}
+
+.container{
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 10px;
+}
+
+.position{
+    position: relative;
+}
+
+.chapter{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.chapter.red-color{
+    background-color: rgb(174, 25, 25);
+}
+
+.chapter.green-color{
+    background-color: #8bc34a;
+}
+
+.chapter.blue-color{
+    background-color: rgb(40, 40, 149);
+}
+
+.chapter.orange-color{
+    background-color: orange;
+}
+
+.chapter.brown-color{
+    background-color: rgb(158, 66, 66);
+}
+
+.name{
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.box5{
+    grid-area: 1/2/3/4;
+}
+
+.imagine{
+    height: 100%;
+    width: 100%;
+}
+
+.layer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+    opacity: 0.1;
+}
+
+.layer:hover{
+    opacity: 0.3;
+}
+
+@keyframes fadeOut{
+    from{
+        opacity: 0.5;
+    }
+    to{
+        opacity: 0.1;
+    }
+}
+
+@keyframes fadeIn{
+    from{
+        opacity: 0.1;
+    }
+    to{
+        opacity: 0.5;
+    }
+}

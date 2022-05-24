@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .header-container{
+            display: flex;
+            justify-content: space-between;
+            height: 74px;
+            width: 100%;
+            padding: 0 20px;
+            background-color: rgb(61, 57, 57);
+        }
+
+        .nav{
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        #nav-list{
+            height: 100%;
+        }
+
+        .nav-list-item{
+            display: inline-block;
+            height: 100%;
+        }
+        
+        .nav-list-item a,
+        .nav #logo{
+            color: #fff;
+            padding: 0 20px;    
+        }
+
+        .nav-list-item a{
+            display: block;
+            height: 100%;
+            text-decoration: none;
+            font-size: 20px;
+            line-height: 74px;
+            color: rgb(108, 101, 101);
+        }
+
+        .nav-list-item a:hover{
+            background-color: #000;
+            color: #fff;
+        }
+
+        .login{
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        #login{
+            font-size: 20px;
+            color: rgb(108, 101, 101); 
+            margin-left: 5px;
+        }
+
+        .login i{
+            color: rgb(108, 101, 101); 
+            font-size: 25px;
+        }
+
+        .content{
+            display: flex;
+            padding: 20px;
+        }
+
+        .sidebar{
+            width: 25%;
+            text-align: center;
+        }
+
+        .sidebar-list{ 
+            list-style: none;
+        }
+
+        .sidebar-list li{ 
+            padding: 10px;
+        }
+
+        .sidebar-list a{ 
+            font-size: 18px;
+            text-decoration: none;
+        }
+
+        .para{
+            width: 50%;
+        }
+
+        .sidebar .box-ads{
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 2px 2px 5px #f9f9f9;
+        }
+
+
+        hr,
+        .first-para p,
+        .first-para h1,
+        .second-para h3,
+        .second-para p
+        {
+            margin: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="header-container">
+        <div class="nav">
+            <h1 id="logo">Logo</h1>
+            <ul id="nav-list">
+                <li class="nav-list-item">
+                    <a href="#">Home</a>
+                </li>
+                <li class="nav-list-item">
+                    <a href="#">About</a>
+                </li>
+                <li class="nav-list-item">
+                    <a href="#">Projects</a>
+                </li>
+                <li class="nav-list-item">
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <div class="login">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i>
+            <h1 id="login">Login</h1>
+        </div>
+    </header>
+    <div class="content">
+        <aside class="sidebar">
+            <ul class="sidebar-list">
+                <li>
+                    <a href="">Link</a>
+                </li>
+                <li>
+                    <a href="">Link</a>
+                </li>
+                <li>
+                    <a href="">Link</a>
+                </li>
+            </ul>
+        </aside>
+        <section class="para">
+            <div class="first-para">
+                <h1>Welcome</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Alias ad pariatur esse voluptatibus magni similique expedita 
+                    unde eaque sapiente aliquid voluptatem dignissimos voluptas 
+                    eligendi provident laboriosam sed asperiores ullam cumque illo, 
+                    incidunt officiis veniam id, doloremque eos. Asperiores, 
+                    cum inventore, nisi quod cumque nulla ad dolore quaerat eum, 
+                    possimus ex.
+                </p>
+            </div>
+            <hr>
+            <div class="second-para">
+                <h3>Test</h3>
+                <p>Lorem ipsum....</p>
+            </div>
+        </section>
+        <aside class="sidebar">
+            <div class="box-ads">
+                <p>Ads</p>
+            </div>
+            <div class="box-ads">
+                <p>Ads</p>
+            </div>
+        </aside>
+    </div>
+</body>
+</html>

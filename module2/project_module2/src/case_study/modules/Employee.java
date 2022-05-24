@@ -3,7 +3,8 @@ package case_study.modules;
 import java.util.Date;
 
 public class Employee extends Person{
-    private String employeeCode;
+    private static int employeeCode = 1;
+    private int currentCode;
     private String level;
     private String position;
     private Long salary;
@@ -13,20 +14,30 @@ public class Employee extends Person{
     }
 
     public Employee(String name, Date dateOfBirth, String gender, String id, String phoneMobile,
-                    String email, String employeeCode, String level, String position, Long salary){
+                    String email, int code, String level, String position, Long salary){
         super(name, dateOfBirth, gender, id, phoneMobile, email);
-        this.employeeCode = employeeCode;
+        this.currentCode = code;
         this.level = level;
         this.position = position;
         this.salary = salary;
     }
 
-    public String getEmployeeCode() {
-        return employeeCode;
+    public Employee(String name, Date dateOfBirth, String gender, String id, String phoneMobile,
+                    String email, String level, String position, Long salary){
+        super(name, dateOfBirth, gender, id, phoneMobile, email);
+        Employee.employeeCode += 1;
+        this.currentCode = Employee.employeeCode;
+        this.level = level;
+        this.position = position;
+        this.salary = salary;
     }
 
-    public void setEmployeeCode(String employeeCode) {
-        this.employeeCode = employeeCode;
+    public static int getEmployeeCode() {
+        return Employee.employeeCode;
+    }
+
+    public static void setEmployeeCode(int employeeCode) {
+        Employee.employeeCode = employeeCode;
     }
 
     public String getLevel() {
@@ -53,12 +64,25 @@ public class Employee extends Person{
         this.salary = salary;
     }
 
+    public int getCurrentCode() {
+        return currentCode;
+    }
+
+    public void setCurrentCode(int currentCode) {
+        this.currentCode = currentCode;
+    }
+
     @Override
     public String toString() {
         return super.toString()+
-                ", " + employeeCode +
+                ", " + currentCode +
                 ", " + level +
                 ", " + position +
                 ", " + salary;
+    }
+
+    public String getInfor(){
+        return super.getInfor() + "ID= "+ currentCode+ ", level= " + level+ ", position= " + position
+                + ", salary= " + salary;
     }
 }

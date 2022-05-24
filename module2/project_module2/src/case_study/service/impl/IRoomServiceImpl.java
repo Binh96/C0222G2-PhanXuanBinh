@@ -46,13 +46,8 @@ public class IRoomServiceImpl implements IFacilityService {
 
         iFacilityService.addServiceMaintain(roomList);
         iFacilityService.updateMaintain(room);
-        WriteFile.writeFileBackUp(roomList, pathBackUp);
         if(!iFacilityService.checkMaintain(roomList.size())) {
             WriteFile.writeFileAll(path, roomList);
-        }
-        else{
-            roomList.clear();
-            WriteFile.writeFileAllEmpty(path, roomList);
         }
     }
 

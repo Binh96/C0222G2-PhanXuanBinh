@@ -48,13 +48,8 @@ public class IVillaServiceImpl implements IFacilityService {
 
         iFacilityService.addServiceMaintain(villaList);
         iFacilityService.updateMaintain(villa);
-        WriteFile.writeFileBackUp(villaList, pathBackUp);
         if(!iFacilityService.checkMaintain(villaList.size())){
             WriteFile.writeFileAll(path, villaList);
-        }
-        else{
-            villaList.clear();
-            WriteFile.writeFileAllEmpty(path, villaList);
         }
     }
 

@@ -10,6 +10,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\case_study\utils\data\booking.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\case_study\utils\data\customer.csv">
           <value>
             <Attribute>

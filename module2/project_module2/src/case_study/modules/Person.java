@@ -82,4 +82,10 @@ public abstract class Person {
                 ", " + phoneMobile +
                 ", " + email ;
     }
+
+    public String getInfor(){
+        return "name= " + name +", date of birth= " + simpleDateFormat.format(dateOfBirth)
+                + ", gender= " + gender + ", ID= " + id + ", phone number= " + phoneMobile
+                + ", email= " + email;
+    }
 }

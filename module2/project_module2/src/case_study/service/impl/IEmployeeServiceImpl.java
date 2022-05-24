@@ -9,6 +9,7 @@ import case_study.modules.Employee;
 import case_study.service.IEmployeeService;
 import case_study.utils.read_write_files.ReadFile;
 import case_study.utils.read_write_files.WriteFile;
+import case_study.utils.valid.CheckInput;
 import case_study.utils.valid.InputDate;
 
 public class IEmployeeServiceImpl implements IEmployeeService {
@@ -32,8 +33,6 @@ public class IEmployeeServiceImpl implements IEmployeeService {
         String phoneNumber = sc.nextLine();
         System.out.print("Enter email: ");
         String email = sc.nextLine();
-        System.out.print("Enter employee code: ");
-        String employeeCode = sc.nextLine();
         System.out.print("Enter level: ");
         String level = chooseLevel();
         System.out.println("Enter position: ");
@@ -41,7 +40,8 @@ public class IEmployeeServiceImpl implements IEmployeeService {
         System.out.print("Enter salary: ");
         Long salary = Long.parseLong(sc.nextLine());
 
-        employeeList.add(new Employee(name, dob, id, gender, phoneNumber, email, employeeCode, level, position, salary));
+        Employee employee = new Employee(name, dob, id, gender, phoneNumber, email, level, position, salary);
+        employeeList.add(employee);
         WriteFile.writeFileAll(pathEmployee, employeeList);
     }
 
@@ -53,7 +53,7 @@ public class IEmployeeServiceImpl implements IEmployeeService {
         }
         else{
             for(Employee employee : employeeList){
-                System.out.println(employee);
+                System.out.println(employee.getInfor());
             }
         }
     }
@@ -64,9 +64,9 @@ public class IEmployeeServiceImpl implements IEmployeeService {
         boolean check = true;
         displayID();
         System.out.print("Enter employee code: ");
-        String code = sc.nextLine();
+        int code = CheckInput.intInput();
         for(Employee employee : employeeList){
-            if(!employee.getEmployeeCode().equals(code)){
+            if(Employee.getEmployeeCode() != code){
                 check = false;
             }
             else{
@@ -113,8 +113,8 @@ public class IEmployeeServiceImpl implements IEmployeeService {
                         }
                         case "idstaff" -> {
                             System.out.print("Edit id staff: ");
-                            String employeeCode = sc.nextLine();
-                            employee.setEmployeeCode(employeeCode);
+                            int employeeCode = CheckInput.intInput();
+                            Employee.setEmployeeCode(employeeCode);
                             WriteFile.writeFileAll(pathEmployee, employeeList);
                         }
                         case "level" -> {
@@ -152,7 +152,7 @@ public class IEmployeeServiceImpl implements IEmployeeService {
     public void displayID(){
         employeeList = ReadFile.readFileEmployee(pathEmployee);
         for(Employee employee : employeeList){
-            System.out.println("Name: "+ employee.getName()+ ", Employee code: "+employee.getEmployeeCode());
+            System.out.println("Name: "+ employee.getName()+ ", Employee code: "+ Employee.getEmployeeCode());
         }
     }
 

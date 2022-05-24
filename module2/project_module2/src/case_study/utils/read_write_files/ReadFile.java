@@ -1,6 +1,7 @@
 package case_study.utils.read_write_files;
 
 import case_study.modules.*;
+import case_study.utils.valid.CheckInput;
 import case_study.utils.valid.InputDate;
 
 import java.io.BufferedReader;
@@ -36,11 +37,9 @@ public class ReadFile {
             BufferedReader br = new BufferedReader(fr);
             String line;
             while((line = br.readLine()) != null){
-                if(line.isEmpty()){
-                    continue;
-                }
                 str = line.split(", ");
-                employeeList.add(new Employee(str[0], InputDate.covertDate(str[1]), str[2], str[3], str[4], str[5], str[6], str[7], str[8], Long.parseLong(str[9])));
+                employeeList.add(new Employee(str[0], InputDate.covertDate(str[1]), str[2], str[3], str[4], str[5],
+                        Integer.parseInt(str[6]),str[7], str[8], Long.parseLong(str[9])));
             }
         } catch (IOException e) {
             e.printStackTrace();

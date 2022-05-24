@@ -14,7 +14,6 @@ public class InputDate {
        Date objDate = null;
        while(check){
            try{
-               System.out.print("Enter date: ");
                objDate = simpleDateFormat.parse(sc.nextLine());
                check = false;
            }

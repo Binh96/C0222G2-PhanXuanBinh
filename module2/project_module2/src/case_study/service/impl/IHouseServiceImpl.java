@@ -45,13 +45,8 @@ public class IHouseServiceImpl implements IFacilityService {
 
         iFacilityService.addServiceMaintain(houseList);
         iFacilityService.updateMaintain(house);
-        WriteFile.writeFileBackUp(houseList, pathBackUp);
         if(!iFacilityService.checkMaintain(houseList.size())){
             WriteFile.writeFileAll(path, houseList);
-        }
-        else{
-            houseList.clear();
-            WriteFile.writeFileAllEmpty(path, houseList);
         }
     }
 

@@ -18,4 +18,17 @@ public class CheckInput {
         }
         return input;
     }
+
+    public static Integer intInput(){
+        while(true){
+            try{
+                return Integer.parseInt(sc.nextLine());
+            }
+            catch (NumberFormatException e){
+                e.printStackTrace();
+                System.out.println();
+                System.out.print("Enter again: ");
+            }
+        }
+    }
 }

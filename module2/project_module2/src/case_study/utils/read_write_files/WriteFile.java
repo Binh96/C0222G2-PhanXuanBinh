@@ -30,20 +30,4 @@ public class WriteFile {
         }
         writeFile(path, eStringList);
     }
-
-    public static <E> void writeFileBackUp(List<E> list, String pathBackUp){
-        List<String> eStringList = new ArrayList<>();
-        for(E e : list){
-            eStringList.add(String.valueOf(e));
-        }
-        writeFile(pathBackUp, eStringList);
-    }
-
-    public static <E> void writeFileAllEmpty(String path, List<E> list){
-        List<String> eStringList = new ArrayList<>();
-        for(E e : list){
-            eStringList.add(String.valueOf(e));
-        }
-        writeFile(path, eStringList);
-    }
 }
