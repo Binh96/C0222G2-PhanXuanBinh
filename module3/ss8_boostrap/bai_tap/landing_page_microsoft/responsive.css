@@ -1,0 +1,23 @@
+
+@media screen and (min-width: 1630px){
+
+    .secondary-wrap{
+        width: 1120px;
+        margin: 0 auto;
+    }
+
+    .wrapper{
+        width: 1630px;
+        margin: 0 auto;
+    }
+
+}
+
+@media  screen and (max-width: 1630px) {
+
+    .wrapper{
+        width: 1150px;
+        margin: 0 auto;
+    }
+}
+
