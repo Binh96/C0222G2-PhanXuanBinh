@@ -1,0 +1,13 @@
+@media screen and (max-width: 1366px){
+    .hide-on-low-devices{
+        display: none;
+    }
+
+    .dropdown-menu-position{
+        left: -170px !important;
+    }
+
+    .dropdown-menu-position2{
+        left: -950px !important;
+    }
+}
