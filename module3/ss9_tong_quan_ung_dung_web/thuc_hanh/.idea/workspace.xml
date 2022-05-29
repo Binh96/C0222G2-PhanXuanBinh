@@ -20,8 +20,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eed83608-64ef-4f42-ba17-4bf4ac973b18" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../ss8_boostrap/bai_tap/landing_page_microsoft/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss8_boostrap/bai_tap/landing_page_microsoft/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../ss8_boostrap/bai_tap/landing_page_microsoft/responsive.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../ss8_boostrap/bai_tap/landing_page_microsoft/responsive.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/time_system/.gradle/6.1/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/time_system/.gradle/6.1/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/time_system/.gradle/6.1/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/time_system/.gradle/6.1/fileContent/fileContent.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/time_system/.gradle/6.1/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/time_system/.gradle/6.1/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/time_system/.gradle/6.1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/time_system/.gradle/6.1/javaCompile/classAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/time_system/.gradle/6.1/javaCompile/javaCompile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/time_system/.gradle/6.1/javaCompile/taskHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/time_system/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/time_system/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/time_system/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/time_system/.gradle/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/time_system/.gradle/checksums/md5-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/time_system/.gradle/checksums/sha1-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/time_system/.gradle/vcs-1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/time_system/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/time_system/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/time_system/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/time_system/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/time_system/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/time_system/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/time_system/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/time_system/build/classes/java/main/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/time_system/build/libs/time_system-1.0-SNAPSHOT.war" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/time_system/build/tmp/war/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/time_system/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/time_system/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/time_system/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/time_system/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/time_system/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/time_system/src/main/java/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/time_system/src/main/webapp/index.jsp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +75,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/ss09 (1)" />
@@ -131,6 +165,7 @@
       <option name="presentableId" value="Default" />
       <updated>1653703574133</updated>
       <workItem from="1653703591157" duration="1138000" />
+      <workItem from="1653815077409" duration="42000" />
     </task>
     <servers />
   </component>
@@ -147,6 +182,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="777" y="417" key="#Tomcat_Server" timestamp="1653704085811">
@@ -157,13 +193,13 @@
       <screen x="78" y="0" width="1842" height="1080" />
     </state>
     <state x="453" y="194" key="#com.intellij.execution.impl.EditConfigurationsDialog/78.0.1842.1080@78.0.1842.1080" timestamp="1653704097202" />
-    <state x="778" y="280" key="FileChooserDialogImpl" timestamp="1653704748331">
+    <state x="778" y="280" key="FileChooserDialogImpl" timestamp="1653815096299">
       <screen x="78" y="0" width="1842" height="1080" />
     </state>
-    <state x="778" y="280" key="FileChooserDialogImpl/78.0.1842.1080@78.0.1842.1080" timestamp="1653704748331" />
-    <state x="381" y="150" key="new project wizard" timestamp="1653704752190">
+    <state x="778" y="280" key="FileChooserDialogImpl/78.0.1842.1080@78.0.1842.1080" timestamp="1653815096299" />
+    <state x="381" y="150" key="new project wizard" timestamp="1653815123268">
       <screen x="78" y="0" width="1842" height="1080" />
     </state>
-    <state x="381" y="150" key="new project wizard/78.0.1842.1080@78.0.1842.1080" timestamp="1653704752190" />
+    <state x="381" y="150" key="new project wizard/78.0.1842.1080@78.0.1842.1080" timestamp="1653815123268" />
   </component>
 </project>
