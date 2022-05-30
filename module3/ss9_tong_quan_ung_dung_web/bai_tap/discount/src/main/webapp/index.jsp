@@ -11,7 +11,7 @@
     <title>Discount</title>
   </head>
   <body>
-  <form action="/display-discount.html" method="post">
+  <form action="/display-discount" method="post">
     <label for="">Product Description</label>
     <input type="text" placeholder="Product Description" name="productdesc">
     <label for="">List Price</label>
