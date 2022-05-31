@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e40691eb-982a-4fa3-8131-cb04003b8caf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bai_tap/CountWordUseMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/bai_tap/CountWordUseMap.java" afterDir="false" />
-    </list>
+    <list default="true" id="e40691eb-982a-4fa3-8131-cb04003b8caf" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,7 +35,9 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../LearnJava/case_study/java/manager" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../module3/ss11_modal_mvc/bai_tap" />
   </component>
   <component name="RunManager" selected="Application.test">
     <configuration name="CountWordUseMap" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -75,6 +74,9 @@
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="e40691eb-982a-4fa3-8131-cb04003b8caf" name="Changes" comment="" />
@@ -82,7 +84,17 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1650028105527</updated>
+      <workItem from="1653998325397" duration="38000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="779" y="294" key="FileChooserDialogImpl" timestamp="1653998362751">
+      <screen x="78" y="0" width="1842" height="1080" />
+    </state>
+    <state x="779" y="294" key="FileChooserDialogImpl/78.0.1842.1080@78.0.1842.1080" timestamp="1653998362751" />
   </component>
 </project>

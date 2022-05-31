@@ -198,7 +198,8 @@ public class ProductServlet extends HttpServlet {
             request.getRequestDispatcher("error-404.jsp").forward(request, response);
         }
         else{
-            response.sendRedirect("/products");
+            request.setAttribute("products", product);
+            request.getRequestDispatcher("product/search.jsp").forward(request, response);
         }
     }
 }

@@ -14,7 +14,7 @@
 <body>
 <h1>Danh sách sản phẩm</h1>
 <h3>Search</h3>
-<form method="post"  >
+<form method="post"  action="/products?action=search">
     <input type="text" name="search">
     <input type="submit" value="press me">
 </form>
