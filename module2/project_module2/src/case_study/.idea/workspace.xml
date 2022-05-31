@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c54b46ff-6d1e-4dea-84f5-df541c574749" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/read_write_files/ReadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/read_write_files/ReadFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/Demo.java" beforeDir="false" afterPath="$PROJECT_DIR$/views/Demo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/utils/data/back_up/roomBackUp.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/project_module2/case_study/utils/data/back_up/roomBackUp.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/utils/data/room.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/project_module2/case_study/utils/data/room.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/project_module2/case_study/views/Demo.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/project_module2/case_study/views/Demo.class" afterDir="false" />
-    </list>
+    <list default="true" id="c54b46ff-6d1e-4dea-84f5-df541c574749" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,9 +28,14 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../LearnJava/project/theater/src/services/impl/IServiceImpl.java" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="c54b46ff-6d1e-4dea-84f5-df541c574749" name="Changes" comment="" />
@@ -46,7 +43,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1651940957729</updated>
+      <workItem from="1653988775948" duration="57000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
   </component>
 </project>
