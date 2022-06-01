@@ -1,8 +1,8 @@
 package controller;
 
-import model.Product;
-import service.ProductService;
-import service.impl.ProductServiceImpl;
+import Model.model.Product;
+import Model.service.ProductService;
+import Model.service.impl.ProductServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

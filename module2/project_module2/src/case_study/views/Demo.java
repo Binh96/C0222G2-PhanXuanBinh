@@ -9,11 +9,20 @@ import java.text.ParseException;
 
 public class Demo {
     public static void main(String[] args) throws ParseException, DateException {
-        Scanner scanner = new Scanner(System.in);
-//        Date dob = InputDate.dateValid();
-//        while(!CheckBirthday.checkBirthday(String.valueOf(dob))){
-//            dob = InputDate.dateValid();
-//        }
+        int h = 10;
+        for(int i=1; i<=h  ; i++){
+            for(int j  = i; j <=h ; j++){
+                System.out.print(" ");
+            }
+            for(int k=1; k<=i*2 ; k++){
+                if(k==1 || (k==(i*2-1)) || i==h){
+                    System.out.print(" ");
+                }
+                else{
+                    System.out.print("*");
+                }
+            }
+        }
 
     }
 
