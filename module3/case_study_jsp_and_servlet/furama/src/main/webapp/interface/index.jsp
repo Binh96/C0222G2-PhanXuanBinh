@@ -8,17 +8,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../interface/css/style.css">
     <title>Furama</title>
+    <style><%@include file="../style.css"%></style>
 </head>
 <body>
     <div class="main">
         <header class="header">
             <div class="d-lg-flex justify-content-between align-items-lg-center py-lg-4 px-lg-5">
                 <a href="">
-                    <img src="https://images.unsplash.com/photo-1653874525275-3dee940b034c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60" alt="" width="80px" height="80px">
+                    <img class="logo-img" src="https://images.unsplash.com/photo-1653874525275-3dee940b034c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60" alt="" width="80px" height="80px">
                 </a>
-                <h2 class="text-dark">Furama</h2>
+                <h2 class="text-white">Furama</h2>
             </div>
         </header>
         <nav class="navbar navbar-expand-lg bg-light">
@@ -29,47 +29,48 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item px-lg-3">
-                    <a class="nav-link active" aria-current="page" href="?action">Home</a>
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
                   </li>
                   <li class="nav-item px-lg-3 ">
-                    <a class="nav-link" href="?action=employee">Employee</a>
+                      <a class="nav-link" href="/employee">Employee</a>
                   </li>
                   <li class="nav-item px-lg-3">
-                    <a class="nav-link" href="?action=customer">Customer</a>
+                    <a class="nav-link" href="/customer">Customer</a>
                   </li>
                   <li class="nav-item px-lg-3">
-                    <a class="nav-link" href="?action=service">Service</a>
+                    <a class="nav-link" href="/service">Service</a>
                   </li>
                   <li class="nav-item px-lg-3">
                     <a class="nav-link" href="?action=contract">Contract</a>
                   </li>
                 </ul>
                 <form class="d-flex" role="search" method="post" action="?action=search">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
                   <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
               </div>
             </div>
         </nav>
-        <section class="content container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <ul class="sidebar-list list-group">
-                        <li class="sidebar-item list-group-item"><a href="?action=employee">Employee</a></li>
-                        <li class="sidebar-item list-group-item"><a href="?action=customer">Customer</a></li>
-                        <li class="sidebar-item list-group-item"><a href="?action=service">Service</a></li>
-                        <li class="sidebar-item list-group-item"><a href="?action=contract">Contract</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-8">
-                    <h1>Furama</h1>
-                    <p>Welcome to Furama resort, we're happy to have you join with us into journey</p>
-                    <p>Wish all you has nice vacation</p>
+        <section class="content">
+            <div class="container pt-5">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <ul class="sidebar-list list-group">
+                            <li class="sidebar-item list-group-item"><a href="#">None</a></li>
+                            <li class="sidebar-item list-group-item"><a href="#">None</a></li>
+                            <li class="sidebar-item list-group-item"><a href="#">None</a></li>
+                        </ul>
+                    </div>
+                    <div class="bg-right col-lg-9 text-white">
+                        <h1 class="">Furama</h1>
+                        <p>Welcome to Furama resort, we're happy to have you join with us into journey</p>
+                        <p>Wish all you has nice vacation</p>
+                    </div>
                 </div>
             </div>
         </section>
         <footer>
-            <h5>Welcome to Furama</h5>
+            <h5 class="m-0">Welcome to Furama</h5>
         </footer>
     </div>
 
