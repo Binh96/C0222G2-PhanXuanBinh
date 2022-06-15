@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    height: 57px;
+}
+
+.header-container{
+    height: 100%;
+}
+
+.img-logo{
+    border-radius: 50%;
+}
+.slider{
+    height: 500px;
+}
+
+@media screen and (max-width: 1100px) {
+    .slider{
+        height: 356px;
+    }
+}
+
+#myTable_info{
+    display: none !important;
+}
+
+.pagination{
+    justify-content: center !important;
+}
+
+.modal-dialog{
+    max-width: 700px;
+}
+
+footer{
+    height: 72px;
+    background-color: #2b2b2b;
+}
+
+.content{
+    height: 100vh !important;
+}

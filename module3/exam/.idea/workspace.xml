@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0aa06f9f-3dd7-49ad-9a3d-3ecc4d26bcf3" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="2AMqdlEGQnMNgKRnbFAVvQPs2en" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0aa06f9f-3dd7-49ad-9a3d-3ecc4d26bcf3" name="Default Changelist" comment="" />
+      <created>1654829891257</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1654829891257</updated>
+      <workItem from="1654829896840" duration="244000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="202" y="0" key="#Project_Structure" timestamp="1654830055731">
+      <screen x="78" y="0" width="1288" height="768" />
+    </state>
+    <state x="202" y="0" key="#Project_Structure/78.0.1288.768@78.0.1288.768" timestamp="1654830055731" />
+    <state x="176" y="38" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1654830075947">
+      <screen x="78" y="0" width="1288" height="768" />
+    </state>
+    <state x="176" y="38" key="#com.intellij.execution.impl.EditConfigurationsDialog/78.0.1288.768@78.0.1288.768" timestamp="1654830075947" />
+    <state x="501" y="138" key="FileChooserDialogImpl" timestamp="1654830135521">
+      <screen x="78" y="0" width="1288" height="768" />
+    </state>
+    <state x="501" y="138" key="FileChooserDialogImpl/78.0.1288.768@78.0.1288.768" timestamp="1654830135521" />
+    <state x="104" y="0" key="new project wizard" timestamp="1654830148281">
+      <screen x="78" y="0" width="1288" height="768" />
+    </state>
+    <state x="104" y="0" key="new project wizard/78.0.1288.768@78.0.1288.768" timestamp="1654830148281" />
+  </component>
+</project>
