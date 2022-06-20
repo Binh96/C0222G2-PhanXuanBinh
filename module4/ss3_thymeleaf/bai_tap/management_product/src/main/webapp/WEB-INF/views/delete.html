@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<form th:action="@{/product/delete}" method="get" th:object="${product}">
+    <table th:border="1">
+        <tr>
+            <td>Mã sản phẩm</td>
+            <td>
+                <input type="text" th:field="*{id}">
+            </td>
+        </tr>
+        <tr>
+            <td>Tên sản phẩm</td>
+            <td>
+                <input type="text" th:field="*{nameProduct}">
+            </td>
+        </tr>
+        <tr>
+            <td>Giá</td>
+            <td>
+                <input type="text" th:field="*{price}">
+            </td>
+        </tr>
+        <tr>
+            <td>Mô tả</td>
+            <td>
+                <input type="text" th:field="*{descProduct}">
+            </td>
+        </tr>
+        <tr>
+            <td>Nhà sản xuất</td>
+            <td>
+                <input type="text" th:field="*{producer}">
+            </td>
+        </tr>
+    </table>
+    <button>Xóa</button>
+    <button><a href="/product">Trở về</a></button>
+</form>
+
+<footer th:replace="/layout::footer">
+</footer>
+</body>
+</html>
