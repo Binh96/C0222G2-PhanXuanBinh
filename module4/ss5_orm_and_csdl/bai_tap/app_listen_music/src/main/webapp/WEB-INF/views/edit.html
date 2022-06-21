@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Music</title>
+</head>
+<body>
+<form action="/song/edit" method="post" th:object="${music}">
+    <table>
+        <tr>
+            <td>Stt</td>
+            <td th:text="*{id}"></td>
+        </tr>
+        <tr>
+            <td>Ten bai hat</td>
+            <td>
+                <input type="text" th:field="*{nameSong}">
+            </td>
+        </tr>
+        <tr>
+            <td>Ten ca si</td>
+            <td>
+                <input type="text" th:field="*{nameSinger}">
+            </td>
+        </tr>
+        <tr>
+            <td>The loai</td>
+            <td>
+                <input type="text" th:field="*{typeSong}">
+            </td>
+        </tr>
+        <tr>
+            <td>Duong dan</td>
+            <td>
+                <input type="text" th:field="*{pathSong}">
+            </td>
+        </tr>
+    </table>
+    <button>Edit</button>
+    <button><a href="/song/">Tro ve</a></button>
+</form>
+</body>
+</html>

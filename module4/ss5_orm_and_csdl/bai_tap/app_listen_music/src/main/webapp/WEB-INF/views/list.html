@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Music</title>
+</head>
+<body>
+<table border="1">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Ten bai hat</th>
+            <th>Ten ca si</th>
+            <th>The loai</th>
+            <th>Duong dan</th>
+            <th colspan="2">Option</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="song : ${songs}">
+            <td th:text="${song.id}"></td>
+            <td th:text="${song.nameSong}"></td>
+            <td th:text="${song.nameSinger}"></td>
+            <td th:text="${song.typeSong}"></td>
+<!--            <td><a th:href="${song.pathSong}" th:text="${song.pathSong}"></a></td>-->
+            <td>
+                <audio controls src="" th:attr="src=${song.pathSong}" type="audio/mpeg">
+                </audio>
+            </td>
+            <td><a th:href="@{/song/{id}/edit(id=${song.id})}">Edit</a></td>
+            <td><a th:href="@{/song/{id}/delete(id=${song.id})}">Delete</a></td>
+        </tr>
+    </tbody>
+</table>
+<a href="/song/create">Them moi</a>
+</body>
+</html>

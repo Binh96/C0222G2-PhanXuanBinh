@@ -65,7 +65,7 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> searchByName(String name) {
         List<Product> productList = new ArrayList<>();
         for(Product p : products){
-            if(name.contains(p.getNameProduct())){
+            if(p.getNameProduct().contains(name)){
                 productList.add(p);
             }
         }

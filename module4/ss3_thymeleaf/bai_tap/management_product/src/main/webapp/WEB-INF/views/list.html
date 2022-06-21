@@ -3,7 +3,10 @@
 <head th:replace="/layout :: head">
 </head>
 <body>
-
+<form th:action="@{/product/search}" method="get">
+    <input type="text" name="searchValue">
+    <button>Tìm kiếm</button>
+</form>
 <table th:border="1" id="products">
     <thead>
         <tr>
