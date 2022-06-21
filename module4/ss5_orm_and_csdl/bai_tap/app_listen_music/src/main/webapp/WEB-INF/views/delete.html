@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Music</title>
+</head>
+<body>
+<form action="/song/delete" th:object="${music}">
+    <table>
+        <tr>
+            <td>Stt</td>
+            <td>
+                <input type="text" th:field="*{id}">
+            </td>
+        </tr>
+        <tr>
+            <td>Ten bai hat</td>
+            <td th:text="*{nameSong}"></td>
+        </tr>
+        <tr>
+            <td>Ten ca si</td>
+            <td th:text="*{nameSinger}"></td>
+        </tr>
+        <tr>
+            <td>The loai</td>
+            <td th:text="*{typeSong}"></td>
+        </tr>
+        <tr>
+            <td>Duong dan</td>
+            <td th:text="*{pathSong}"></td>
+        </tr>
+    </table>
+    <button>Xoa</button>
+    <button><a href="/song/">Tro ve</a></button>
+</form>
+</body>
+</html>

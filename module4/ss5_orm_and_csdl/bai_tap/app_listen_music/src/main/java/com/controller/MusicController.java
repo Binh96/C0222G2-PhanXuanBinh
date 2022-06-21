@@ -40,7 +40,23 @@ public class MusicController {
 
     @PostMapping("/edit")
     public String editSong(@ModelAttribute Music music){
+        System.out.println(music.getId());
+        System.out.println(music.getTypeSong());
+        System.out.println(music.getNameSinger());
+        System.out.println(music.getNameSong());
         musicService.updateMusic(music, music.getId());
+        return "redirect: /song";
+    }
+
+    @GetMapping("{id}/delete")
+    public String deleteSong(@PathVariable int id, Model model){
+        model.addAttribute("music", musicService.selectMusic(id));
+        return "delete";
+    }
+
+    @GetMapping("/delete")
+    public String deleteSong(@ModelAttribute Music music){
+        musicService.deleteMusic(music.getId());
         return "redirect: /song";
     }
 

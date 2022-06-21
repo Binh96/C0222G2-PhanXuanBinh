@@ -67,7 +67,7 @@ public class HibernateMusicServiceImpl implements MusicService {
             origin.setNameSinger(music.getNameSinger());
             origin.setTypeSong(music.getTypeSong());
             origin.setPathSong(music.getPathSong());
-            session.update(music);
+            session.update(origin);
             tx.commit();
         }
         catch (HibernateException e){
@@ -88,7 +88,23 @@ public class HibernateMusicServiceImpl implements MusicService {
 
     @Override
     public void deleteMusic(int id) {
-
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            Music origin = selectMusic(id);
+            session.delete(origin);
+            tx.commit();
+        }
+        catch (HibernateException e){
+            if(tx != null){
+                tx.rollback();
+                e.printStackTrace();
+            }
+        }
+        finally {
+            session.close();
+        }
     }
 
     @Override

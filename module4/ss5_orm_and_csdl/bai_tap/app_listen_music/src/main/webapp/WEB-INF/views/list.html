@@ -24,7 +24,7 @@
             <td th:text="${song.typeSong}"></td>
 <!--            <td><a th:href="${song.pathSong}" th:text="${song.pathSong}"></a></td>-->
             <td>
-                <audio controls src="" th:attr="src=${song.pathSong}" type="audio/mpeg">
+                <audio controls src="" th:attr="src=${song.pathSong}">
                 </audio>
             </td>
             <td><a th:href="@{/song/{id}/edit(id=${song.id})}">Edit</a></td>

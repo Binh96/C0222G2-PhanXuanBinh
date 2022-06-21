@@ -1,6 +1,6 @@
 package com.service.impl;
 
-import com.module.Product;
+import com.model.Product;
 import com.service.ProductService;
 import org.springframework.stereotype.Service;
 
