@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/home :: head">
+</head>
+<body>
+    <header th:replace="/home :: header">
+
+    </header>
+    <div class="main bg-black py-3 vh-100">
+        <div class="container">
+            <form action="/blog/create" th:object="${blog}" method="post">
+                <label for="" class="text-white">Tieu de: </label>
+                <input type="text" class="form-control" th:field="${blog.title}">
+                <label for="" class="text-white">Hinh anh:</label>
+                <input type="text" class="form-control" th:field="${blog.img}">
+                <label for="" class="text-white">Noi dung: </label>
+                <textarea class="form-control" name="" id="" cols="30" rows="3" th:field="${blog.content}"></textarea>
+                <br>
+                <button class="btn btn-secondary">Dang bai</button>
+                <button class="btn btn-secondary"><a href="/blog" class="text-decoration-none text-white">Tro ve</a></button>
+            </form>
+        </div>
+    </div>
+
+
+    <th:block th:replace="/home :: cdn">
+
+    </th:block>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{/commom :: head}">
+</head>
+<body>
+<header th:replace="~{/commom:: header}">
+
+</header>
+
+<div class="content">
+    <div class="container content-body">
+        <div class="col-8">
+            <h2>the lastest & greatest</h2>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" th:each="post: ${posts}">
+                    <img src="" alt="" th:attr="src=${post.imgPath}">
+                    <div class="list-item-content">
+                        <p class="list-item-content-date mb-2" th:text="${post.datePost}"></p>
+                        <h2 class="list-item-content-title mb-2" th:text="${post.title}"></h2>
+                        <p class="list-item-content-desc mb-2" th:text="${post.description}"></p>
+                        <a href="" class="text-decoration-none">continue reading</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-4">
+
+        </div>
+    </div>
+</div>
+
+<footer th:replace="~{/commom:: footer}">
+
+</footer>
+<th:block th:replace="cdn">
+
+</th:block>
+</body>
+</html>
