@@ -16,7 +16,7 @@ public class Post {
     @Column(name = "noi_dung")
     private String content;
 
-    @Column(name = "ngay_dang")
+    @Column(name = "ngay_dang", columnDefinition = "date")
     private Date datePost;
 
     @Column(name="hinh_anh")
@@ -31,8 +31,39 @@ public class Post {
     @Column(name = "mo_ta")
     private String description;
 
+    @ManyToOne
+    @JoinColumn(name = "catagory_id", referencedColumnName = "id")
+    private Catagory catagory;
+
     public Post(){
 
+    }
+
+    public Post(String title, String content, String imgPath){
+        this.title = title;
+        this.content = content;
+        this.imgPath = imgPath;
+    }
+
+    public Post(int id, String title, String content, Date datePost, String imgPath,
+                Integer like, Integer dislike, String description, Catagory catagory) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.datePost = datePost;
+        this.imgPath = imgPath;
+        this.like = like;
+        this.dislike = dislike;
+        this.description = description;
+        this.catagory = catagory;
+    }
+
+    public Post(String title, String content, String imgPath, String desc, Date datePost){
+        this.title = title;
+        this.content = content;
+        this.imgPath = imgPath;
+        this.description = desc;
+        this.datePost = datePost;
     }
 
     public Post(int id, String title, String content, Date datePost, String imgPath, Integer like,
@@ -109,5 +140,13 @@ public class Post {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Catagory getCatagory() {
+        return catagory;
+    }
+
+    public void setCatagory(Catagory catagory) {
+        this.catagory = catagory;
     }
 }

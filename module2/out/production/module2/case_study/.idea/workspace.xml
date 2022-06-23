@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c54b46ff-6d1e-4dea-84f5-df541c574749" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/src/main/webapp/employee/list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../module3/ss12_JDBC_CRUD/bai_tap/.idea/bai_tap.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/.gradle/6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/.gradle/6.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/.gradle/6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/.gradle/6.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/.gradle/6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/.gradle/6.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/.gradle/6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/.gradle/6.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/.gradle/6.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/.gradle/6.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/.gradle/6.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/.gradle/6.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/build/classes/java/main/controller/FuramaServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/build/classes/java/main/controller/FuramaServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/build/libs/furama-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/build/libs/furama-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/src/main/java/Model/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/src/main/java/Model/model/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/src/main/java/Model/model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/src/main/java/Model/model/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/src/main/java/Model/model/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/src/main/java/Model/model/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/src/main/java/Model/repository/IEmployeeRepoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/src/main/java/Model/repository/IEmployeeRepoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/src/main/java/Model/repository/IEmployeeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/src/main/java/Model/repository/IEmployeeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/src/main/java/Model/repository/IFuramaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/src/main/java/Model/repository/IFuramaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/src/main/java/Model/repository/IFuramaRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/src/main/java/Model/repository/IFuramaRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/src/main/java/Model/repository/furama_resort.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/src/main/java/controller/FuramaServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/src/main/java/controller/FuramaServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/src/main/webapp/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/src/main/webapp/interface/add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/src/main/webapp/employee/add.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/src/main/webapp/interface/css/image/logo.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/src/main/webapp/interface/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/src/main/webapp/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/src/main/webapp/interface/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/src/main/webapp/interface/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/case_study_jsp_and_servlet/furama/src/main/webapp/interface/list.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/case_study_module3/furama_resort.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/case_study_module3/furama_resort.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module3/ss12_JDBC_CRUD/thuc_hanh/user_management/src/main/java/Model/repository/demo.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module3/ss12_JDBC_CRUD/thuc_hanh/user_management/src/main/java/Model/repository/demo.sql" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="28qP4t36fCjb0nWPub5eWF4bveA" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c54b46ff-6d1e-4dea-84f5-df541c574749" name="Changes" comment="" />
+      <created>1651940957729</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1651940957729</updated>
+      <workItem from="1653988775948" duration="57000" />
+      <workItem from="1654092082896" duration="646000" />
+      <workItem from="1654130748347" duration="1369000" />
+      <workItem from="1654219228490" duration="3817000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="502" y="138" key="FileChooserDialogImpl" timestamp="1654132941013">
+      <screen x="78" y="0" width="1288" height="768" />
+    </state>
+    <state x="502" y="138" key="FileChooserDialogImpl/78.0.1288.768@78.0.1288.768" timestamp="1654132941013" />
+    <state x="104" y="0" key="new project wizard" timestamp="1654132966524">
+      <screen x="78" y="0" width="1288" height="768" />
+    </state>
+    <state x="104" y="0" key="new project wizard/78.0.1288.768@78.0.1288.768" timestamp="1654132966524" />
+  </component>
+</project>
