@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SigninformApplication {
+public class MusicformApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SigninformApplication.class, args);
+        SpringApplication.run(MusicformApplication.class, args);
     }
 
 }
