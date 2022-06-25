@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+</head>
+<body>
+<form th:action="@{/product/search}" method="get">
+    <input type="text" name="searchValue">
+    <button>Tim kiem</button>
+</form>
+<table th:border="1" id="products">
+    <thead>
+        <tr>
+            <th>Ma san pham</th>
+            <th>Ten san pham</th>
+            <th>Gia</th>
+            <th>Mo ta</th>
+            <th>Nha san xuat</th>
+            <th colspan="3">Option</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr th:each="product : ${products}">
+            <td th:text="${product.getId()}"></td>
+            <td th:text="${product.getNameProduct()}"></td>
+            <td th:text="${product.getPrice()}"></td>
+            <td th:text="${product.getDescProduct()}"></td>
+            <td th:text="${product.getProducer()}"></td>
+            <td><a th:href="@{/product/{id}/edit(id=${product.getId()})}">Edit</a></td>
+            <td><a th:href="@{/product/{id}/delete(id=${product.getId()})}">Delete</a></td>
+            <td><a th:href="@{/product/{id}/view(id=${product.getId()})}">View</a></td>
+        </tr>
+    </tbody>
+</table>
+<div>
+    <div th:if="${success}">
+        <span th:text="${success}"></span>
+    </div>
+</div>
+<a th:href="@{/product/create}">create new one</a>
+<footer th:replace="/layout ::footer">
+</footer>
+</body>
+</html>
