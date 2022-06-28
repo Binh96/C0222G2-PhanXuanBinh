@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{common::head}">
+</head>
+<body>
+<div th:replace="~{common::main}">
+</div>
+<div class="common-position">
+    <ul>
+        <li>
+            <h4>Stt</h4>
+            <h4>Mã khách hàng</h4>
+            <h4>Họ và tên</h4>
+            <h4>Ngày sinh</h4>
+            <h4>Cmnd</h4>
+            <h4>Số điện thoại</h4>
+            <h4>Email</h4>
+            <h4>Giới tính</h4>
+            <h4>Loại khách hàng</h4>
+            <h4>Địa chỉ</h4>
+        </li>
+       <li th:each="customer : ${customers}">
+           <p th:text="${customer.id}"></p>
+           <p th:text="${customer.customerName}"></p>
+           <p th:text="${customer.customerBirthday}"></p>
+           <p th:text="${customer.customerIdCard}"></p>
+           <p th:text="${customer.customerNumberPhone}"></p>
+           <p th:text="${customer.customerEmail}"></p>
+           <p th:each="gender: ${genders}">
+               <p th:if=""></p>
+           </p>
+           <p th:text="${customer.id}"></p>
+           <p th:text="${customer.id}"></p>
+       </li>
+    </ul>
+</div>
+</body>
+</html><

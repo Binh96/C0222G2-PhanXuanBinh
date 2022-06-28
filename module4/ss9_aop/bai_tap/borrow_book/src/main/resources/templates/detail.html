@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Libraries</title>
+</head>
+<body>
+<table border="1">
+    <thead>
+    <tr>
+        <th>STT</th>
+        <th>Tên sách</th>
+        <th>Tác giả</th>
+        <th>Số lượng</th>
+        <th>Option</th>
+        <th>Trả sách</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr th:object="${book}">
+            <td th:text="*{id}"></td>
+            <td th:text="*{nameOfBook}"></td>
+            <td th:text="*{author}"></td>
+            <td th:text="*{quantity}"></td>
+            <td>
+                <a th:href="@{/book/borrow(id=*{id})}">Mượn sách</a>
+            </td>
+            <td>
+                <a th:href="@{/book/giveback(id=${book.id})}">trả sách</a>
+            </td>
+        </tr>
+    </tbody>
+    <a href="/book">Trở về</a>
+</table>
+</body>
+</html>

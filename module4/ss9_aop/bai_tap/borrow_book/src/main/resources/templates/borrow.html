@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Libraries</title>
+</head>
+<body>
+<form action="/book/borrow" method="post">
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Mã mượn sách</th>
+                <th>Tên sách</th>
+                <th>Tác giả</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:object="${user}">
+                <td>
+                    <input type="text" th:field="*{codeOfBorrow}" readonly>
+                </td>
+                <td>
+                    <select name="" id="" th:field="*{book}">
+                        <option th:value="${book1.id}" th:text="${book1.nameOfBook}"></option>
+                    </select>
+                </td>
+            </tr>
+<!--            <tr th:object="${book}">-->
+<!--                <td>-->
+<!--                    <input type="text" th:field="*{id}" readonly>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                    <input type="text" th:field="*{nameOfBook}" readonly>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                    <input type="text" th:field="*{author}" readonly>-->
+<!--                </td>-->
+<!--                <td th:object="${user}">-->
+<!--                    <input type="text" th:field="*{codeOfBorrow}" readonly>-->
+<!--                </td>-->
+<!--            </tr>-->
+        </tbody>
+    </table>
+    <button>Mượn sách</button>
+</form>
+<a href="/book">Trở về</a>
+</body>
+</html>

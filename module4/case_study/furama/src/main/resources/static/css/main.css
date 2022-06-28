@@ -1,0 +1,149 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.show{
+    display: block;
+}
+
+.hide{
+    display: none;
+}
+
+.common-position{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.overlay-background{
+    height: 100%;
+    width: 100%;
+    background-color: #000000;
+    opacity: 0.7;
+}
+
+.main-container{
+    position: relative;
+    background: url("https://offsetcode.com/themes/boomerang/1.3/assets/images/module-2.jpg")
+                center/cover no-repeat;
+}
+
+
+.header-content-nav{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 72px;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+}
+
+.header-nav-link{
+    position: relative;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.header-nav-link::before{
+    content: "";
+    display: none;
+    height: 1px;
+    background-color: #ffffff;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    animation: slideLeftRightNav .6s;
+}
+
+.header-nav-link:hover.header-nav-link::before{
+    display: block;
+}
+
+.header-nav-link:hover{
+    opacity: 0.8;
+}
+
+.nav-header-list{
+    position: relative;
+}
+
+.sub-nav-header-list{
+    min-width: 150px;
+    position: absolute;
+    top: calc(100% + 1px);
+    border-radius: 5px;
+    display: none;
+    list-style: none;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+.nav-header-list:hover .sub-nav-header-list{
+    display: block;
+}
+
+.header-content-body{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: slideOn .7s;
+}
+
+.header-content-body h1{
+    font-size: 46px;
+}
+
+
+.header-button-link{
+    margin: 0 10px;
+    min-width: 150px;
+    border-radius: 32px;
+    padding: 15px 20px;
+}
+
+.header-button-link:hover{
+    text-decoration: underline;
+}
+
+
+
+
+/* Animation*/
+
+@keyframes slideLeftRightNav {
+    from{
+        opacity: 0;
+        left: 30%;
+        right: 30%;
+    }
+
+    to{
+        opacity: 1;
+        left: 0;
+        right: 0;
+    }
+}
+
+@keyframes slideOn {
+    from{
+        opacity: 0;
+        top: 65%;
+        left: 50%;
+    }
+
+    to{
+        opacity: 1;
+        top: 50%;
+        left: 50%;
+    }
+}
