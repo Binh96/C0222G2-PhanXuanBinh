@@ -4,6 +4,8 @@ import com.model.Book;
 import com.repository.BookRepository;
 import com.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -33,6 +35,11 @@ public class BookServiceImpl implements BookService {
     @Override
     public List<Integer> selectAllId() {
         return bookRepository.selectAllId();
+    }
+
+    @Override
+    public Page<Book> selectAllPage(Pageable pageable) {
+        return bookRepository.selectAllPage(pageable);
     }
 
     @Override

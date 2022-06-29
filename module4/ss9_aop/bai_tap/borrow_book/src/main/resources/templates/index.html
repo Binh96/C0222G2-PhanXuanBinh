@@ -1,31 +1,54 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Libraries</title>
+<head th:replace="~{/common::head}">
+
 </head>
 <body>
-<table border="1">
-    <thead>
-        <tr>
-            <th>STT</th>
-            <th>Tên sách</th>
-            <th>Tác giả</th>
-            <th>Option</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr th:each="book: ${books}">
-            <td th:text="${book.id}"></td>
-            <td th:text="${book.nameOfBook}"></td>
-            <td th:text="${book.author}"></td>
-            <td>
-                <a th:href="@{/book/detail(id=${book.id})}">chi tiết</a>
-            </td>
-        </tr>
-    </tbody>
-</table>
-<p th:text="${msg}" style="color: green"></p>
-<p th:text="${msg2}" style="color: red"></p>
+<header th:replace="~{/common::header}">
+
+</header>
+
+<div class="main">
+    <div class="book-container container">
+        <table class="table">
+            <thead>
+                <tr class="table-header-line">
+                    <th>STT</th>
+                    <th>Tên sách</th>
+                    <th>Tác giả</th>
+                    <th>Số lượng</th>
+                    <th>Lựa chọn</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="book : ${books}" class="table-body-line">
+                    <td th:text="${book.getId()}"></td>
+                    <td th:text="${book.getNameOfBook()}"></td>
+                    <td th:text="${book.getAuthor()}"></td>
+                    <td th:text="${book.getQuantity()}"></td>
+                    <td>
+                        <a href="" class="btn btn-dark text-white">Trả sách</a>
+                    </td>
+
+
+                </tr>
+            </tbody>
+        </table>
+        <div class="pagination" th:object="${books}">
+            <a th:href="@{/book/(page=${books.number - 1})}" class="pagination-button">Previous</a>
+            <a th:href="@{/book/(page=${books.number + 1})}" th:each="pagination : ${books.totalPages}"
+               th:text="${pagination}"
+               class="pagination-button"></a>
+            <a th:href="@{/book/(page=${books.number + 1})}" class="pagination-button">Next</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+<th:block th:replace="~{/common::library}">
+
+</th:block>
 </body>
 </html>

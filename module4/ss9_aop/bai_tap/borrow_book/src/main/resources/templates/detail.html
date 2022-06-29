@@ -1,36 +1,86 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Libraries</title>
+<head th:replace="~{/common::head}">
+
 </head>
 <body>
-<table border="1">
-    <thead>
-    <tr>
-        <th>STT</th>
-        <th>Tên sách</th>
-        <th>Tác giả</th>
-        <th>Số lượng</th>
-        <th>Option</th>
-        <th>Trả sách</th>
-    </tr>
-    </thead>
-    <tbody>
-        <tr th:object="${book}">
-            <td th:text="*{id}"></td>
-            <td th:text="*{nameOfBook}"></td>
-            <td th:text="*{author}"></td>
-            <td th:text="*{quantity}"></td>
-            <td>
-                <a th:href="@{/book/borrow(id=*{id})}">Mượn sách</a>
-            </td>
-            <td>
-                <a th:href="@{/book/giveback(id=${book.id})}">trả sách</a>
-            </td>
-        </tr>
-    </tbody>
-    <a href="/book">Trở về</a>
-</table>
+<header th:replace="~{/common::header}">
+
+</header>
+
+<div class="main">
+    <div class="book-container container">
+        <table class="table">
+            <thead>
+                <tr class="table-header-line">
+                    <th>STT</th>
+                    <th>Tên sách</th>
+                    <th>Mã sách</th>
+                    <th>Trạng thái</th>
+                    <th>Lựa chọn</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="detailBook : ${detailBooks}" class="table-body-line">
+                    <td th:text="${detailBook.getId()}"></td>
+                    <td th:text="${detailBook.getNameBook().getNameOfBook()}"></td>
+                    <td th:text="${detailBook.getCodeOfBook()}"></td>
+                    <td th:unless="${detailBook.getStatus()}" th:text="${'available'}"></td>
+                    <td th:if="${detailBook.getStatus()}" th:text="${'unvailable'}"></td>
+                    <td>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                th:attr="data-bs-target='#exampleModal'+${detailBook.getId()}">
+                            Mượn sách
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade"
+                             th:attr="id='exampleModal'+${detailBook.getId()}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Mượn sách</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <form action="">
+                                        <div class="modal-body">
+                                            <label for="">STT</label>
+                                            <input type="text" class="form-control" th:value="*{detailBook.id}" readonly>
+                                            <label for="">Tên sách</label>
+                                            <input type="text" class="form-control" th:value="*{detailBook.nameBook.nameOfBook}" readonly>
+                                            <label for="">Tên tác giả</label>
+                                            <input type="text" class="form-control" th:value="*{detailBook.codeOfBook}" readonly>
+                                            <label for="">Mã mượn sách</label>
+                                            <input type="text" class="form-control" th:value="*{detailBook.id}" readonly>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                                            <button type="button" class="btn btn-primary">Mượn</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="pagination" th:object="${detailBooks}">
+            <a th:href="@{/book/detail(page=${detailBooks.number - 1})}" class="pagination-button">Previous</a>
+            <a th:href="@{/book/(page=${detailBooks.number + 1})}" th:each="pagination : ${detailBooks.totalPages}"
+               th:text="${pagination}"
+               class="pagination-button"></a>
+            <a th:href="@{/book/detail(page=${detailBooks.number + 1})}" class="pagination-button">Next</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<th:block th:replace="~{/common::library}">
+
+</th:block>
 </body>
 </html>

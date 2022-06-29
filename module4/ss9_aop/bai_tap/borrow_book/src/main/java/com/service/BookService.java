@@ -1,7 +1,8 @@
 package com.service;
 
 import com.model.Book;
-import com.model.User;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -13,6 +14,8 @@ public interface BookService {
     void update(Book book);
 
     List<Integer> selectAllId();
+
+    Page<Book> selectAllPage(Pageable pageable);
 
     boolean checkBookBorrow(Book book);
 

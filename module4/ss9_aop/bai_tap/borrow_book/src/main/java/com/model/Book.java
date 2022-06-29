@@ -12,28 +12,20 @@ public class Book {
     private String nameOfBook;
     private String author;
 
+    @OneToMany(mappedBy = "nameBook")
+    private List<DetailBook> detailBooks;
     @Column(name = "so_luong", columnDefinition = "integer default 5")
     private int quantity;
 
-    @OneToMany(mappedBy = "book")
-    private List<User> users;
 
     public Book() {
     }
 
-    public Book(int id, String nameOfBook, String author, int quantity, List<User> users) {
-        this.id = id;
+    public Book(String nameOfBook, String author, List<DetailBook> detailBooks, int quantity) {
         this.nameOfBook = nameOfBook;
         this.author = author;
+        this.detailBooks = detailBooks;
         this.quantity = quantity;
-        this.users = users;
-    }
-
-    public Book(String nameOfBook, String author, int quantity, List<User> users) {
-        this.nameOfBook = nameOfBook;
-        this.author = author;
-        this.quantity = quantity;
-        this.users = users;
     }
 
     public int getId() {
@@ -60,20 +52,20 @@ public class Book {
         this.author = author;
     }
 
+    public List<DetailBook> getDetailBooks() {
+        return detailBooks;
+    }
+
+    public void setDetailBooks(List<DetailBook> detailBooks) {
+        this.detailBooks = detailBooks;
+    }
+
     public int getQuantity() {
         return quantity;
     }
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-    }
-
-    public List<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
     }
 
     public void borrowBook(){
