@@ -11,6 +11,7 @@ public class DetailBook {
     @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name="ten_sach", referencedColumnName = "id")
     private Book nameBook;
+
     private int codeOfBook;
     @Column(columnDefinition = "int default 0")
     private int status;

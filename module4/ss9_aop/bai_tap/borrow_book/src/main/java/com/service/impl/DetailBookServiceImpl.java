@@ -38,7 +38,17 @@ public class DetailBookServiceImpl implements DetailBookService {
     }
 
     @Override
+    public DetailBook findById(int id) {
+        return detailRepository.selectById(id);
+    }
+
+    @Override
     public Page<DetailBook> selectAllPage(Pageable pageable) {
         return detailRepository.selectAllPage(pageable);
+    }
+
+    @Override
+    public void updateDetailBook(DetailBook detailBookList) {
+        detailRepository.save(detailBookList);
     }
 }

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{/commom :: head}">
+</head>
+<body>
+<header th:replace="~{/commom:: header}">
+
+</header>
+
+<div class="content">
+    <div class="container content-body">
+        <div class="col-8" th:object="${post}">
+            <h2 th:text="${post.title}"></h2>
+            <p class="" th:text="${post.description}"></p>
+            <div class="img-content-container">
+                <img src="" alt="" th:attr="src=${post.imgPath}" width="100%">
+            </div>
+            <div class="post-content-body">
+                <p class="" th:text="${post.content}">
+
+                </p>
+            </div>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#delete">
+                Xóa
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Ban co muon xoa</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Ban co muon xoa <span th:text="${post.title}"></span>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Khong</button>
+                            <button class="btn btn-danger">
+                                <a th:href="@{/blog/delete(id=${post.id})}" class="text-decoration-none">Xoa</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary">
+                <a href="/blog" class="text-white text-decoration-none" >Trở về</a>
+            </button>
+        </div>
+        <div class="col-4">
+
+        </div>
+    </div>
+</div>
+
+<footer th:replace="~{/commom:: footer}">
+
+</footer>
+<th:block th:replace="~{/commom :: cdn}">
+
+</th:block>
+</body>
+</html>

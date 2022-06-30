@@ -27,7 +27,7 @@
 
 .book-container{
     position: relative;
-    height: 800px;
+    height: 550px;
 }
 
 .pagination{
@@ -43,7 +43,8 @@
 
 .pagination-button{
     text-decoration: none;
-    padding: 5px;
-    border: 1px solid brown;
-    color: brown;
+    padding: 1px 6px;
+    border: 1px solid #f3ebeb;
+    color: #9b6262;
+    margin: 0 2px;
 }

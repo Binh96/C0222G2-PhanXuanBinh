@@ -28,49 +28,57 @@
                     <td th:unless="${detailBook.getStatus()}" th:text="${'available'}"></td>
                     <td th:if="${detailBook.getStatus()}" th:text="${'unvailable'}"></td>
                     <td>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                th:attr="data-bs-target='#exampleModal'+${detailBook.getId()}">
-                            Mượn sách
-                        </button>
+                        <a th:unless="${detailBook.getStatus()}"
+                                th:href="@{/book/borrow(id=${detailBook.getId()})}" class="btn btn-primary text-decoration-none">Mượn sách</a>
+<!--                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"-->
+<!--                                th:attr="data-bs-target='#exampleModal'+${detailBook.getId()}">-->
+<!--                            Mượn sách-->
+<!--                        </button>-->
 
-                        <!-- Modal -->
-                        <div class="modal fade"
-                             th:attr="id='exampleModal'+${detailBook.getId()}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Mượn sách</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <form action="">
-                                        <div class="modal-body">
-                                            <label for="">STT</label>
-                                            <input type="text" class="form-control" th:value="*{detailBook.id}" readonly>
-                                            <label for="">Tên sách</label>
-                                            <input type="text" class="form-control" th:value="*{detailBook.nameBook.nameOfBook}" readonly>
-                                            <label for="">Tên tác giả</label>
-                                            <input type="text" class="form-control" th:value="*{detailBook.codeOfBook}" readonly>
-                                            <label for="">Mã mượn sách</label>
-                                            <input type="text" class="form-control" th:value="*{detailBook.id}" readonly>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                                            <button type="button" class="btn btn-primary">Mượn</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+<!--                        &lt;!&ndash; Modal &ndash;&gt;-->
+<!--                        <div class="modal fade"-->
+<!--                             th:attr="id='exampleModal'+${detailBook.getId()}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--                            <div class="modal-dialog">-->
+<!--                                <div class="modal-content">-->
+<!--                                    <div class="modal-header">-->
+<!--                                        <h5 class="modal-title" id="exampleModalLabel">Mượn sách</h5>-->
+<!--                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--                                    </div>-->
+<!--                                    <form action="">-->
+<!--                                        <div class="modal-body">-->
+<!--                                            <label for="">STT</label>-->
+<!--                                            <input type="text" class="form-control" th:value="*{detailBook.id}" readonly>-->
+<!--                                            <label for="">Tên sách</label>-->
+<!--                                            <input type="text" class="form-control" th:value="*{detailBook.nameBook.nameOfBook}" readonly>-->
+<!--                                            <label for="">Tên tác giả</label>-->
+<!--                                            <input type="text" class="form-control" th:value="*{detailBook.codeOfBook}" readonly>-->
+<!--                                            <label for="">Mã mượn sách</label>-->
+<!--                                            <input type="text" class="form-control" th:value="*{detailBook.id}" readonly>-->
+<!--                                        </div>-->
+<!--                                        <div class="modal-footer">-->
+<!--                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>-->
+<!--                                            <button type="button" class="btn btn-primary">Mượn</button>-->
+<!--                                        </div>-->
+<!--                                    </form>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
                     </td>
                 </tr>
             </tbody>
         </table>
         <div class="pagination" th:object="${detailBooks}">
-            <a th:href="@{/book/detail(page=${detailBooks.number - 1})}" class="pagination-button">Previous</a>
-            <a th:href="@{/book/(page=${detailBooks.number + 1})}" th:each="pagination : ${detailBooks.totalPages}"
-               th:text="${pagination}"
-               class="pagination-button"></a>
-            <a th:href="@{/book/detail(page=${detailBooks.number + 1})}" class="pagination-button">Next</a>
+            <a th:if="${detailBooks.hasPrevious()}"
+                    th:href="@{/book/detail(page=${detailBooks.number - 1})}" class="pagination-button">
+                &laquo;
+            </a>
+            <th:block th:each="pagination : ${pageNumbers}">
+                <a th:href="@{/book/detail(page=${pagination - 1})}"
+                   th:text="${pagination}" class="pagination-button">
+                </a>
+            </th:block>
+            <a th:if="${detailBooks.hasNext()}"
+                    th:href="@{/book/detail(page=${detailBooks.number + 1})}" class="pagination-button"> &raquo; </a>
         </div>
     </div>
 </div>

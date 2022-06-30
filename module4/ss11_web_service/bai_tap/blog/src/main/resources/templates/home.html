@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{/commom :: head}">
+</head>
+<body>
+<header th:replace="~{/commom:: header}">
+
+</header>
+
+<div class="content">
+    <div class="container content-body">
+        <div class="col-8">
+            <h2>the lastest & greatest</h2>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex align-items-center py-3" th:each="post: ${posts}">
+                    <div class="col-3">
+                        <img src="" alt="" th:attr="src=${post.imgPath}" style="height: 100%; width: 100%;">
+                    </div>
+                    <div class="list-item-content px-2 col-9 d-flex flex-column justify-content-between">
+                        <p class="list-item-content-date mb-2" th:text="${post.datePost}"></p>
+                        <a th:href="@{/blog/{id}/detail(id=${post.id})}" class="list-item-content-title mb-2" th:text="${post.title}"></a>
+                        <p class="list-item-content-desc mb-2" th:text="${post.description}"></p>
+                        <a th:href="@{/blog/{id}/detail(id=${post.id})}" class="text-decoration-none list-item-content-link">continue reading</a>
+                    </div>
+                </li>
+            </ul>
+            <a th:href="@{/blog/(page=${posts.number - 1})}">previous</a>
+            <span th:text="${posts.number+1}"></span>
+            /
+            <span th:text="${posts.totalPages}"></span>
+            <a th:href="@{/blog/(page=${posts.number+1})}">next</a>
+        </div>
+        <div class="col-4">
+
+        </div>
+    </div>
+</div>
+
+<footer th:replace="~{/commom:: footer}">
+
+</footer>
+<th:block th:replace="~{/commom :: cdn}">
+
+</th:block>
+</body>
+</html>

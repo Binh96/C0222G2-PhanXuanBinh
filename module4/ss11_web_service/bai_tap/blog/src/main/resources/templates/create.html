@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{/commom :: head}">
+</head>
+<body>
+<header th:replace="~{/commom:: header}">
+
+</header>
+
+<div class="content">
+    <div class="container content-body">
+        <div class="col-8">
+            <form action="/blog/create" th:object="${post}" method="post">
+                <label for="">Tieu de:</label>
+                <input class="form-control" type="text" th:field="*{title}">
+                <label for="">Noi dung:</label>
+                <input class="form-control" type="text" th:field="*{content}">
+                <label for="">Mo ta:</label>
+                <input class="form-control" type="text" th:field="*{description}">
+                <label for="">Hinh anh:</label>
+                <input class="form-control" type="text" th:field="*{imgPath}">
+                <label for="">Danh muc:</label>
+                <select name="" id="" th:field="*{catagory}">
+                    <option th:each="catagory : ${catagoryList}" th:value="${catagory.id}"
+                    th:text="${catagory.catagoryName}">
+
+                    </option>
+                </select>
+                <br>
+                <button class="btn btn-dark">Dang bai</button>
+                <button class="btn btn-primary"><a href="/blog" class="text-white">Tro ve</a></button>
+            </form>
+        </div>
+        <div class="col-4">
+
+        </div>
+    </div>
+</div>
+
+<footer th:replace="~{/commom:: footer}">
+
+</footer>
+<th:block th:replace="~{/commom :: cdn}">
+
+</th:block>
+</body>
+</html>

@@ -57,4 +57,9 @@ public class BookServiceImpl implements BookService {
         }
         return true;
     }
+
+    @Override
+    public void bookBorrow(int id) {
+        bookRepository.borrowBook(id);
+    }
 }

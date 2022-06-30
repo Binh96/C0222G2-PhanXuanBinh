@@ -12,5 +12,9 @@ public interface DetailBookService {
 
     boolean checkIdDetailBook(int id);
 
+    DetailBook findById(int id);
+
     Page<DetailBook> selectAllPage(Pageable pageable);
+
+    void updateDetailBook(DetailBook detailBookList);
 }

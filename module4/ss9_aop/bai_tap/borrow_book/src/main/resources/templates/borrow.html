@@ -1,48 +1,55 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Libraries</title>
+<head th:replace="~{/common::head}">
+
 </head>
 <body>
-<form action="/book/borrow" method="post">
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Mã mượn sách</th>
-                <th>Tên sách</th>
-                <th>Tác giả</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:object="${user}">
-                <td>
-                    <input type="text" th:field="*{codeOfBorrow}" readonly>
-                </td>
-                <td>
-                    <select name="" id="" th:field="*{book}">
-                        <option th:value="${book1.id}" th:text="${book1.nameOfBook}"></option>
-                    </select>
-                </td>
-            </tr>
-<!--            <tr th:object="${book}">-->
-<!--                <td>-->
-<!--                    <input type="text" th:field="*{id}" readonly>-->
-<!--                </td>-->
-<!--                <td>-->
-<!--                    <input type="text" th:field="*{nameOfBook}" readonly>-->
-<!--                </td>-->
-<!--                <td>-->
-<!--                    <input type="text" th:field="*{author}" readonly>-->
-<!--                </td>-->
-<!--                <td th:object="${user}">-->
-<!--                    <input type="text" th:field="*{codeOfBorrow}" readonly>-->
-<!--                </td>-->
-<!--            </tr>-->
-        </tbody>
-    </table>
-    <button>Mượn sách</button>
-</form>
-<a href="/book">Trở về</a>
+<header th:replace="~{/common::header}">
+
+</header>
+
+<div class="main">
+    <div class="create-container container">
+        <form action="/book/borrow" th:object="${detailBook}" method="post">
+            <div class="row">
+                <div class="col-6">
+                    <label for="">Tên sách</label>
+                    <input type="hidden" th:field="${detailBook.id}">
+                    <input type="hidden" th:field="${detailBook.nameBook}">
+                    <input type="text" readonly class="form-control" th:value="${detailBook.nameBook.nameOfBook}">
+                </div>
+                <div class="col-6">
+                    <label for="">Tên tác giả</label>
+                    <input type="text" readonly class="form-control" th:value="${detailBook.nameBook.author}">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-6">
+                    <label for="">Mã sách</label>
+                    <input type="hidden" th:field="${detailBook.codeOfBook}">
+                    <input type="text" readonly class="form-control" th:value="${detailBook.codeOfBook}"
+                           th:field="${detailBook.nameBook}">
+                </div>
+                <div class="col-6" th:object="${borrowBook}">
+                    <label for="">Mã mượn sách</label>
+                    <input type="hidden" th:field="${borrowBook.codeOfBorrow}">
+                    <input type="text" readonly class="form-control" th:value="${borrowBook.codeOfBorrow}">
+                </div>
+            </div>
+            <button class="btn btn-danger mt-5">Mượn</button>
+            <button class="btn btn-secondary mt-5">
+                <a href="/book/detail" class="text-decoration-none text-white">Trở về</a>
+            </button>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+<th:block th:replace="~{/common::library}">
+
+</th:block>
 </body>
 </html>

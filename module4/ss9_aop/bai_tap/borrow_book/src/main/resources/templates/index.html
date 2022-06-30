@@ -35,11 +35,15 @@
             </tbody>
         </table>
         <div class="pagination" th:object="${books}">
-            <a th:href="@{/book/(page=${books.number - 1})}" class="pagination-button">Previous</a>
-            <a th:href="@{/book/(page=${books.number + 1})}" th:each="pagination : ${books.totalPages}"
-               th:text="${pagination}"
-               class="pagination-button"></a>
-            <a th:href="@{/book/(page=${books.number + 1})}" class="pagination-button">Next</a>
+            <a th:if="${books.hasPrevious()}"
+               th:href="@{/book/(page=${books.number - 1})}" class="pagination-button"> &laquo; </a>
+            <th:block th:each="pagination : ${pageNumbers}">
+                <a th:href="@{/book/(page=${pagination - 1})}"
+                   th:text="${pagination}" class="pagination-button">
+                </a>
+            </th:block>
+            <a th:if="${books.hasNext()}"
+               th:href="@{/book/(page=${books.number + 1})}" class="pagination-button"> &raquo; </a>
         </div>
     </div>
 </div>
