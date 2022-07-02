@@ -62,4 +62,9 @@ public class BookServiceImpl implements BookService {
     public void bookBorrow(int id) {
         bookRepository.borrowBook(id);
     }
+
+    @Override
+    public boolean checkStorage(Book book) {
+        return book.getStorage() == bookRepository.selectStorage(book.getId());
+    }
 }

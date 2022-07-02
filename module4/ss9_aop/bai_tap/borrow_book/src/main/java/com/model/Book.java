@@ -12,6 +12,9 @@ public class Book {
     private String nameOfBook;
     private String author;
 
+    @Column(name="luu_tru")
+    private int storage;
+
     @OneToMany(mappedBy = "nameBook")
     private List<DetailBook> detailBooks;
     @Column(name = "so_luong", columnDefinition = "integer default 5")
@@ -21,9 +24,10 @@ public class Book {
     public Book() {
     }
 
-    public Book(String nameOfBook, String author, List<DetailBook> detailBooks, int quantity) {
+    public Book(String nameOfBook, String author, int storage, List<DetailBook> detailBooks, int quantity) {
         this.nameOfBook = nameOfBook;
         this.author = author;
+        this.storage = storage;
         this.detailBooks = detailBooks;
         this.quantity = quantity;
     }
@@ -52,6 +56,14 @@ public class Book {
         this.author = author;
     }
 
+    public int getStorage() {
+        return storage;
+    }
+
+    public void setStorage(int storage) {
+        this.storage = storage;
+    }
+
     public List<DetailBook> getDetailBooks() {
         return detailBooks;
     }
@@ -66,18 +78,5 @@ public class Book {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-    }
-
-    public void borrowBook(){
-        if(this.quantity > 0){
-            this.setQuantity(this.quantity - 1) ;
-        }
-        else{
-            System.out.println("Error");
-        }
-    }
-
-    public void payBook(){
-        this.setQuantity(this.quantity + 1);
     }
 }

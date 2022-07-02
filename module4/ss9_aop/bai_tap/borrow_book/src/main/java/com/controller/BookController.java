@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -42,7 +41,7 @@ public class BookController {
     public ModelAndView homePage(@PageableDefault(value = 5) Pageable pageable,
                                  @RequestParam("page") Optional<Integer> page,
                                  @RequestParam("size") Optional<Integer> size){
-        ModelAndView modelAndView = new ModelAndView("index");
+        ModelAndView modelAndView = new ModelAndView("home");
         Page<Book> books = bookService.selectAllPage(pageable);
         int currentPage = page.orElse(1);
         int pageSize = size.orElse(5);
@@ -68,7 +67,7 @@ public class BookController {
     public String createPage(@ModelAttribute Book book, RedirectAttributes redirectAttributes){
         for(int i=0; i<book.getQuantity(); i++){
             DetailBook detailBook = new DetailBook();
-            int id = (int) (Math.random()*1000);
+            int id = (int) ((Math.random()+100)*1000);
             detailBook.setCodeOfBook(id);
             detailBook.setNameBook(book);
             detailBookService.create(detailBook);
@@ -89,6 +88,7 @@ public class BookController {
             List<Integer> pageNumbers = IntStream.rangeClosed(1, totalPages)
                     .boxed()
                     .collect(Collectors.toList());
+            modelAndView.addObject("currPage", currentPage);
             modelAndView.addObject("pageNumbers", pageNumbers);
         }
         modelAndView.addObject("detailBooks", detailBooks);
@@ -105,41 +105,30 @@ public class BookController {
         return "borrow";
     }
 
-    @PostMapping("/borrow")
-    public String borrowPage(@ModelAttribute DetailBook detailBook, @ModelAttribute BorrowBook borrowBook){
-        detailBook.setStatus(1);
-//        detailBookService.updateDetailBook(detailBook.getId());
-        detailBookService.updateDetailBook(detailBook);
-        System.out.println(borrowBook.getCodeOfBorrow());
-        borrowBookService.createBorrowBook(borrowBook);
-        bookService.bookBorrow(detailBook.getNameBook().getId());
-        return "redirect:/book";
-    }
 
 
-
-//    @GetMapping("/borrow")
-//    public String borrowPage(@RequestParam int id, Model model)
-//    throws BorrowException {
-//        Book book = bookService.selectById(id);
-//        User user = new User();
-//        user.setCodeOfBorrow((int) (Math.random()*100000));
-//        if(bookService.checkBookBorrow(book)){
-//            model.addAttribute("book1", book);
-//            model.addAttribute("user", user);
-//            return "borrow";
-//        }
-//        throw new BorrowException();
-//    }
-//
 //    @PostMapping("/borrow")
-//    public String borrowPage(@ModelAttribute User user){
-//        userService.create(user);
-//        Book book = bookService.selectById(user.getBook().getId());
-//        bookService.selectById(book.getId()).borrowBook();
-//        bookService.update(bookService.selectById(book.getId()));
+//    public String borrowPage(@ModelAttribute DetailBook detailBook, @ModelAttribute BorrowBook borrowBook){
+//        detailBook.setStatus(1);
+////        detailBookService.updateDetailBook(detailBook.getId());
+//        detailBookService.updateDetailBook(detailBook);
+//        System.out.println(borrowBook.getCodeOfBorrow());
+//        borrowBookService.createBorrowBook(borrowBook);
+//        bookService.bookBorrow(detailBook.getNameBook().getId());
 //        return "redirect:/book";
 //    }
+//
+//    @GetMapping("/giveback")
+//    public String giveBackPage(Model model, @RequestParam int id) throws PayBackBookException{
+//        Book book = bookService.selectById(id);
+//        if(bookService.checkStorage(book)){
+//            throw new PayBackBookException();
+//        }
+//        model.addAttribute("book", book);
+//        return "back";
+//    }
+
+
 //
 //    @GetMapping("/giveback")
 //    public String backBookPage(@RequestParam int id, Model model)

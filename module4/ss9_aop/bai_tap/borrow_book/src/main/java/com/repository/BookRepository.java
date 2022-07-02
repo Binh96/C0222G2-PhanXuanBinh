@@ -31,4 +31,7 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
     @Transactional
     @Query(value = " update book set so_luong = so_luong - 1 where id = :id " , nativeQuery = true)
     void borrowBook(@Param("id") int id);
+
+    @Query(value = " select luu_tru from book where id = :id", nativeQuery = true)
+    int selectStorage(@Param("id") int id);
 }

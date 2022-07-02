@@ -22,4 +22,6 @@ public interface BookService {
     boolean checkBookPayBack(Book book);
 
     void bookBorrow(int id);
+
+    boolean checkStorage(Book book);
 }

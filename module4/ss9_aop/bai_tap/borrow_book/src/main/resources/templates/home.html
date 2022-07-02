@@ -27,9 +27,13 @@
                     <td th:text="${book.getAuthor()}"></td>
                     <td th:text="${book.getQuantity()}"></td>
                     <td>
-                        <a href="" class="btn btn-dark text-white">Trả sách</a>
+                        <a th:href="@{book/giveback(id=${book.getId()})}" class="btn btn-dark text-white">Trả sách</a>
                     </td>
-
+                    <td>
+                        <a th:href="@{/book/borrow(id=${detailBook.getId()})}" class="btn btn-primary text-decoration-none">
+                            Mượn sách
+                        </a>
+                    </td>
 
                 </tr>
             </tbody>

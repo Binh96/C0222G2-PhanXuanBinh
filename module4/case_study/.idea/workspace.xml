@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="922a7c06-f123-47b1-923b-5969e570a9d2" name="Default Changelist" comment="" />
+    <list default="true" id="922a7c06-f123-47b1-923b-5969e570a9d2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../ss9_aop/bai_tap/borrow_book/src/main/java/com/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss9_aop/bai_tap/borrow_book/src/main/java/com/controller/BookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss9_aop/bai_tap/borrow_book/src/main/java/com/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss9_aop/bai_tap/borrow_book/src/main/java/com/model/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss9_aop/bai_tap/borrow_book/src/main/java/com/model/BorrowBook.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss9_aop/bai_tap/borrow_book/src/main/java/com/repository/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss9_aop/bai_tap/borrow_book/src/main/java/com/repository/BookRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss9_aop/bai_tap/borrow_book/src/main/java/com/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss9_aop/bai_tap/borrow_book/src/main/java/com/service/BookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss9_aop/bai_tap/borrow_book/src/main/java/com/service/impl/BookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss9_aop/bai_tap/borrow_book/src/main/java/com/service/impl/BookServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss9_aop/bai_tap/borrow_book/src/main/resources/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../ss9_aop/bai_tap/borrow_book/src/main/resources/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss9_aop/bai_tap/borrow_book/src/main/resources/templates/back.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss9_aop/bai_tap/borrow_book/src/main/resources/templates/back.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss9_aop/bai_tap/borrow_book/src/main/resources/templates/error_borrow.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss9_aop/bai_tap/borrow_book/src/main/resources/templates/error_borrow.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss9_aop/bai_tap/borrow_book/src/main/resources/templates/error_payback.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss9_aop/bai_tap/borrow_book/src/main/resources/templates/error_payback.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss9_aop/bai_tap/borrow_book/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss9_aop/bai_tap/borrow_book/src/main/resources/templates/home.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,13 +28,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "E:/WorkSpace/CodeGym/C0222G2-PhanXuanBinh/module4/case_study/furama"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -34,6 +48,7 @@
       <option name="presentableId" value="Default" />
       <updated>1656309897882</updated>
       <workItem from="1656309899674" duration="9000" />
+      <workItem from="1656587403459" duration="34000" />
     </task>
     <servers />
   </component>
