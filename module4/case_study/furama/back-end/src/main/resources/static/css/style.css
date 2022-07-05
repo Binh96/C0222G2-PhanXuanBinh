@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.circle{
+    border-radius: 50%;
+    border: 1px solid #202020;
+}
+
+.circle.circle-m{
+    width: 30px;
+    height: 30px;
+}

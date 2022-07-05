@@ -31,29 +31,34 @@
             <a href="" class="header-logo">
                 <img src="/assest/logo/Logo.png" alt="">
             </a>
-            <div class="socials">
-                <ul class="socials-list">
-                    <li class="socials-list-item">
-                        <a href="https://github.com/Binh96/C0222G2-PhanXuanBinh" class="socials-list-item-link">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
-                    </li>
-                    <li class="socials-list-item">
-                        <a href="https://www.instagram.com/binhphan12/" class="socials-list-item-link">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                    </li>
-                    <li class="socials-list-item">
-                        <a href="" class="socials-list-item-link">
-                            <i class="fa-brands fa-twitter"></i>
-                        </a>
-                    </li>
-                    <li class="socials-list-item">
-                        <a href="https://www.facebook.com/ala1235" class="socials-list-item-link">
-                            <i class="fa-brands fa-facebook"></i>
-                        </a>
-                    </li>
-                </ul>
+            <div class="sign-in">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signin">
+                   Log in
+                  </button>
+                  
+                  <!-- Modal -->
+                  <div class="modal fade" id="signin" tabindex="-1" aria-labelledby="signinlabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="signinlabel">Log in</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="">
+                                <label for="">User name:</label>
+                                <input type="text" class="form-control" id="username">
+                                <label for="">Password:</label>
+                                <input type="password" class="form-control" id="password">
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary" >Log in</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
             </div>
         </header>
         <section class="main-content container">

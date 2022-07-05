@@ -1,6 +1,4 @@
 
-
-
 function gotoListBlog(){
     location.href="/blog.html";
 }
@@ -10,8 +8,8 @@ function gotoHome(){
 }
 
 function gotoAddNewPost(){
-    $(".blog-container").css("display", "none");
-    $(".new-post").css("display", "block");
+    $(".blog-container").hide();
+    $(".new-post").show();
     $.ajax({
         headers: {
             'Accept': 'application/json',
@@ -25,35 +23,40 @@ function gotoAddNewPost(){
     })
 }
 
-function listPost(){
+function listPost(curPage, size){
     $.ajax({
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         type: "GET",
-        url: "http://localhost:8080/blog/post",
+        url: "http://localhost:8080/blog/post?page=" + curPage + "&size=" + size,
         success: function(data){
-            console.log(data);
-            let content="";
-            for(let i=0; i<data.content.length; i++){
-                content+=`<div class="row">
-                <div class="col-3">
-                    <img src="${data.content[i].img}" alt="" class="img-post">
-                </div>
-                <div class="col-9">
-                    <h1 class="heading-post text-white">${data.content[i].heading}</h1>
-                    <p class="desc-post text-white">${data.content[i].description}</p>
-                    <a href="#" class="link-post text-white text-decoration-none">Continue</a>
-                </div>
-            </div>`
+            if(size > data.totalElements){
+                console.log("Error");
             }
-            document.getElementById('post-list').innerHTML = content;
+            else{
+                let content="";
+                for(let i=0; i<data.content.length; i++){
+                    content+=`<div class="row my-5">
+                    <div class="col-3">
+                        <img src="${data.content[i].img}" alt="" class="img-post">
+                    </div>
+                    <div class="col-9 py-3">
+                        <a class="heading-post text-white">${data.content[i].heading}</a>
+                        <p class="desc-post text-white">${data.content[i].description}</p>
+                        <a href="#" class="link-post text-white">Continue</a>
+                    </div>
+                </div>`
+                }
+                document.getElementById('post-list').innerHTML = content;
+            }
+            
         }
     })
 }
 
-$('#blog-container').load(listPost());
+$('#blog-container').load(listPost(0, 2));
 
 function category(category){
     let categoryList = "";
@@ -90,6 +93,14 @@ function createPost(){
         url: "http://localhost:8080/blog/create",
         data: JSON.stringify(post)
     });
-    $(".blog-container").css("display", "block");
-    $(".new-post").css("display", "none");
+    $(".blog-container").show();
+    $(".new-post").hide();
 }
+
+let size = 2;
+$('#buttonLoadMore').click(
+    function(){
+        size += 2;
+        listPost(0, size);
+    }
+);

@@ -23,11 +23,8 @@
                     <li class="nav-list-item">
                         <p href="" class="nav-list-item-para" onclick="aboutMe()">About me</p>
                     </li>
-                    <li class="nav-list-item ">
-                        <p href="" class="nav-list-item-para" onclick="gotoListBlog()">Blog</p>
-                        <ul class="sub-list">
-                            <li class="sub-item" onclick="gotoAddNewPost()">Create new blog</li>
-                        </ul>
+                    <li class="nav-list-item">
+                        <p href="" class="nav-list-item-para" onclick="gotoListBlog()">Project</p>
                     </li>
                 </ul>
             </nav>
@@ -59,47 +56,7 @@
                 </ul>
             </div>
         </header>
-        <section class="blog container pt-5">
-            <div class="blog-container" id="blog-container">
-                <div class="row">
-                    <div class="col-8 blog-news px-4">
-                        <h5 class="text-white mt-3">News</h5>
-                        <div id="post-list">
-    
-                        </div>
-                        <button class="btn btn-primary btn-loadmore" id="buttonLoadMore">Load more</button>
-                    </div>
-                    <div class="col-4 blog-old px-4">
-                        <h5 class="text-white mt-3">Old news</h5>
-                    </div>
-                </div>
-            </div>
-            <section class="new-post container p-5">
-                <div class="new-posst-container text-white pb-5">
-                    <label for="">Tiêu đề:</label>
-                    <input type="text" id="heading" class="form-control">
-                    <br>
-                    <label for="">Mô tả:</label>
-                    <input type="text" id="desc" class="form-control">
-                    <br>
-                    <label for="">Hình ảnh:</label>
-                    <input type="text" id="img" class="form-control">
-                    <br>
-                    <label for="">Tác giả:</label>
-                    <input type="text" id="author" class="form-control">
-                    <br>
-                    <label for="">Nội dung:</label>
-                    <textarea name="" id="content" class="form-control"></textarea>
-                    <br>
-                    <label for="">Danh mục:</label>
-                    <select name="" id="category">
-                        <option value=""></option>
-                    </select>
-                    <br>
-                </div>
-                <button class="btn btn-primary button-submit" onclick="createPost()">Create</button>
-            </section>
-        </section>
+        
     </div>
 
 

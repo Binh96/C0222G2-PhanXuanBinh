@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4acb28a6-0579-47a8-8770-8404e78ab17f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../../ss12_jquery_ajax/bai_tap/blog/blog/back-end/src/main/java/com/pxb/controller/BlogRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../ss12_jquery_ajax/bai_tap/blog/blog/back-end/src/main/java/com/pxb/controller/BlogRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ss12_jquery_ajax/bai_tap/blog/blog/front-end/assest/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../ss12_jquery_ajax/bai_tap/blog/blog/front-end/assest/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ss12_jquery_ajax/bai_tap/blog/blog/front-end/assest/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../ss12_jquery_ajax/bai_tap/blog/blog/front-end/assest/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ss12_jquery_ajax/bai_tap/blog/blog/front-end/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../ss12_jquery_ajax/bai_tap/blog/blog/front-end/blog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ss12_jquery_ajax/bai_tap/blog/blog/front-end/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../ss12_jquery_ajax/bai_tap/blog/blog/front-end/index.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../.." />
+  </component>
+  <component name="ProjectId" id="2BTRpb7ZQBjowyOLgI0liiq49wq" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "E:/WorkSpace/CodeGym/C0222G2-PhanXuanBinh/module4/ss13_spring_security/bai_tap/spring_security/back-end"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4acb28a6-0579-47a8-8770-8404e78ab17f" name="Changes" comment="" />
+      <created>1656928271625</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1656928271625</updated>
+      <workItem from="1656928273346" duration="8000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

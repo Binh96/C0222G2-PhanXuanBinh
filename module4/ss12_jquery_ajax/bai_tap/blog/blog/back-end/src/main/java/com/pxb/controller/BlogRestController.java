@@ -6,14 +6,15 @@ import com.pxb.service.CategoryService;
 import com.pxb.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/blog")
@@ -27,12 +28,10 @@ public class BlogRestController {
     private CategoryService categoryService;
 
     @GetMapping("/post")
-    public ResponseEntity<Page<Post>> getPost(@PageableDefault(value = 2)Pageable pageable){
-        Page<Post> listPost = postService.selectAll(pageable);
-        if(listPost != null){
-            return new ResponseEntity<>(listPost, HttpStatus.OK);
-        }
-        return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
+    public ResponseEntity<Page<Post>> getPost( @RequestParam(value = "size", required = false) Optional<Integer> pageSize,
+                                               @RequestParam(value = "page", required = false) Optional<Integer> pageNumber){
+        PageRequest pageRequest = PageRequest.of(pageNumber.orElse(0), pageSize.orElse(2));
+        return new ResponseEntity<>(postService.selectAll(pageRequest),HttpStatus.OK);
     }
 
     @PostMapping("/create")

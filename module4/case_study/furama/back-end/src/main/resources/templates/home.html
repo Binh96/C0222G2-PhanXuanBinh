@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/common::head">
+</head>
+<body>
+    <header th:fragment="header" class="header">
+        <div class="log-in" id="login">
+            <button class="circle circle-m btn">
+                <i class="fa-solid fa-user"></i>
+            </button>
+        </div>
+    </header>
+</body>
+<th:block th:replace="/common::libraries">
+</th:block>
+</html>
