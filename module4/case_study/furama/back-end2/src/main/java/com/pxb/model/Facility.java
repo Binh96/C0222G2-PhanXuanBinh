@@ -13,7 +13,7 @@ public class Facility {
     @Column(name = "ten_dich_vu")
     private String name;
 
-    @Column(name = "dien_tich", columnDefinition = "int")
+    @Column(name = "dien_tich")
     private String area;
 
     @Column(name = "gia", columnDefinition = "long")

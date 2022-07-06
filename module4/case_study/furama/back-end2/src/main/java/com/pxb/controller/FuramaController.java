@@ -13,14 +13,6 @@ public class FuramaController {
         return "home";
     }
 
-    @GetMapping("/customer")
-    public String customerPage(){
-        return "/customer/list-customer";
-    }
 
-    @GetMapping("/employee")
-    public String employeePage(){
-        return "/employee/list-employee";
-    }
 
 }

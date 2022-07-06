@@ -26,9 +26,6 @@
                     <th class="table-list">Max People</th>
                     <th class="table-list">Rent Type</th>
                     <th class="table-list">Facility Type</th>
-                    <th class="table-list">Standard Room</th>
-                    <th class="table-list">Description</th>
-                    <th class="table-list">Facility Free</th>
                     <th class="table-list">Option</th>
                 </tr>
                 </thead>
@@ -40,14 +37,8 @@
                     <td class="table-list" th:text="${facility.maxPeople}"></td>
                     <td class="table-list" th:text="${facility.rentType.name}"></td>
                     <td class="table-list" th:text="${facility.facilityType.name}"></td>
-                    <td class="table-list" th:if="${facility.standardRoom}" th:text="${facility.standardRoom}"></td>
-                    <td class="table-list" th:unless="${facility.standardRoom}">Availabel</td>
-                    <td class="table-list" th:if="${facility.description}" th:text="${facility.description}"></td>
-                    <td class="table-list" th:unless="${facility.description}">Availabel</td>
-                    <td class="table-list" th:if="${facility.facilityFree}" th:text="${facility.facilityFree}"></td>
-                    <td class="table-list" th:unless="${facility.facilityFree}">Availabel</td>
                     <td class="table-list">
-                        <a href="" class="btn btn-warning">
+                        <a th:href="@{/furama/service/edit(id=${facility.id})}" class="btn btn-warning">
                             <i class="fa-solid fa-pen text-white"></i>
                         </a>
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal" th:attr="data-bs-target='#delete'+${facility.id}">
@@ -68,7 +59,7 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
                                         <button type="button" class="btn btn-danger">
-                                            <a th:href="@{/furama/service/{id}(id=${facility.id})}">Delete</a>
+                                            <a th:href="@{/furama/service/{id}(id=${facility.id})}" class="text-white text-decoration-none">Delete</a>
                                         </button>
                                     </div>
                                 </div>
@@ -78,6 +69,7 @@
                 </tr>
                 </tbody>
             </table>
+            <p th:if="${error}"></p>
             <div class="pagination" th:object="${facilities}">
                 <a th:if="${facilities.hasPrevious()}"
                    th:href="@{/furama/service(page=${facilities.number - 1})}" class="pagination-button">
@@ -95,7 +87,7 @@
     </div>
 
     <div class="menu-side d-flex align-items-center justify-content-center">
-        <a href="/furama/service/create" class="btn text-white circle circle-l menu-side-btn">
+        <a href="/furama/service/create" class="btn btn-primary text-white circle circle-l menu-side-btn">
             <i class="fa-solid fa-plus icon"></i>
         </a>
     </div>

@@ -35,6 +35,9 @@ public class FacilityController {
                               @RequestParam("page") Optional<Integer> page,
                               @RequestParam("size") Optional<Integer> size, Model model){
         Page<Facility> facilities = facilityService.selectAll(pageable);
+        if(facilities.isEmpty()){
+            model.addAttribute("error", "No data available");
+        }
         int curPage = page.orElse(1);
         int pageSize = size.orElse(5);
         int totalPages = facilities.getTotalPages();
@@ -63,6 +66,7 @@ public class FacilityController {
                 redirectAttributes.addAttribute("error", "This service have been here! Try again or out...");
                 return "service/create-service";
             }
+            System.out.println(facility.getDescription());
             facilityService.create(facility);
             return "redirect:/furama/service";
         }
@@ -77,5 +81,30 @@ public class FacilityController {
         Facility facility = facilityService.findById(id);
         facilityService.deleteById(facility);
         return "redirect:/furama/service";
+    }
+
+    @GetMapping("/edit")
+    public String serviceEditPage(@RequestParam int id, Model model){
+        Facility facility = facilityService.findById(id);
+        try{
+            model.addAttribute("facility", facility);
+            model.addAttribute("typeServices", facilityTypeService.selectAll());
+            model.addAttribute("typeRents", rentTypeService.selectAll());
+            return "service/edit-service";
+        }
+        catch (Exception e){
+            return "404error";
+        }
+    }
+
+    @PostMapping("/edit")
+    public String serviceEditPage(@ModelAttribute Facility facility, Model model, RedirectAttributes redirectAttributes){
+        try{
+            facilityService.edit(facility);
+            return "redirect:/furama/service";
+        }
+        catch (Exception e){
+            return "404error";
+        }
     }
 }

@@ -3,13 +3,250 @@
 <head th:replace="/common::head">
 </head>
 <body>
-<header th:replace="/common::header"></header>
+<div class="main">
+    <header th:replace="/common::header"></header>
+    <div class="content py-5">
+        <div class="menu-container container py-5">
+            <div class="menu-header col-6">
+                <p class="menu-header-text">Welcome</p>
+                <h1 class="menu-header-heading">Furama Resort</h1>
+                <p class="menu-header-para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequuntur cupiditate
+                    ipsam iste molestias neque, numquam quo rerum tenetur vitae!</p>
+            </div>
+        </div>
+        <div class="container list-container py-5">
+            <p class="text-danger" th:if="${error}" th:text="${error}"></p>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th class="table-list">#</th>
+                    <th class="table-list">Name</th>
+                    <th class="table-list">Number phone</th>
+                    <th class="table-list">Email</th>
+                    <th class="table-list">Address</th>
+                    <th class="table-list">Position</th>
+                    <th class="table-list">Option</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="employee, loop : ${employees}">
+                    <td class="table-list" th:text="${loop.count}"></td>
+                    <td class="table-list" th:text="${employee.name}"></td>
+                    <td class="table-list" th:text="${employee.phoneNumber}"></td>
+                    <td class="table-list" th:text="${employee.email}"></td>
+                    <td class="table-list" th:text="${employee.address}"></td>
+                    <td class="table-list" th:text="${employee.position.name}"></td>
+                    <td class="table-list">
+                        <!-- Button Edit-->
+                        <button type="button" class="btn btn-warning" data-bs-toggle="modal" th:attr="data-bs-target='#edit'+${employee.id}">
+                            <i class="fa-solid fa-pen text-white"></i>
+                        </button>
 
+                        <!-- Modal Edit-->
+                        <div class="modal fade" th:attr="id='delete'+${employee.id}" tabindex="-1" aria-labelledby="edit" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <form action="/furama/employee/edit" th:object="${employeeEdit}" method="post">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="edit">Edit employee</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <input type="hidden" class="form-control" th:field="*{id}" >
+                                                <div class="col-md-4 mb-3 col-xs-12">
+                                                    <label for="">Name employee:</label>
+                                                    <input type="text" class="form-control" th:field="*{name}" id="nameEdit">
+                                                </div>
+                                                <div class="col-md-4 mb-3 col-xs-12">
+                                                    <label for="">Date of birth:</label>
+                                                    <input type="date" class="form-control" th:field="*{dateOfBirth}" id="dobEdit">
+                                                </div>
+                                                <div class="col-md-4 mb-3 col-xs-12">
+                                                    <label for="">Identity card:</label>
+                                                    <input type="text" class="form-control" th:field="*{idCard}" id="idCardEdit">
+                                                </div>
+                                                <div class="col-md-4 mb-3 col-xs-12">
+                                                    <label for="">Phone number:</label>
+                                                    <input type="text" class="form-control" id="phoneNumberEdit" th:field="*{phoneNumber}">
+                                                </div>
+                                                <div class="col-md-4 mb-3 col-xs-12">
+                                                    <label for="">Email:</label>
+                                                    <input type="text" class="form-control" id="emailEdit" th:field="*{email}">
+                                                </div>
+                                                <div class="col-md-4 mb-3 col-xs-12">
+                                                    <label for="">Address:</label>
+                                                    <input type="text" class="form-control" id="addressEdit" th:field="*{address}">
+                                                </div>
+                                                <div class="col-md-4 mb-3 col-xs-12">
+                                                    <label for="">Salary:</label>
+                                                    <input type="text" class="form-control" id="salaryEdit" th:field="*{salary}">
+                                                </div>
+                                                <div class="col-md-4 mb-3 col-xs-12">
+                                                    <label for="">Position:</label>
+                                                    <select id="selectPositionEdit" name="" th:field="*{position}" class="form-control">
+                                                        <option value="">---Option Position---</option>
+                                                        <option value="" th:each="position : ${positions}" th:value="${position.id}"
+                                                                th:text="${position.name}"></option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-4 mb-3 col-xs-12">
+                                                    <label for="">Education degree:</label>
+                                                    <select id="selectEducationEdit" name="" th:field="*{educationDegree}" class="form-control">
+                                                        <option value="">---Option Education degree---</option>
+                                                        <option value="" th:each="education : ${educationDegrees}" th:value="${education.id}"
+                                                                th:text="${education.educationDegree}"></option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-4 mb-3 col-xs-12">
+                                                    <label for="">Division:</label>
+                                                    <select id="selectDivisionEdit" name="" th:field="*{division}" class="form-control">
+                                                        <option value="">---Option Division---</option>
+                                                        <option value="" th:each="division : ${divisions}" th:value="${division.id}"
+                                                                th:text="${division.name}"></option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-warning text-white" id="btn-edit">
+                                                <a th:href="@{/furama/employee/{id}/edit(id=${employee.id})}" class="text-white text-decoration-none">Edit</a>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
 
+                        <!-- Button Delete-->
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" th:attr="data-bs-target='#delete'+${employee.id}">
+                            <i class="fa-solid fa-trash-can text-white"></i>
+                        </button>
 
-<footer th:replace="/common::footer">
+                        <!-- Modal Delete-->
+                        <div class="modal fade" th:attr="id='edit'+${employee.id}" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="editLabel">Erase Customer</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Do you want erase <span th:text="${employee.name}"></span></p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-danger">
+                                            <a th:href="@{/furama/employee/{id}(id=${employee.id})}" class="text-white text-decoration-none">Delete</a>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <p th:if="${error}"></p>
+            <div class="pagination" th:object="${employees}">
+                <a th:if="${employees.hasPrevious()}"
+                   th:href="@{/furama/employee(page=${employees.number - 1})}" class="pagination-button">
+                    Previous
+                </a>
+                <th:block th:each="pagination : ${pageNumbers}">
+                    <a th:href="@{/furama/employee(page=${pagination - 1})}"
+                       th:text="${pagination}" class="pagination-button">
+                    </a>
+                </th:block>
+                <a th:if="${employees.hasNext()}"
+                   th:href="@{/furama/employee(page=${employees.number + 1})}" class="pagination-button"> Next </a>
+            </div>
+        </div>
+    </div>
 
-</footer>
+    <div class="menu-side d-flex align-items-center justify-content-center">
+        <button type="button" class="btn btn-primary circle circle-l text-white"
+                data-bs-toggle="modal" data-bs-target="#create">
+            <i class="fa-solid fa-plus icon"></i>
+        </button>
+    </div>
+    <!-- Modal Create-->
+    <div class="modal fade" id="create" tabindex="-1" aria-labelledby="create1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-create">
+            <form action="/furama/employee/create" th:object="${employee}" method="post">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="create1">Create employee</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-4 mb-3 col-xs-12">
+                                <label for="">Name employee:</label>
+                                <input type="text" class="form-control" th:field="*{name}" id="name">
+                            </div>
+                            <div class="col-md-4 mb-3 col-xs-12">
+                                <label for="">Date of birth:</label>
+                                <input type="date" class="form-control" th:field="*{dateOfBirth}" id="dob">
+                            </div>
+                            <div class="col-md-4 mb-3 col-xs-12">
+                                <label for="">Identity card:</label>
+                                <input type="text" class="form-control" th:field="*{idCard}" id="idCard">
+                            </div>
+                            <div class="col-md-4 mb-3 col-xs-12">
+                                <label for="">Phone number:</label>
+                                <input type="text" class="form-control" id="phoneNumber" th:field="*{phoneNumber}">
+                            </div>
+                            <div class="col-md-4 mb-3 col-xs-12">
+                                <label for="">Email:</label>
+                                <input type="text" class="form-control" id="email" th:field="*{email}">
+                            </div>
+                            <div class="col-md-4 mb-3 col-xs-12">
+                                <label for="">Address:</label>
+                                <input type="text" class="form-control" id="address" th:field="*{address}">
+                            </div>
+                            <div class="col-md-4 mb-3 col-xs-12">
+                                <label for="">Salary:</label>
+                                <input type="text" class="form-control" id="salary" th:field="*{salary}">
+                            </div>
+                            <div class="col-md-4 mb-3 col-xs-12">
+                                <label for="">Position:</label>
+                                <select id="selectPosition" name="" th:field="*{position}" class="form-control">
+                                    <option value="">---Option Position---</option>
+                                    <option value="" th:each="position : ${positions}" th:value="${position.id}"
+                                            th:text="${position.name}"></option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-3 col-xs-12">
+                                <label for="">Education degree:</label>
+                                <select id="selectEducation" name="" th:field="*{educationDegree}" class="form-control">
+                                    <option value="">---Option Education degree---</option>
+                                    <option value="" th:each="education : ${educationDegrees}" th:value="${education.id}"
+                                            th:text="${education.educationDegree}"></option>
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-3 col-xs-12">
+                                <label for="">Division:</label>
+                                <select id="selectDivision" name="" th:field="*{division}" class="form-control">
+                                    <option value="">---Option Division---</option>
+                                    <option value="" th:each="division : ${divisions}" th:value="${division.id}"
+                                            th:text="${division.name}"></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-warning text-white" id="btn-create">Create</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <footer th:replace="/common::footer">
+    </footer>
+</div>
 </body>
 <th:block th:replace="/common::libraries">
 </th:block>

@@ -15,7 +15,7 @@ public class Employee {
     private String name;
 
     @Column(name = "ngay_sinh", columnDefinition = "date")
-    private Date dateOfBirth;
+    private String dateOfBirth;
 
     @Column(name = "cmnd")
     private String idCard;
@@ -57,7 +57,7 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(int id, String name, Date dateOfBirth, String idCard, String salary,
+    public Employee(int id, String name, String dateOfBirth, String idCard, String salary,
                     String phoneNumber, String email, String address, Position position,
                     EducationDegree educationDegree, Division division, User user, List<Contract> contracts,
                     int status) {
@@ -77,7 +77,7 @@ public class Employee {
         this.status = status;
     }
 
-    public Employee(String name, Date dateOfBirth, String idCard, String salary, String phoneNumber,
+    public Employee(String name, String dateOfBirth, String idCard, String salary, String phoneNumber,
                     String email, String address, Position position, EducationDegree educationDegree,
                     Division division, User user, List<Contract> contracts, int status) {
         this.name = name;
@@ -111,11 +111,11 @@ public class Employee {
         this.name = name;
     }
 
-    public Date getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 

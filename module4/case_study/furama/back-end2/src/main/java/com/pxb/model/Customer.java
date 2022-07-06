@@ -19,7 +19,7 @@ public class Customer {
     private String name;
 
     @Column(name = "ngay_sinh", columnDefinition = "date")
-    private Date dateOfBirth;
+    private String dateOfBirth;
 
     @Column(name = "gioi_tinh", columnDefinition = "bit")
     private int gender;
@@ -45,7 +45,7 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(int id, CustomerType customerType, String name, Date dateOfBirth,
+    public Customer(int id, CustomerType customerType, String name, String dateOfBirth,
                     int gender, String idCard, String phoneNumber, String email, String address,
                     int status, List<Contract> contracts) {
         this.id = id;
@@ -61,7 +61,7 @@ public class Customer {
         this.contracts = contracts;
     }
 
-    public Customer(CustomerType customerType, String name, Date dateOfBirth,
+    public Customer(CustomerType customerType, String name, String dateOfBirth,
                     int gender, String idCard, String phoneNumber, String email,
                     String address, int status, List<Contract> contracts) {
         this.customerType = customerType;
@@ -100,11 +100,11 @@ public class Customer {
         this.name = name;
     }
 
-    public Date getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
