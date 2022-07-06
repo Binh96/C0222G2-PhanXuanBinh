@@ -1,0 +1,186 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.main{
+
+}
+
+.circle{
+    border-radius: 50%;
+    position: relative;
+}
+
+.circle.circle-m{
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ffffff;
+}
+
+.circle.circle-l{
+    width: 40px;
+    height: 40px;
+    border: 3px solid #ffffff;
+}
+
+.icon{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#room-facility.hide{
+    display: none;
+}
+
+.menu-side{
+    width: 55px;
+    height: 55px;
+    position: fixed;
+    top: 25%;
+    left: 0;
+    background-color: #7633FA;
+    transform: translateY(-50%);
+    border-bottom-right-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.menu-side-btn{
+    position: absolute;
+}
+
+.header{
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 75px;
+    background-color: #ffffff;
+    box-shadow: 5px 8px 14px 2px rgb(0 0 0 / 5%);
+}
+
+.header-container{
+    position: relative;
+}
+
+.logo-link{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 34px;
+    font-weight: 600;
+}
+
+.btn-login{
+    cursor: pointer;
+}
+
+.carousel{
+    height: 420px;
+}
+
+.carousel-item{
+
+}
+
+.card{
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: 5px 8px 14px 2px rgb(0 0 0 / 5%);
+}
+
+.img-carousel1,
+.img-carousel2{
+    height: 100%;
+}
+
+.content{
+    margin-top: 75px;
+}
+
+.list-container{
+    position: relative;
+    height: 500px;
+}
+
+.footer{
+    background-color: #f8f9fa;
+}
+
+.icon-form-input-footer{
+    font-size: 15px;
+    color: white;
+    padding: 5px;
+}
+
+.form-input-footer{
+    background-color: #595959;
+    padding: 10px 15px;
+    position: relative;
+}
+
+.input-footer{
+    color: white;
+    border: none;
+    outline: none;
+    background-color: #595959;
+    margin-left: 10px;
+}
+
+.btn-subscribe{
+    padding: 15px 0;
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    background-color: #7633FA;
+}
+
+.menu-header{
+    text-align: center;
+    margin: 0 auto;
+}
+
+.menu-header-text{
+    margin: 0;
+    font-size: 33px;
+    line-height: 1.8em;
+    color: #3fd0d4;
+}
+
+.menu-header-heading{
+    font-size: 65px;
+    font-weight: 600;
+}
+
+.menu-header-para{
+    font-size: 17px;
+    line-height: 28px;
+}
+
+.table-list{
+    vertical-align: middle;
+    text-align: center;
+}
+
+.pagination{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.pagination-button{
+    padding: 0 7px;
+    border: 2px solid #7633FA;
+    color: #000000;
+    text-decoration: none;
+}

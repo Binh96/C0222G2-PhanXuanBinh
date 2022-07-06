@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/common::head">
+</head>
+<body>
+    <header th:replace="~{/common::header}">
+    </header>
+    <div class="content">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner carousel">
+                <div class="carousel-item active h-100">
+                    <img src="https://setsail.qodeinteractive.com/wp-content/uploads/2018/10/tour-featured-img-19.jpg" class="d-block w-100 img-carousel1" alt="...">
+                </div>
+                <div class="carousel-item h-100">
+                    <img src="https://setsail.qodeinteractive.com/wp-content/uploads/2018/10/tour-featured-img-17.jpg" class="d-block w-100 img-carousel2" alt="...">
+                </div>
+                <div class="carousel-item h-100">
+                    <img src="https://setsail.qodeinteractive.com/wp-content/uploads/2018/10/tour-featured-img-15.jpg" class="d-block w-100 img-carousel1" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <div class="content-service my-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="card">
+                            <img src="https://setsail.qodeinteractive.com/wp-content/uploads/2018/10/tour-featured-img-19.jpg" class="card-img-top" alt="">
+                            <div class="card-body">
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card">
+                            <img src="https://setsail.qodeinteractive.com/wp-content/uploads/2018/10/tour-featured-img-17.jpg" class="card-img-top" alt="">
+                            <div class="card-body">
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card">
+                            <img src="https://setsail.qodeinteractive.com/wp-content/uploads/2018/10/tour-featured-img-14.jpg" class="card-img-top" alt="">
+                            <div class="card-body">
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="card">
+                            <img src="https://setsail.qodeinteractive.com/wp-content/uploads/2018/10/tour-featured-img-16.jpg" class="card-img-top" alt="">
+                            <div class="card-body">
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer th:replace="~{/common::footer}">
+    </footer>
+</body>
+<th:block th:replace="/common::libraries">
+</th:block>
+</html>

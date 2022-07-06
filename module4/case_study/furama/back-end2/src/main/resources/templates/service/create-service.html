@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/common::head">
+</head>
+<body>
+<header th:replace="/common::header"></header>
+
+<div class="content">
+    <div class="menu-container container py-5">
+        <div class="menu-header col-6">
+            <p class="menu-header-text">Create Service</p>
+            <h1 class="menu-header-heading">Furama Resort</h1>
+            <p class="menu-header-para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequuntur cupiditate
+                ipsam iste molestias neque, numquam quo rerum tenetur vitae!</p>
+        </div>
+    </div>
+    <div class="container create-container py-5">
+        <form action="/furama/service/create" th:object="${facility}" method="post">
+            <div class="row">
+                <div class="col-4 mb-3">
+                    <label for="">Type service:</label>
+                    <select id="selectType" name="" th:field="*{facilityType}" class="form-control" onchange="getForm()">
+                        <option value="">---Option Type Service---</option>
+                        <option value="" th:each="typeService : ${typeServices}" th:value="${typeService.id}"
+                                th:text="${typeService.name}"></option>
+                    </select>
+                </div>
+                <div class="col-4 mb-3">
+                    <label for="">Name service:</label>
+                    <input type="text" class="form-control" th:field="*{name}" id="name">
+                </div>
+                <div class="col-4 mb-3">
+                    <label for="">Cost:</label>
+                    <input type="text" class="form-control" th:field="*{cost}" id="cost">
+                </div>
+                <div class="col-4 mb-3">
+                    <label for="">Type rent:</label>
+                    <select name="" th:field="${facility.rentType}" class="form-control" id="rentType">
+                        <option value="" th:each="typeRent : ${typeRents}" th:value="${typeRent.id}"
+                                th:text="${typeRent.name}"></option>
+                    </select>
+                </div>
+                <div class="col-4 mb-3">
+                    <label for="">Quantity People:</label>
+                    <input type="text" class="form-control" th:field="*{maxPeople}" id="maxPeople">
+                </div>
+            </div>
+            <div class="row" id="form-facility">
+                <div class="col-4 mb-3 hide" id="room-facility">
+                    <label for="">Facility free:</label>
+                    <input type="text" class="form-control" id="facilityFree">
+                </div>
+            </div>
+            <button class="btn btn-warning text-white mt-5 " id="btn-create">Create</button>
+        </form>
+    </div>
+</div>
+
+<footer th:replace="/common::footer">
+
+</footer>
+</body>
+<th:block th:replace="/common::libraries">
+</th:block>
+</html>
