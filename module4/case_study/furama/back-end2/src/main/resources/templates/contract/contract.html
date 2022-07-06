@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/common::head">
+</head>
+<body>
+<header th:replace="/common::header"></header>
+
+<div class="content">
+    <div class="menu-container container py-5">
+        <div class="menu-header col-6">
+            <p class="menu-header-text">Create Service</p>
+            <h1 class="menu-header-heading">Furama Resort</h1>
+            <p class="menu-header-para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequuntur cupiditate
+                ipsam iste molestias neque, numquam quo rerum tenetur vitae!</p>
+        </div>
+    </div>
+    <div class="container create-container py-5">
+        <form action="/furama/service/create" th:object="${facility}" method="post">
+            <div class="row">
+                <div class="col-4 mb-3">
+                    <label for="">Type customer:</label>
+                    <select id="selectType" name="" th:field="*{customerType}" class="form-control">
+                        <option value="">---Option Type Customer---</option>
+                        <option value="" th:each="typeService : ${typeServices}" th:value="${typeService.id}"
+                                th:text="${typeService.name}"></option>
+                    </select>
+                </div>
+                <div class="col-4 mb-3">
+                    <label for="">Type service:</label>
+                    <select id="" name="" th:field="*{facilityType}" class="form-control">
+                        <option value="">---Option Type Customer---</option>
+                        <option value="" th:each="typeService : ${typeServices}" th:value="${typeService.id}"
+                                th:text="${typeService.name}"></option>
+                    </select>
+                </div>
+                <div class="col-4 mb-3">
+                    <label for="">Date Start:</label>
+                    <input type="text" class="form-control" th:field="*{dateStart}">
+                </div>
+                <div class="col-4 mb-3">
+                    <label for="">Date End:</label>
+                    <input type="text" class="form-control" th:field="*{dateEnd}">
+                </div>
+                <div class="col-4 mb-3">
+                    <label for="">Total:</label>
+                    <input type="text" class="form-control" th:field="*{total}">
+                </div>
+                <div class="col-4 mb-3">
+                    <label for="">Money Save:</label>
+                    <input type="text" class="form-control" th:field="*{}">
+                </div>
+                <div class="col-4 mb-3">
+                    <a href="" class="btn btn-primary">Attach Facility:</a>
+                </div>
+            </div>
+            <button class="btn btn-warning text-white mt-5 " >Close</button>
+            <button class="btn btn-warning text-white mt-5 " id="btn-create">Create Contract</button>
+        </form>
+    </div>
+</div>
+
+<footer th:replace="/common::footer">
+
+</footer>
+</body>
+<th:block th:replace="/common::libraries">
+</th:block>
+</html>
