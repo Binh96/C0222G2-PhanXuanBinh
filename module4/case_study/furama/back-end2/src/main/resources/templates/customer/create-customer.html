@@ -57,9 +57,20 @@
                     <input type="text" class="form-control" id="address" th:field="*{address}">
                 </div>
             </div>
-            <button class="btn btn-warning text-white mt-5 " id="btn-create">Create</button>
+            <div class="button-container">
+                <button class="btn btn-warning text-white mt-5 " id="btn-create">Create</button>
+                <button class="btn btn-secondary text-white mt-5 " type="button">
+                    <a th:href="@{/furama/customer}" class="text-white text-decoration-none">Back</a></button>
+            </div>
         </form>
     </div>
+</div>
+
+<div class="menu-side d-flex align-items-center justify-content-center">
+    <a href="/furama/customer" class="d-flex align-items-center justify-content-center
+    text-white circle circle-l menu-side-btn text-decoration-none">
+        <i class="fa-solid fa-list"></i>
+    </a>
 </div>
 
 <footer th:replace="/common::footer">

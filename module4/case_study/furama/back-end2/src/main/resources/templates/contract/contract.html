@@ -3,65 +3,146 @@
 <head th:replace="/common::head">
 </head>
 <body>
-<header th:replace="/common::header"></header>
+<div class="main">
+    <header th:replace="/common::header"></header>
 
-<div class="content">
-    <div class="menu-container container py-5">
-        <div class="menu-header col-6">
-            <p class="menu-header-text">Create Service</p>
-            <h1 class="menu-header-heading">Furama Resort</h1>
-            <p class="menu-header-para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequuntur cupiditate
-                ipsam iste molestias neque, numquam quo rerum tenetur vitae!</p>
+    <div class="content py-5">
+        <div class="menu-container container py-5">
+            <div class="menu-header col-6">
+                <p class="menu-header-text">Welcome</p>
+                <h1 class="menu-header-heading">Furama Resort</h1>
+                <p class="menu-header-para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequuntur cupiditate
+                    ipsam iste molestias neque, numquam quo rerum tenetur vitae!</p>
+            </div>
+        </div>
+        <div class="container list-container py-5">
+            <p class="text-danger" th:if="${error}" th:text="${error}"></p>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th class="table-list">#</th>
+                    <th class="table-list">Facility</th>
+                    <th class="table-list">Customer</th>
+                    <th class="table-list">Date Start</th>
+                    <th class="table-list">Date End</th>
+                    <th class="table-list">Cost</th>
+<!--                    <th class="table-list">Total</th>-->
+                    <th class="table-list">Option</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="contract, loop : ${contracts}">
+                    <td class="table-list" th:text="${loop.count}"></td>
+                    <td class="table-list" th:text="${contract.facility.name}"></td>
+                    <td class="table-list" th:text="${contract.customer.name}"></td>
+                    <td class="table-list" th:text="${contract.startDate}"></td>
+                    <td class="table-list" th:text="${contract.endDate}"></td>
+                    <td class="table-list" th:text="${contract.deposit}"></td>
+<!--                    <td class="table-list" th:text="${total}"></td>-->
+                    <td class="table-list">
+<!--                        create Contract Detail-->
+
+                        <button type="button" class="btn text-white" style="background-color: #7633FA" data-bs-toggle="modal"
+                                th:attr="data-bs-target='#creatContractDetaile'+${contract.id}, onclick=|getAttachForContractDetail(${contract.id})|">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" th:attr="id='creatContractDetaile'+${contract.id}" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel1">Create Contract Detail</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="container">
+                                            <div class="row">
+                                                <label for="">Contract Identity</label>
+                                                <input type="text" th:value="${contract.id}" readonly class="form-control">
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                                <label for="">Attach facility</label>
+                                                <select name="" th:attr="id='attachSelect'+${contract.id}" class="form-control">
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary" th:attr="onclick=|createContractDetail(${contract.id})|">Create</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+<!--                        Attach facilities-->
+                        <button type="button" class="btn text-white" style="background-color: #7633FA" data-bs-toggle="modal"
+                                th:attr="data-bs-target='#show'+${contract.id}, onclick=|getAttach(${contract.id})|">
+                            Attach Facilities List
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" th:attr="id='show'+${contract.id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Attach Facilities</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Name Attach</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody th:attr="id='attachList'+${contract.id}">
+
+                                            </tbody>
+                                        </table>
+                                        <p th:attr="id='attachInfor'+${contract.id}"></p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <p th:if="${error}"></p>
+            <div class="pagination">
+                <a th:if="${contracts.hasPrevious()}"
+                   th:href="@{/furama/contract(page=${contracts.number - 1})}" class="pagination-button">
+                    Previous
+                </a>
+                <th:block th:each="pagination : ${pageNumbers}">
+                    <a th:href="@{/furama/contract(page=${pagination - 1})}"
+                       th:text="${pagination}" class="pagination-button">
+                    </a>
+                </th:block>
+                <a th:if="${contracts.hasNext()}"
+                   th:href="@{/furama/contract(page=${contracts.number + 1})}" class="pagination-button"> Next </a>
+            </div>
         </div>
     </div>
-    <div class="container create-container py-5">
-        <form action="/furama/service/create" th:object="${facility}" method="post">
-            <div class="row">
-                <div class="col-4 mb-3">
-                    <label for="">Type customer:</label>
-                    <select id="selectType" name="" th:field="*{customerType}" class="form-control">
-                        <option value="">---Option Type Customer---</option>
-                        <option value="" th:each="typeService : ${typeServices}" th:value="${typeService.id}"
-                                th:text="${typeService.name}"></option>
-                    </select>
-                </div>
-                <div class="col-4 mb-3">
-                    <label for="">Type service:</label>
-                    <select id="" name="" th:field="*{facilityType}" class="form-control">
-                        <option value="">---Option Type Customer---</option>
-                        <option value="" th:each="typeService : ${typeServices}" th:value="${typeService.id}"
-                                th:text="${typeService.name}"></option>
-                    </select>
-                </div>
-                <div class="col-4 mb-3">
-                    <label for="">Date Start:</label>
-                    <input type="text" class="form-control" th:field="*{dateStart}">
-                </div>
-                <div class="col-4 mb-3">
-                    <label for="">Date End:</label>
-                    <input type="text" class="form-control" th:field="*{dateEnd}">
-                </div>
-                <div class="col-4 mb-3">
-                    <label for="">Total:</label>
-                    <input type="text" class="form-control" th:field="*{total}">
-                </div>
-                <div class="col-4 mb-3">
-                    <label for="">Money Save:</label>
-                    <input type="text" class="form-control" th:field="*{}">
-                </div>
-                <div class="col-4 mb-3">
-                    <a href="" class="btn btn-primary">Attach Facility:</a>
-                </div>
-            </div>
-            <button class="btn btn-warning text-white mt-5 " >Close</button>
-            <button class="btn btn-warning text-white mt-5 " id="btn-create">Create Contract</button>
-        </form>
+
+    <div class="menu-side d-flex align-items-center justify-content-center">
+        <a href="/furama/contract/create" class="btn text-white circle circle-l menu-side-btn">
+            <i class="fa-solid fa-plus icon"></i>
+        </a>
     </div>
+
+    <footer th:replace="/common::footer">
+
+    </footer>
 </div>
-
-<footer th:replace="/common::footer">
-
-</footer>
 </body>
 <th:block th:replace="/common::libraries">
 </th:block>

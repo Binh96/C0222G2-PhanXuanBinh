@@ -33,22 +33,31 @@ public class FacilityController {
     @GetMapping("")
     public String servicePage(@PageableDefault(value = 5)Pageable pageable,
                               @RequestParam("page") Optional<Integer> page,
-                              @RequestParam("size") Optional<Integer> size, Model model){
-        Page<Facility> facilities = facilityService.selectAll(pageable);
-        if(facilities.isEmpty()){
-            model.addAttribute("error", "No data available");
+                              @RequestParam("size") Optional<Integer> size, Model model,
+                              @RequestParam Optional<String> keyword){
+        try{
+            String keywordVal = keyword.orElse("");
+            Page<Facility> facilities = this.facilityService.findByName(pageable, '%'+keywordVal+'%');
+            if(facilities.isEmpty()){
+                model.addAttribute("error", "No data available");
+            }
+            int curPage = page.orElse(1);
+            int pageSize = size.orElse(5);
+            int totalPages = facilities.getTotalPages();
+            if (totalPages > 0) {
+                List<Integer> pageNumbers = IntStream.rangeClosed(1, totalPages)
+                        .boxed()
+                        .collect(Collectors.toList());
+                model.addAttribute("pageNumbers", pageNumbers);
+            }
+            model.addAttribute("keywordVal", keywordVal);
+            model.addAttribute("facilities", facilities);
+            return "service/list-service";
         }
-        int curPage = page.orElse(1);
-        int pageSize = size.orElse(5);
-        int totalPages = facilities.getTotalPages();
-        if (totalPages > 0) {
-            List<Integer> pageNumbers = IntStream.rangeClosed(1, totalPages)
-                    .boxed()
-                    .collect(Collectors.toList());
-            model.addAttribute("pageNumbers", pageNumbers);
+        catch (Exception e){
+            e.printStackTrace();
+            return "404error";
         }
-        model.addAttribute("facilities", facilities);
-        return "service/list-service";
     }
 
     @GetMapping("/create")

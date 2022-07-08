@@ -1,5 +1,7 @@
 package com.pxb.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -14,6 +16,7 @@ public class RentType {
     private String name;
 
     @OneToMany(mappedBy = "rentType")
+    @JsonBackReference
     private List<Facility> facilityList;
 
     public RentType() {

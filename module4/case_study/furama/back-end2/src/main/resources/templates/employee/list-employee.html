@@ -38,13 +38,14 @@
                     <td class="table-list" th:text="${employee.position.name}"></td>
                     <td class="table-list">
                         <!-- Button Edit-->
-                        <button type="button" class="btn btn-warning" data-bs-toggle="modal" th:attr="data-bs-target='#edit'+${employee.id}">
+                        <button type="button" class="btn btn-warning"  data-bs-toggle="modal"
+                                th:attr="data-bs-target='#edit'+${employee.id}, onclick=|getEmployee(${employee.id})|">
                             <i class="fa-solid fa-pen text-white"></i>
                         </button>
 
                         <!-- Modal Edit-->
-                        <div class="modal fade" th:attr="id='delete'+${employee.id}" tabindex="-1" aria-labelledby="edit" aria-hidden="true">
-                            <div class="modal-dialog">
+                        <div class="modal fade" th:attr="id='edit'+${employee.id}" tabindex="-1" aria-labelledby="edit" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-create">
                                 <form action="/furama/employee/edit" th:object="${employeeEdit}" method="post">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -53,54 +54,54 @@
                                         </div>
                                         <div class="modal-body">
                                             <div class="row">
-                                                <input type="hidden" class="form-control" th:field="*{id}" >
-                                                <div class="col-md-4 mb-3 col-xs-12">
-                                                    <label for="">Name employee:</label>
-                                                    <input type="text" class="form-control" th:field="*{name}" id="nameEdit">
+                                                <input type="hidden" class="form-control" th:field="*{id}" id="idEdit">
+                                                <div class="col-md-4 mb-3 col-xs-12 text-start">
+                                                    <label for="" >Name employee:</label>
+                                                    <input type="text" class="form-control" th:field="*{name}" th:attr="id='nameEdit'+${employee.id}">
                                                 </div>
-                                                <div class="col-md-4 mb-3 col-xs-12">
+                                                <div class="col-md-4 mb-3 col-xs-12 text-start">
                                                     <label for="">Date of birth:</label>
-                                                    <input type="date" class="form-control" th:field="*{dateOfBirth}" id="dobEdit">
+                                                    <input type="date" class="form-control" th:field="*{dateOfBirth}" th:attr="id='dobEdit'+${employee.id}">
                                                 </div>
-                                                <div class="col-md-4 mb-3 col-xs-12">
+                                                <div class="col-md-4 mb-3 col-xs-12 text-start">
                                                     <label for="">Identity card:</label>
-                                                    <input type="text" class="form-control" th:field="*{idCard}" id="idCardEdit">
+                                                    <input type="text" class="form-control" th:field="*{idCard}" th:attr="id='idCardEdit'+${employee.id}">
                                                 </div>
-                                                <div class="col-md-4 mb-3 col-xs-12">
+                                                <div class="col-md-4 mb-3 col-xs-12 text-start">
                                                     <label for="">Phone number:</label>
-                                                    <input type="text" class="form-control" id="phoneNumberEdit" th:field="*{phoneNumber}">
+                                                    <input type="text" class="form-control" th:attr="id='phoneNumberEdit'+${employee.id}" th:field="*{phoneNumber}">
                                                 </div>
-                                                <div class="col-md-4 mb-3 col-xs-12">
+                                                <div class="col-md-4 mb-3 col-xs-12 text-start">
                                                     <label for="">Email:</label>
-                                                    <input type="text" class="form-control" id="emailEdit" th:field="*{email}">
+                                                    <input type="text" class="form-control" th:attr="id='emailEdit'+${employee.id}" th:field="*{email}">
                                                 </div>
-                                                <div class="col-md-4 mb-3 col-xs-12">
+                                                <div class="col-md-4 mb-3 col-xs-12 text-start">
                                                     <label for="">Address:</label>
-                                                    <input type="text" class="form-control" id="addressEdit" th:field="*{address}">
+                                                    <input type="text" class="form-control" th:attr="id='addressEdit'+${employee.id}" th:field="*{address}">
                                                 </div>
-                                                <div class="col-md-4 mb-3 col-xs-12">
+                                                <div class="col-md-4 mb-3 col-xs-12 text-start">
                                                     <label for="">Salary:</label>
-                                                    <input type="text" class="form-control" id="salaryEdit" th:field="*{salary}">
+                                                    <input type="text" class="form-control" th:attr="id='salaryEdit'+${employee.id}" th:field="*{salary}">
                                                 </div>
-                                                <div class="col-md-4 mb-3 col-xs-12">
+                                                <div class="col-md-4 mb-3 col-xs-12 text-start">
                                                     <label for="">Position:</label>
-                                                    <select id="selectPositionEdit" name="" th:field="*{position}" class="form-control">
+                                                    <select th:attr="id='selectPositionEdit'+${employee.id}" name="" th:field="*{position}" class="form-control">
                                                         <option value="">---Option Position---</option>
                                                         <option value="" th:each="position : ${positions}" th:value="${position.id}"
                                                                 th:text="${position.name}"></option>
                                                     </select>
                                                 </div>
-                                                <div class="col-md-4 mb-3 col-xs-12">
+                                                <div class="col-md-4 mb-3 col-xs-12 text-start">
                                                     <label for="">Education degree:</label>
-                                                    <select id="selectEducationEdit" name="" th:field="*{educationDegree}" class="form-control">
+                                                    <select th:attr="id='selectEducationEdit'+${employee.id}" name="" th:field="*{educationDegree}" class="form-control">
                                                         <option value="">---Option Education degree---</option>
                                                         <option value="" th:each="education : ${educationDegrees}" th:value="${education.id}"
                                                                 th:text="${education.educationDegree}"></option>
                                                     </select>
                                                 </div>
-                                                <div class="col-md-4 mb-3 col-xs-12">
+                                                <div class="col-md-4 mb-3 col-xs-12 text-start">
                                                     <label for="">Division:</label>
-                                                    <select id="selectDivisionEdit" name="" th:field="*{division}" class="form-control">
+                                                    <select th:attr="id='selectDivisionEdit'+${employee.id}" name="" th:field="*{division}" class="form-control">
                                                         <option value="">---Option Division---</option>
                                                         <option value="" th:each="division : ${divisions}" th:value="${division.id}"
                                                                 th:text="${division.name}"></option>
@@ -111,7 +112,7 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                             <button type="button" class="btn btn-warning text-white" id="btn-edit">
-                                                <a th:href="@{/furama/employee/{id}/edit(id=${employee.id})}" class="text-white text-decoration-none">Edit</a>
+                                                <a th:href="@{/furama/employee/{id}/edit(id=${employeeEdit.id})}" class="text-white text-decoration-none">Edit</a>
                                             </button>
                                         </div>
                                     </div>
@@ -125,7 +126,7 @@
                         </button>
 
                         <!-- Modal Delete-->
-                        <div class="modal fade" th:attr="id='edit'+${employee.id}" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
+                        <div class="modal fade" th:attr="id='delete'+${employee.id}" tabindex="-1" aria-labelledby="editLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -149,7 +150,7 @@
                 </tbody>
             </table>
             <p th:if="${error}"></p>
-            <div class="pagination" th:object="${employees}">
+            <div class="pagination">
                 <a th:if="${employees.hasPrevious()}"
                    th:href="@{/furama/employee(page=${employees.number - 1})}" class="pagination-button">
                     Previous
@@ -166,7 +167,8 @@
     </div>
 
     <div class="menu-side d-flex align-items-center justify-content-center">
-        <button type="button" class="btn btn-primary circle circle-l text-white"
+        <button type="button" class="d-flex align-items-center justify-content-center
+    text-white circle circle-l menu-side-btn"
                 data-bs-toggle="modal" data-bs-target="#create">
             <i class="fa-solid fa-plus icon"></i>
         </button>

@@ -1,5 +1,7 @@
 package com.pxb.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -49,6 +51,7 @@ public class Employee {
     private User user;
 
     @OneToMany(mappedBy = "employee")
+    @JsonBackReference
     private List<Contract> contracts;
 
     @Column(name = "status", columnDefinition = "int default 0")

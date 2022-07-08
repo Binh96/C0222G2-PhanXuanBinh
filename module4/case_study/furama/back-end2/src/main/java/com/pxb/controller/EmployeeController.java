@@ -48,13 +48,14 @@ public class EmployeeController {
         int currPage = page.orElse(1);
         int pageSize = size.orElse(5);
         int totalPages = employees.getTotalPages();
-        if(totalPages < 0){
+        if(totalPages > 0){
             List<Integer> pageNumbers = IntStream.rangeClosed(1, totalPages)
                     .boxed()
                     .collect(Collectors.toList());
             model.addAttribute("pageNumbers", pageNumbers);
         }
         model.addAttribute("employees", employees);
+        model.addAttribute("employeeEdit", new Employee());
         model.addAttribute("employee", new Employee());
         model.addAttribute("positions", positionService.selectAll());
         model.addAttribute("educationDegrees", educationDegreeService.selectAll());

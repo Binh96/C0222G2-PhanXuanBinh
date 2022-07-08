@@ -1,5 +1,7 @@
 package com.pxb.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -20,6 +22,7 @@ public class AttachFacility {
     private String unit;
 
     @OneToMany(mappedBy = "attachFacility")
+    @JsonBackReference
     private List<ContractDetail> contractDetailList;
 
     @Column(name = "status", columnDefinition = "int default 0")

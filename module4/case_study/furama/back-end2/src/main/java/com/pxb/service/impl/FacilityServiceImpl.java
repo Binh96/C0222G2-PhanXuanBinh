@@ -34,8 +34,8 @@ public class FacilityServiceImpl implements FacilityService {
     }
 
     @Override
-    public Page<Facility> findByName(String name) {
-        return null;
+    public Page<Facility> findByName(Pageable pageable,String name) {
+        return facilityRepository.selectByName(pageable,name);
     }
 
     @Override

@@ -31,20 +31,23 @@ public class CustomerController {
     @GetMapping("")
     public String servicePage(@PageableDefault(value = 5) Pageable pageable,
                               @RequestParam("page") Optional<Integer> page,
-                              @RequestParam("size") Optional<Integer> size, Model model){
-        Page<Customer> customers = customerService.selectAll(pageable);
+                              @RequestParam("size") Optional<Integer> size, Model model,
+                              @RequestParam Optional<String> keyword){
+        String keywordVal = keyword.orElse("");
+        Page<Customer> customers = this.customerService.selectByName(pageable, '%'+keywordVal+'%');
         if(customers.isEmpty()){
             model.addAttribute("error", "No data available");
         }
         int currPage = page.orElse(1);
         int pageSize = size.orElse(5);
         int totalPages = customers.getTotalPages();
-        if(totalPages < 0){
+        if(totalPages > 0){
             List<Integer> pageNumbers = IntStream.rangeClosed(1, totalPages)
                     .boxed()
                     .collect(Collectors.toList());
             model.addAttribute("pageNumbers", pageNumbers);
         }
+        model.addAttribute("keywordVal", keywordVal);
         model.addAttribute("customers", customers);
         return "customer/list-customer";
     }

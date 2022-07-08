@@ -13,7 +13,7 @@ public interface FacilityService {
 
     void edit(Facility facility);
 
-    Page<Facility> findByName(String name);
+    Page<Facility> findByName(Pageable pageable, String name);
 
     Facility findById(int id);
 }

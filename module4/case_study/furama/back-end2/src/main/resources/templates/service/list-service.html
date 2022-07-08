@@ -17,27 +17,35 @@
         </div>
         <div class="container list-container">
             <p class="text-danger" th:if="${error}" th:text="${error}"></p>
+            <div class="search-container">
+                <div class="search-form">
+                    <form action="/furama/service" class="d-flex align-items-center">
+                        <input type="text" name="keyword" class="form-control" placeholder="Tìm kiếm theo tên">
+                        <button class="btn-search"><i class="text-white fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                </div>
+            </div>
             <table class="table">
                 <thead>
                 <tr>
-                    <th class="table-list">#</th>
-                    <th class="table-list">Facility</th>
-                    <th class="table-list">Cost</th>
-                    <th class="table-list">Max People</th>
-                    <th class="table-list">Rent Type</th>
-                    <th class="table-list">Facility Type</th>
-                    <th class="table-list">Option</th>
+                    <th class="table-list-head">#</th>
+                    <th class="table-list-head">Facility</th>
+                    <th class="table-list-head">Cost</th>
+                    <th class="table-list-head">Max People</th>
+                    <th class="table-list-head">Rent Type</th>
+                    <th class="table-list-head">Facility Type</th>
+                    <th class="table-list-head text-center">Option</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="facility : ${facilities}">
-                    <td class="table-list" th:text="${facility.id}"></td>
+                <tr th:each="facility, loop : ${facilities}">
+                    <td class="table-list" th:text="${loop.count}"></td>
                     <td class="table-list" th:text="${facility.name}"></td>
                     <td class="table-list" th:text="${facility.cost}"></td>
                     <td class="table-list" th:text="${facility.maxPeople}"></td>
                     <td class="table-list" th:text="${facility.rentType.name}"></td>
                     <td class="table-list" th:text="${facility.facilityType.name}"></td>
-                    <td class="table-list">
+                    <td class="table-list text-center">
                         <a th:href="@{/furama/service/edit(id=${facility.id})}" class="btn btn-warning">
                             <i class="fa-solid fa-pen text-white"></i>
                         </a>
@@ -72,22 +80,23 @@
             <p th:if="${error}"></p>
             <div class="pagination" th:object="${facilities}">
                 <a th:if="${facilities.hasPrevious()}"
-                   th:href="@{/furama/service(page=${facilities.number - 1})}" class="pagination-button">
+                   th:href="@{/furama/service(page=${facilities.number - 1}, keyword=${keywordVal})}" class="pagination-button">
                     Previous
                 </a>
                 <th:block th:each="pagination : ${pageNumbers}">
-                    <a th:href="@{/furama/service(page=${pagination - 1})}"
+                    <a th:href="@{/furama/service(page=${pagination - 1}, keyword=${keywordVal})}"
                        th:text="${pagination}" class="pagination-button">
                     </a>
                 </th:block>
                 <a th:if="${facilities.hasNext()}"
-                   th:href="@{/furama/service(page=${facilities.number + 1})}" class="pagination-button"> Next </a>
+                   th:href="@{/furama/service(page=${facilities.number + 1}, keyword=${keywordVal})}" class="pagination-button"> Next </a>
             </div>
         </div>
     </div>
 
     <div class="menu-side d-flex align-items-center justify-content-center">
-        <a href="/furama/service/create" class="btn btn-primary text-white circle circle-l menu-side-btn">
+        <a href="/furama/service/create" class="d-flex align-items-center justify-content-center
+    text-white circle circle-l menu-side-btn text-decoration-none">
             <i class="fa-solid fa-plus icon"></i>
         </a>
     </div>

@@ -17,6 +17,9 @@ public interface FacilityRepository extends JpaRepository<Facility, Integer> {
 
     @Query(value = "select * from dich_vu where status = 0", nativeQuery = true)
     Page<Facility> selectAll(Pageable pageable);
+
+    @Query(value = "select * from dich_vu where status = 0 and ten_dich_vu like :name", nativeQuery = true)
+    Page<Facility> selectByName(Pageable pageable, @Param("name") String name);
     @Query(value = "select * from dich_vu where id = :id", nativeQuery = true)
     Facility findById(@Param("id") int id);
 

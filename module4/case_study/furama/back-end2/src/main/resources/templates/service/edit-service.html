@@ -8,7 +8,7 @@
 <div class="content">
     <div class="menu-container container py-5">
         <div class="menu-header col-6">
-            <p class="menu-header-text">Create Service</p>
+            <p class="menu-header-text">Edit Service</p>
             <h1 class="menu-header-heading">Furama Resort</h1>
             <p class="menu-header-para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequuntur cupiditate
                 ipsam iste molestias neque, numquam quo rerum tenetur vitae!</p>
@@ -84,9 +84,20 @@
                     </div>
                 </div>
             </div>
-            <button class="btn btn-warning text-white mt-5 " id="btn-create">Create</button>
+            <div class="button-container">
+                <button class="btn btn-warning text-white mt-5 " id="btn-create">Edit</button>
+                <button class="btn btn-secondary text-white mt-5 " type="button">
+                    <a th:href="@{/furama/service}" class="text-white text-decoration-none">Back</a></button>
+            </div>
         </form>
     </div>
+</div>
+
+<div class="menu-side d-flex align-items-center justify-content-center">
+    <a href="/furama/service" class="d-flex align-items-center justify-content-center
+    text-white circle circle-l menu-side-btn text-decoration-none">
+        <i class="fa-solid fa-list"></i>
+    </a>
 </div>
 
 <footer th:replace="/common::footer">

@@ -11,7 +11,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
-    @Query(value = "select * from nhan_vien where status = 0", nativeQuery = true)
+    @Query(value = "select * from nhan_vien where status = 0", nativeQuery = true,
+    countQuery = "select count(*) from(select * from nhan_vien where status = 0) nhan_vien")
     Page<Employee> selectAll(Pageable pageable);
 
     @Query(value = "select * from nhan_vien where status = 0 and ten_nhan_vien like :name", nativeQuery = true)

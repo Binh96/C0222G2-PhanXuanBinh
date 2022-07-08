@@ -1,5 +1,7 @@
 package com.pxb.model;
 
+import org.springframework.data.jpa.repository.Modifying;
+
 import javax.persistence.*;
 
 @Entity
