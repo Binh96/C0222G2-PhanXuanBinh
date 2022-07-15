@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="/common::head">
 </head>
-<body>
+<body onload="displayTotal()">
 <div class="main">
     <header th:replace="/common::header"></header>
 
@@ -25,95 +25,100 @@
                     <th class="table-list">Customer</th>
                     <th class="table-list">Date Start</th>
                     <th class="table-list">Date End</th>
-                    <th class="table-list">Cost</th>
-<!--                    <th class="table-list">Total</th>-->
+                    <th class="table-list">Deposit</th>
+                    <th class="table-list">Total</th>
                     <th class="table-list">Option</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="contract, loop : ${contracts}">
-                    <td class="table-list" th:text="${loop.count}"></td>
-                    <td class="table-list" th:text="${contract.facility.name}"></td>
-                    <td class="table-list" th:text="${contract.customer.name}"></td>
-                    <td class="table-list" th:text="${contract.startDate}"></td>
-                    <td class="table-list" th:text="${contract.endDate}"></td>
-                    <td class="table-list" th:text="${contract.deposit}"></td>
-<!--                    <td class="table-list" th:text="${total}"></td>-->
-                    <td class="table-list">
-<!--                        create Contract Detail-->
+                    <tr th:each="contract, loop : ${contracts}">
+                        <td class="table-list" th:text="${loop.count}"></td>
+                        <td class="table-list" th:text="${contract.facility.name}"></td>
+                        <td class="table-list" th:text="${contract.customer.name}"></td>
+                        <td class="table-list" th:text="${contract.startDate}"></td>
+                        <td class="table-list" th:text="${contract.endDate}"></td>
+                        <td class="table-list" th:text="${contract.deposit}"></td>
+                        <td class="table-list" onchange="getTotalPay()" id="total"></td>
+                        <td class="table-list">
+    <!--                        create Contract Detail-->
 
-                        <button type="button" class="btn text-white" style="background-color: #7633FA" data-bs-toggle="modal"
-                                th:attr="data-bs-target='#creatContractDetaile'+${contract.id}, onclick=|getAttachForContractDetail(${contract.id})|">
-                            <i class="fa-solid fa-plus"></i>
-                        </button>
+                            <button type="button" class="btn text-white" style="background-color: #7633FA" data-bs-toggle="modal"
+                                    th:attr="data-bs-target='#creatContractDetaile'+${contract.id}, onclick=|getAttachForContractDetail(${contract.id})|">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
 
-                        <!-- Modal -->
-                        <div class="modal fade" th:attr="id='creatContractDetaile'+${contract.id}" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel1">Create Contract Detail</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="container">
-                                            <div class="row">
-                                                <label for="">Contract Identity</label>
-                                                <input type="text" th:value="${contract.id}" readonly class="form-control">
-                                            </div>
-                                            <br>
-                                            <div class="row">
-                                                <label for="">Attach facility</label>
-                                                <select name="" th:attr="id='attachSelect'+${contract.id}" class="form-control">
+                            <!-- Modal -->
+                            <div class="modal fade" th:attr="id='creatContractDetaile'+${contract.id}" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel1">Create Contract Detail</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <label for="">Contract Identity</label>
+                                                    <input type="text" th:value="${contract.id}" readonly class="form-control">
+                                                </div>
+                                                <br>
+                                                <div class="row">
+                                                    <label for="">Quantity</label>
+                                                    <input type="text" th:attr="id='quantity'+${contract.id}" class="form-control">
+                                                </div>
+                                                <br>
+                                                <div class="row">
+                                                    <label for="">Attach facility</label>
+                                                    <select name="" th:attr="id='attachSelect'+${contract.id}" class="form-control">
 
-                                                </select>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary" th:attr="onclick=|createContractDetail(${contract.id})|">Create</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-<!--                        Attach facilities-->
-                        <button type="button" class="btn text-white" style="background-color: #7633FA" data-bs-toggle="modal"
-                                th:attr="data-bs-target='#show'+${contract.id}, onclick=|getAttach(${contract.id})|">
-                            Attach Facilities List
-                        </button>
-
-                        <!-- Modal -->
-                        <div class="modal fade" th:attr="id='show'+${contract.id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Attach Facilities</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th>#</th>
-                                                    <th>Name Attach</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody th:attr="id='attachList'+${contract.id}">
-
-                                            </tbody>
-                                        </table>
-                                        <p th:attr="id='attachInfor'+${contract.id}"></p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary" th:attr="onclick=|createContractDetail(${contract.id})|">Create</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </td>
-                </tr>
+
+    <!--                        Attach facilities-->
+                            <button type="button" class="btn text-white" style="background-color: #7633FA" data-bs-toggle="modal"
+                                    th:attr="data-bs-target='#show'+${contract.id}, onclick=|getAttach(${contract.id})|">
+                                Attach Facilities List
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" th:attr="id='show'+${contract.id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Attach Facilities</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Name Attach</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody th:attr="id='attachList'+${contract.id}">
+
+                                                </tbody>
+                                            </table>
+                                            <p th:attr="id='attachInfor'+${contract.id}"></p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <p th:if="${error}"></p>
@@ -134,7 +139,8 @@
     </div>
 
     <div class="menu-side d-flex align-items-center justify-content-center">
-        <a href="/furama/contract/create" class="btn text-white circle circle-l menu-side-btn">
+        <a class="d-flex align-items-center justify-content-center
+    text-white circle circle-l menu-side-btn text-decoration-none" th:href="@{/furama/contract/create}">
             <i class="fa-solid fa-plus icon"></i>
         </a>
     </div>

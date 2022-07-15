@@ -10,11 +10,19 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/furama/restemployee")
 public class EmployeeRestController {
     @Autowired
     private EmployeeService employeeService;
+
+    @GetMapping("/getemployee")
+    public ResponseEntity<List<Employee>> getListEmployee(){
+        List<Employee> employees = employeeService.selectAll();
+        return new ResponseEntity<>(employees, HttpStatus.OK);
+    }
 
     @GetMapping("/edit/{id}")
     public ResponseEntity<Employee> getEmployee(@PathVariable int id){

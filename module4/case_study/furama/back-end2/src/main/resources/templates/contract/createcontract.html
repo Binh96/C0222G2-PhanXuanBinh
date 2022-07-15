@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/common::head">
+</head>
+<body onload="loadInformation()">
+<header th:replace="/common::header"></header>
+
+<div class="content">
+    <div class="menu-container container py-5">
+        <div class="menu-header col-6">
+            <p class="menu-header-text">Create Contract</p>
+            <h1 class="menu-header-heading">Furama Resort</h1>
+            <p class="menu-header-para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequuntur cupiditate
+                ipsam iste molestias neque, numquam quo rerum tenetur vitae!</p>
+        </div>
+    </div>
+    <div class="container create-contract-container py-5">
+        <form th:action="@{/furama/contract/create}" method="post" th:object="${contractDto}">
+            <div class="row mb-3">
+                <div class="col-3">
+                    <p>Day start:</p>
+                </div>
+                <div class="col-9">
+                    <input type="date" class="form-control" id="startDate" th:field="*{startDate}">
+                    <p th:errors="*{startDate}" style="color: red"></p>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-3">
+                    <p>Day end:</p>
+                </div>
+                <div class="col-9">
+                    <input type="date" class="form-control" id="endDate" th:field="*{endDate}">
+                    <p th:errors="*{endDate}" style="color: red"></p>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-3">
+                    <p>Deposit:</p>
+                </div>
+                <div class="col-9">
+                    <input type="text" class="form-control" id="deposit" th:field="*{deposit}">
+                    <p th:errors="*{deposit}" style="color: red"></p>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-3">
+                    <p>Total pay:</p>
+                </div>
+                <div class="col-9">
+                    <input type="text" class="form-control" id="total" value="0" readonly>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-3">
+                    <p>Customer:</p>
+                </div>
+                <div class="col-9">
+                    <select name="" id="selectCustomer" class="form-control" th:field="*{customer}">
+                        <option value='' class='form-control'>--Select Customer--</option>
+                        <option th:each="c : ${customers}" th:value="${c.id}" th:text="${c.name}"></option>
+                    </select>
+                    <p th:errors="*{customer}" style="color: red"></p>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-3">
+                    <p>Employee:</p>
+                </div>
+                <div class="col-9">
+                    <select name="" id="selectEmployee" class="form-control" th:field="*{employee}">
+                        <option value='' class='form-control'>--Select Employee--</option>
+                        <option th:each="e : ${employees}" th:value="${e.id}" th:text="${e.name}"></option>
+                    </select>
+                    <p th:errors="*{employee}" style="color: red"></p>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-3">
+                    <p>Service type:</p>
+                </div>
+                <div class="col-9">
+                    <select name="" id="selectService" class="form-control" th:field="*{facility}">
+                        <option value='' class='form-control'>--Select Facility--</option>
+                        <option th:each="f : ${facilities}" th:value="${f.id}" th:text="${f.name}"></option>
+                    </select>
+                    <p th:errors="*{facility}" style="color: red"></p>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-3">
+                    <p>Attach facility:</p>
+                </div>
+                <div class="col-9">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Attach Facilities</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body" th:object="${contractDetail}">
+                                    <select name="" id="attachForContract" class="form-control" th:field="*{attachFacility}">
+                                        <option value="" class="form-control">--Select Attach Facility</option>
+                                        <option th:each="a : ${attachFacilites}" th:value="${a.id}" th:text="${a.name}"></option>
+                                    </select>
+                                </div>
+                                <div class="modal-body">
+                                    <input type="text" id="quantity" class="form-control" th:field="${contractDetail.quantity}">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Done</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <button class="btn btn-warning text-white mt-5 " id="btn-create">Create</button>
+                <button class="btn btn-secondary mt-5" type="button">
+                    <a href="/furama/contract" class="text-white text-decoration-none">Back</a>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="menu-side d-flex align-items-center justify-content-center">
+    <a href="/furama/contract" class="d-flex align-items-center justify-content-center
+    text-white circle circle-l menu-side-btn text-decoration-none">
+        <i class="fa-solid fa-list"></i>
+    </a>
+</div>
+
+<footer th:replace="/common::footer">
+
+</footer>
+</body>
+<th:block th:replace="/common::libraries">
+</th:block>
+</html>

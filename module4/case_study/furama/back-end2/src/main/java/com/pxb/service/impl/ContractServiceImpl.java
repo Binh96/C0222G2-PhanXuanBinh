@@ -1,5 +1,6 @@
 package com.pxb.service.impl;
 
+import com.pxb.dto.ContractDto;
 import com.pxb.model.Contract;
 import com.pxb.repository.ContractRepository;
 import com.pxb.service.ContractService;
@@ -7,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ContractServiceImpl implements ContractService {
@@ -18,8 +21,8 @@ public class ContractServiceImpl implements ContractService {
     }
 
     @Override
-    public void create(Contract contract) {
-        contractRepository.save(contract);
+    public Contract create(Contract contract) {
+        return contractRepository.save(contract);
     }
 
     @Override
@@ -41,4 +44,11 @@ public class ContractServiceImpl implements ContractService {
     public void deleteById(int id) {
         contractRepository.deleteById(id);
     }
+
+    @Override
+    public Page<ContractDto> getTotal(Pageable pageable) {
+        return contractRepository.getTotal(pageable);
+    }
+
+
 }

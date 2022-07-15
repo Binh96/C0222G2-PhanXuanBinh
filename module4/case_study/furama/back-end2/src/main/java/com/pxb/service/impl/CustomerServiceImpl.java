@@ -8,6 +8,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CustomerServiceImpl implements CustomerService {
     @Autowired
@@ -15,6 +17,11 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public Page<Customer> selectAll(Pageable pageable) {
         return customerRepository.selectAll(pageable);
+    }
+
+    @Override
+    public List<Customer> selectAll() {
+        return customerRepository.findAll();
     }
 
     @Override

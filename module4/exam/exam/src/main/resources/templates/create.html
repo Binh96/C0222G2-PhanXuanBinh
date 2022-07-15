@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/common::head">
+</head>
+<body>
+<header th:replace="/common::header"></header>
+
+<div class="content">
+    <div class="menu-container container py-5">
+        <div class="menu-header col-6">
+            <p class="menu-header-text">Create Exam</p>
+            <h1 class="menu-header-heading">Codegym</h1>
+            <p class="menu-header-para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequuntur cupiditate
+                ipsam iste molestias neque, numquam quo rerum tenetur vitae!</p>
+        </div>
+    </div>
+
+    <div class="container create-container py-5">
+        <form action="/exam/create" th:object="${contractDto}" method="post">
+            <div class="row">
+                <div class="col-4 mb-3">
+                    <label for="">Code Contract:</label>
+                    <input type="text" class="form-control" th:field="*{codeContract}" id="name">
+                    <p th:errors="*{codeContract}" style="color: red"></p>
+                </div>
+                <div class="col-4 mb-3">
+                    <label for="">Code Room:</label>
+                    <select name="" th:field="*{room}" class="form-control">
+                        <option value="">--Select Code room--</option>
+                        <option th:each="code : ${rooms}" th:value="${code.id}" th:text="${code.id}"></option>
+                    </select>
+                    <p th:errors="*{room}" style="color: red"></p>
+                </div>
+                <div class="col-4 mb-3">
+                    <label for="">Name person:</label>
+                    <input type="text" class="form-control" th:field="*{name}" id="namePerson">
+                    <p th:errors="*{name}" style="color: red"></p>
+                </div>
+                <div class="col-4 mb-3">
+                    <label for="">Identity Card:</label>
+                    <input type="text" class="form-control" th:field="*{idCard}" id="idCard">
+                    <p th:errors="*{idCard}" style="color: red"></p>
+                </div>
+                <div class="col-4 mb-3">
+                    <label for="">Date Contract:</label>
+                    <input type="date" class="form-control" th:field="*{dateDoContract}" id="dateDoContract">
+                    <p th:errors="*{dateDoContract}" style="color: red"></p>
+                </div>
+                <div class="col-4 mb-3">
+                    <label for="">Time for rent:</label>
+                    <select name="" id="" th:field="*{timeForRent}" class="form-control">
+                        <option value="">--Select time for rent</option>
+                        <option value="3 month">3 tháng</option>
+                        <option value="6 month">6 tháng</option>
+                        <option value="12 month">12 tháng</option>
+                    </select>
+                    <p th:errors="*{timeForRent}" style="color: red"></p>
+                </div>
+            </div>
+            <div class="button-container">
+                <button class="btn btn-warning text-white mt-5 " id="btn-create">Create</button>
+                <button class="btn btn-secondary mt-5">
+                    <a href="/exam" class="text-white text-decoration-none">Back</a>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="menu-side d-flex align-items-center justify-content-center">
+    <a href="/exam" class="d-flex align-items-center justify-content-center
+    text-white circle circle-l menu-side-btn text-decoration-none">
+        <i class="fa-solid fa-list"></i>
+    </a>
+</div>
+
+<footer th:replace="/common::footer">
+
+</footer>
+</body>
+<th:block th:replace="/common::libraries">
+</th:block>
+</html>

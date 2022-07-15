@@ -75,14 +75,15 @@ function getAttachForContractDetail(number){
 function createContractDetail(id){
     let contractId = id;
     let attachFacilities = $('#attachSelect'+id).val();
-    console.log(attachFacilities);
+    let quantity = $('#quantity'+id).val();
     let contractDetail =  {
         'contract' : {
             'id': contractId
         },
         'attachFacility' : {
             'id' : attachFacilities
-        }
+        },
+        'quantity': quantity
     };
     $.ajax({
         headers: {
@@ -93,15 +94,10 @@ function createContractDetail(id){
         url: "http://localhost:8080/furama/contractrest/create_contract_detail",
         data: JSON.stringify(contractDetail),
         success: function(){
-            console.log('success');
+            alert("You're create success");
         }
     })
 }
-
-function getContract(){
-
-}
-
 
 function getAttach(id){
     $.ajax({
@@ -177,4 +173,150 @@ function editEmployee(id){
             'id': division
         }
     }
+}
+
+function getCustomer(){
+    $.ajax({
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        type: "GET",
+        url: "http://localhost:8080/furama/customerrest/getcustomer",
+        success: function(data){
+            let content="<option value='' class='form-control'>--Select Customer--</option>";
+            for(let i=0; i<data.length; i++){
+                content += `<option value="${data[i].id}">${data[i].name}</option>`;
+            }
+            document.getElementById("selectCustomer").innerHTML = content;
+        }
+    });
+}
+
+function getListEmployee(){
+    $.ajax({
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        type: "GET",
+        url: "http://localhost:8080/furama/restemployee/getemployee",
+        success: function(data){
+            let content="<option value='' class='form-control'>--Select Employee--</option>";
+            for(let i=0; i<data.length; i++){
+                content += `<option value="${data[i].id}">${data[i].name}</option>`;
+            }
+            document.getElementById("selectEmployee").innerHTML = content;
+        }
+    })
+}
+
+function getAttachForContract(){
+    $.ajax({
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        type: "GET",
+        url: "http://localhost:8080/furama/serviceRest/getfacility",
+        success: function(data){
+            let content="<option value='' class='form-control'>--Select Type--</option>";
+            for(let i=0; i<data.length; i++){
+                content += `<option value="${data[i].id}" id="serviceType">${data[i].name}</option>`;
+            }
+            document.getElementById("selectService").innerHTML = content;
+        }
+    })
+}
+
+function getAttachFacility(){
+    $.ajax({
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        type: "GET",
+        url: "http://localhost:8080/furama/contractrest/get_attach_forcontractdetail",
+        success: function(data){
+            let content="<option value='' class='form-control'>--Select Attach--</option>";
+            for(let i=0; i<data.length; i++){
+                content+= `<option value="${data[i].id}" class="form-control">${data[i].name}</option>`;
+            }
+            document.getElementById('attachForContract').innerHTML = content;
+        }
+    })
+}
+
+function getTotalPay(){
+    let result = $("#selectService").val();
+    let quantity = $("#quantity").val();
+    console.log(result);
+    $.ajax({
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        type: "GET",
+        url: "http://localhost:8080/furama/serviceRest/getfacility",
+        success: function(data){
+            for(let i=0; i<data.length; i++){
+                if(data[i].id === parseInt(result)){
+                    $('#total').val(  parseInt(data[i].cost) + parseInt(quantity) - parseInt( $('#deposit').val()));
+                }
+            }
+        }
+    })
+}
+
+function createContract(){
+    let dayStart= $('#startDate').val();
+    let dayEnd= $('#endDate').val();
+    let customerId= $('#selectCustomer').val();
+    let employeeId= $('#selectEmployee').val();
+    let deposit= $('#deposit').val();
+    let facilityId= $('#selectService').val();
+    let contract = {
+        'startDate': dayStart,
+        'endDate': dayEnd,
+        'deposit': deposit,
+        'employee':{
+            'id': employeeId
+        },
+        'customer':{
+            'id': customerId
+        },
+        'facility':{
+           'id': facilityId
+        }
+    }
+
+    let attachForContract = $('#attachForContract').val();
+    let quantity = $('#quantity').val();
+    let contractDetail = {
+        'attachFacility' : {
+            'id': attachForContract
+        },
+        'quantity': quantity
+    };
+
+    $.ajax({
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        type: "POST",
+        url: "http://localhost:8080/furama/contractrest/create_contract",
+        data: {contract, contractDetail}
+    })
+}
+
+function loadInformation(){
+    getCustomer();
+    getListEmployee();
+    getAttachForContract();
+    getAttachFacility();
+}
+
+function displayTotal(){
+
 }

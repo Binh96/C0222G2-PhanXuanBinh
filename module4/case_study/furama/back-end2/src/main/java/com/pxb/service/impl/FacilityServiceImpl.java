@@ -8,6 +8,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class FacilityServiceImpl implements FacilityService {
     @Autowired
@@ -16,6 +18,11 @@ public class FacilityServiceImpl implements FacilityService {
     @Override
     public Page<Facility> selectAll(Pageable pageable) {
         return facilityRepository.selectAll(pageable);
+    }
+
+    @Override
+    public List<Facility> selectAll() {
+        return facilityRepository.findAll();
     }
 
     @Override

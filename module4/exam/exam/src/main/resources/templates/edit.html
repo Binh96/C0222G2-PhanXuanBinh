@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/common::head">
+</head>
+<body>
+<header th:replace="/common::header"></header>
+
+<div class="content">
+  <div class="menu-container container py-5">
+    <div class="menu-header col-6">
+      <p class="menu-header-text">Edit Exam</p>
+      <h1 class="menu-header-heading">Codegym</h1>
+      <p class="menu-header-para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequuntur cupiditate
+        ipsam iste molestias neque, numquam quo rerum tenetur vitae!</p>
+    </div>
+  </div>
+
+  <div class="container create-container py-5">
+    <form action="/exam/edit" th:object="${student}" method="post">
+      <div class="row">
+        <div class="col-4 mb-3">
+          <input type="hidden" th:field="*{id}">
+          <label for="">Name service:</label>
+          <input type="text" class="form-control" th:field="*{name}" id="name">
+          <p th:errors="*{name}" style="color: red"></p>
+        </div>
+      </div>
+      <div class="button-container">
+        <button class="btn btn-warning text-white mt-5 " id="btn-create">Edit</button>
+        <button class="btn btn-secondary mt-5">
+          <a href="/exam" class="text-white text-decoration-none">Back</a>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="menu-side d-flex align-items-center justify-content-center">
+  <a href="/exam" class="d-flex align-items-center justify-content-center
+    text-white circle circle-l menu-side-btn text-decoration-none">
+    <i class="fa-solid fa-list"></i>
+  </a>
+</div>
+
+<footer th:replace="/common::footer">
+
+</footer>
+</body>
+<th:block th:replace="/common::libraries">
+</th:block>
+</html>
