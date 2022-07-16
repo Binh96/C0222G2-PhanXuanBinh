@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $('#header').load('../common/header.html');
+            $('head').load('../common/head.html');
+            $('#footer').load('../common/footer.html');
+            $('#libraries').load('../common/libraries.html');
+        });
+    </script>
+</head>
+<body>
+    <header class="header" id="header">
+
+    </header>
+
+    <div class="content">
+        <div class="menu-container container py-5">
+            <div class="introduce-header col-6">
+                <p class="introduce-header-text">Create Service</p>
+                <h1 class="introduce-header-heading">Furama Resort</h1>
+                <p class="introduce-header-para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequuntur cupiditate
+                    ipsam iste molestias neque, numquam quo rerum tenetur vitae!</p>
+            </div>
+        </div>
+        <div class="container create-container py-5">
+            <form action="/furama/service/create" method="post">
+                <div class="row">
+                    <div class="col-4 mb-3">
+                        <label for="">Type service:</label>
+                        <select id="selectType" name="" class="form-control">
+                            <option value="">---Option Type Service---</option>
+                            <option value=""></option>
+                        </select>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <label for="">Name service:</label>
+                        <input type="text" class="form-control" id="name">
+                    </div>
+                    <div class="col-4 mb-3">
+                        <label for="">Cost:</label>
+                        <input type="text" class="form-control" id="cost">
+                    </div>
+                    <div class="col-4 mb-3">
+                        <label for="">Type rent:</label>
+                        <select name="" class="form-control" id="rentType">
+                            <option value=""></option>
+                        </select>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <label for="">Quantity People:</label>
+                        <input type="text" class="form-control" id="maxPeople">
+                    </div>
+                    <div class="col-4 mb-3">
+                        <label for="">Area:</label>
+                        <input type="text" class="form-control" id="area">
+                    </div>
+                </div>
+                <div class="row" id="form-facility">
+                    <div id="room-facility" style="display: none">
+                        <div class="row">
+                            <div class="col-4 mb-3">
+                                <label for="">Facility free:</label>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="house-facility" style="display: none">
+                        <div class="row">
+                            <div class="col-4 mb-3">
+                                <label for="">Number of floor:</label>
+                                <input type="text" class="form-control" id="numberOfFloor">
+                            </div>
+                            <div class="col-4 mb-3">
+                                <label for="">Description:</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="col-4 mb-3">
+                                <label for="">Standard room:</label>
+                                <input type="text" class="form-control" >
+                            </div>
+                        </div>
+                    </div>
+                    <div id="villa-facility" style="display: none">
+                        <div class="row">
+                            <div class="col-4 mb-3">
+                                <label for="">Pool area:</label>
+                                <input type="text" class="form-control" id="poolArea">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="button-container">
+                <button class="btn btn-warning text-white mt-5 " id="btn-create">Create</button>
+                <button class="btn btn-secondary mt-5">
+                    <a href="/furama/page/common/index.html" class="text-white text-decoration-none">Back</a>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="menu-side d-flex align-items-center justify-content-center">
+        <a href="/furama/page/common/index.html" class="d-flex align-items-center justify-content-center
+        text-white circle circle-l menu-side-btn text-decoration-none">
+            <i class="fa-solid fa-list"></i>
+        </a>
+    </div>
+
+    <footer class="footer" id="footer">
+
+    </footer>
+    <div id="libraries">
+
+    </div>
+</body>
+</html>
