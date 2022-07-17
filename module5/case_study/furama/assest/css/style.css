@@ -41,6 +41,14 @@ html{
     background-color: #3fd0d4;
 }
 
+.circle.circle-l.bg-purple{
+    background-color: #5f23d6;
+}
+
+.circle.circle-l.bg-red{
+    background-color: #ef1b08;
+}
+
 .circle.circle-xxl.bg-green{
     background-color: #3fd0d4;
 }
@@ -466,6 +474,22 @@ html{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.facilities-option-col{
+    position: relative;
+}
+
+.facilities-option-btn{
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.facilities-option-btn:hover{
+    transform: translate(-50%, -50%) scale(1.1);
 }
 
 
