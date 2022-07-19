@@ -3,7 +3,15 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-color',
-  template: ``
+  template: `<p>Choose your monster's colors:</p>
+
+  <div>
+      <input type="color" id="head" name="head"
+             #nameColor (change)="getColor(nameColor.value)">
+      <label for="head">Color</label>
+  </div>
+  <h3>Color you picker is: <span [style.color] ='color'>{{color}}</span></h3>
+  `
 
 })
 
@@ -14,11 +22,10 @@ export class ColorComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  title='color picker';
-  color: string = 'red';
-  arrayColors: any = {
-    color1: '#2883e9', color2: '#e920e9', color3: 'rgb(255,245,0)',color4: 'rgb(236,64,64)', color5: 'rgba(45,208,45,1)',color6: 'rgba(467,221,45,122)'
+  color: string = '';
+
+  getColor(nameColor: string){
+    this.color = nameColor;
   }
-  selectedColor: string = 'color1';
 
 }
