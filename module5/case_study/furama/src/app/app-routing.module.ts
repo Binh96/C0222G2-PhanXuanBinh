@@ -1,11 +1,28 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ListFacilityComponent } from './facility/list-facility/list-facility.component';
+import { InsertFacilityComponent} from './facility/insert-facility/insert-facility.component'
+import { ListCustomerComponent } from './customer/list-customer/list-customer.component';
+import { InsertCustomerComponent } from './customer/insert-customer/insert-customer.component';
+import { EditCustomerComponent } from './customer/edit-customer/edit-customer.component';
+import { EditFacilityComponent } from './facility/edit-facility/edit-facility.component';
+import { HomeComponent } from './home/home.component';
 
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path: 'home', component: HomeComponent},
+  {path: 'facility/list-facility', component: ListFacilityComponent },
+  {path: 'facility/insert-facility', component: InsertFacilityComponent },
+  {path: 'facility/edit-facility', component: EditFacilityComponent},
+  {path: 'customer/list-customer', component: ListCustomerComponent },
+  {path: 'customer/insert-customer', component: InsertCustomerComponent },
+  {path: 'customer/edit-customer', component: EditCustomerComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+export const routingComponent = [HomeComponent, ListFacilityComponent, InsertFacilityComponent, EditFacilityComponent, ListCustomerComponent, 
+  InsertCustomerComponent, EditCustomerComponent];

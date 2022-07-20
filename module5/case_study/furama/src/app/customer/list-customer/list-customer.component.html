@@ -22,30 +22,30 @@
         <table class="table">
             <thead>
             <tr>
-                <th class="table-list">#</th>
-                <th class="table-list">Name</th>
-                <th class="table-list">Gender</th>
-                <th class="table-list">Number phone</th>
-                <th class="table-list">Email</th>
-                <th class="table-list">Address</th>
-                <th class="table-list">Type</th>
-                <th class="table-list">Option</th>
+                <th class="table-list text-center">#</th>
+                <th class="table-list text-center">Name</th>
+                <th class="table-list text-center">Gender</th>
+                <th class="table-list text-center">Number phone</th>
+                <th class="table-list text-center">Email</th>
+                <th class="table-list text-center">Address</th>
+                <th class="table-list text-center">Type</th>
+                <th class="table-list text-center">Option</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td class="table-list"></td>
-                <td class="table-list"></td>
-                <td class="table-list"></td>
-                <td class="table-list"></td>
-                <td class="table-list"></td>
-                <td class="table-list"></td>
-                <td class="table-list"></td>
+            <tr *ngFor="let customer of customers">
+                <td class="table-list">{{customer.id}}</td>
+                <td class="table-list">{{customer.name}}</td>
+                <td class="table-list text-center">{{customer.gender}}</td>
+                <td class="table-list text-center">{{customer.numberPhone}}</td>
+                <td class="table-list">{{customer.email}}</td>
+                <td class="table-list">{{customer.address}}</td>
+                <td class="table-list text-center">{{customer.type}}</td>
                 <td class="table-list">
-                    <a class="btn btn-warning">
+                    <a class="btn btn-warning mx-2" routerLink="../edit-customer">
                         <i class="fa-solid fa-pen text-white"></i>
                     </a>
-                    <button type="button" class="btn btn-danger" data-bs-toggle="modal">
+                    <button type="button" class="btn btn-danger mx-2" data-bs-toggle="modal">
                         <i class="fa-solid fa-trash-can text-white"></i>
                     </button>
 
@@ -90,7 +90,7 @@
 </div>
 
 <div class="menu-side d-flex align-items-center justify-content-center">
-    <a href="/furama/page/customer/create" class="d-flex align-items-center justify-content-center
+    <a routerLink="../insert-customer" class="d-flex align-items-center justify-content-center
 text-white circle circle-l menu-side-btn text-decoration-none">
         <i class="fa-solid fa-plus icon"></i>
     </a>
