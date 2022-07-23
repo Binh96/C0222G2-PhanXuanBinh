@@ -1,0 +1,123 @@
+<div class="content py-5">
+    <div class="menu-container container py-5">
+        <div class="introduce-header col-6">
+            <p class="introduce-header-text">Welcome</p>
+            <h1 class="introduce-header-heading">Furama Resort</h1>
+            <p class="introduce-header-para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequuntur cupiditate
+                ipsam iste molestias neque, numquam quo rerum tenetur vitae!</p>
+        </div>
+    </div>
+    <div class="container list-container py-5">
+        <p class="text-danger"></p>
+        <table class="table">
+            <thead>
+            <tr>
+                <th class="table-list">#</th>
+                <th class="table-list">Facility</th>
+                <th class="table-list">Customer</th>
+                <th class="table-list">Date Start</th>
+                <th class="table-list">Date End</th>
+                <th class="table-list">Deposit</th>
+                <th class="table-list">Total</th>
+                <th class="table-list">Option</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="contract of contracts">
+                    <td class="table-list"></td>
+                    <td class="table-list"></td>
+                    <td class="table-list"></td>
+                    <td class="table-list"></td>
+                    <td class="table-list"></td>
+                    <td class="table-list"></td>
+                    <td class="table-list" id="total"></td>
+                    <td class="table-list">
+<!--                        create Contract Detail-->
+
+                        <button type="button" class="btn text-white" style="background-color: #7633FA" data-bs-toggle="modal">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel1">Create Contract Detail</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="container">
+                                            <div class="row">
+                                                <label for="">Contract Identity</label>
+                                                <input type="text" readonly class="form-control">
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                                <label for="">Quantity</label>
+                                                <input type="text"  class="form-control">
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                                <label for="">Attach facility</label>
+                                                <select name="" class="form-control">
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Create</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+<!--                        Attach facilities-->
+                        <button type="button" class="btn text-white" style="background-color: #7633FA" data-bs-toggle="modal"
+                            >
+                            Attach Facilities List
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Attach Facilities</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Name Attach</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody th:attr="id='attachList'+${contract.id}">
+
+                                            </tbody>
+                                        </table>
+                                        <p th:attr="id='attachInfor'+${contract.id}"></p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="menu-side d-flex align-items-center justify-content-center">
+    <a class="d-flex align-items-center justify-content-center
+text-white circle circle-l menu-side-btn text-decoration-none" routerLink="../insert-contract/">
+        <i class="fa-solid fa-plus icon"></i>
+    </a>
+</div>

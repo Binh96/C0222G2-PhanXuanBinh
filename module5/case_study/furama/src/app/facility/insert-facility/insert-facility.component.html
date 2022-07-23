@@ -8,109 +8,83 @@
         </div>
     </div>
     <div class="container create-container py-5">
-        <div class="facilities-option my-5">
-            <div class="row">
-                <div class="col-4 facilities-option-col">
-                    <span class="d-flex align-items-center justify-content-center
-                    text-white circle circle-l bg-green facilities-option-btn">
-                        <i class="fa-solid fa-plus"></i>
-                    </span>
-                    <img src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg" alt="" class="w-100 h-100 d-block">
-                </div>
-                <div class="col-4 facilities-option-col">
-                    <span class="d-flex align-items-center justify-content-center
-                    text-white circle circle-l bg-purple facilities-option-btn">
-                        <i class="fa-solid fa-plus"></i>
-                    </span>
-                    <img src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Studio-Suite-F-370x239.jpg" alt="" class="w-100 h-100 d-block">
-                </div>
-                <div class="col-4 facilities-option-col">
-                    <span class="d-flex align-items-center justify-content-center
-                    text-white circle circle-l bg-red facilities-option-btn">
-                        <i class="fa-solid fa-plus"></i>
-                    </span>
-                    <img src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Deluxe-double-bed-F-370x239.jpg" alt="" class="w-100 h-100 d-block">
-                </div>
-            </div>
-        </div>
-        <form action="/furama/service/create" method="post">
+        <form [formGroup] = "facility">
             <div class="row">
                 <div class="col-4 mb-3">
-                    <label for="">Type service:</label>
-                    <select id="selectType" name="" class="form-control">
-                        <option value="">---Option Type Service---</option>
-                        <option value=""></option>
+                    <label for="">Code service:</label>
+                    <input type="text" class="form-control" id="name" formControlName="id">
+                    <div *ngIf="facility.controls.id.errors.required && facility.controls.id.errors.touched">
+                        Is not valid
+                    </div>
+                </div>
+                <div class="col-4 mb-3">
+                    <label for="">Type service:</label> 
+                    <select id="selectType" name="" #selectType class="form-control" formControlName="type" (change)="changeForm(selectType.value)">
+                        <option value="" [selected]="ngTypeService">{{ngTypeService}}</option>
+                        <option value="villa">Villa</option>
+                        <option value="house">House</option>
+                        <option value="room">Room</option>
                     </select>
                 </div>
                 <div class="col-4 mb-3">
                     <label for="">Name service:</label>
-                    <input type="text" class="form-control" id="name">
+                    <input type="text" class="form-control" id="name" formControlName="nameService">
                 </div>
                 <div class="col-4 mb-3">
                     <label for="">Cost:</label>
-                    <input type="text" class="form-control" id="cost">
+                    <input type="text" class="form-control" id="cost" formControlName="cost">
                 </div>
                 <div class="col-4 mb-3">
                     <label for="">Type rent:</label>
-                    <select name="" class="form-control" id="rentType">
-                        <option value=""></option>
+                    <select name="" class="form-control" id="rentType" formControlName="typeRent">
+                        <option value="" [selected]="ngTypeOfRent">{{ngTypeOfRent}}</option>
+                        <option value="Month">Month</option>
+                        <option value="Day">Day</option>
+                        <option value="Year">Year</option>
+                        <option value="Hour">Hour</option>
                     </select>
                 </div>
                 <div class="col-4 mb-3">
                     <label for="">Quantity People:</label>
-                    <input type="text" class="form-control" id="maxPeople">
+                    <input type="text" class="form-control" id="maxPeople" formControlName="quantity">
                 </div>
                 <div class="col-4 mb-3">
                     <label for="">Area:</label>
-                    <input type="text" class="form-control" id="area">
+                    <input type="text" class="form-control" id="area" formControlName="area">
                 </div>
-            </div>
-            <div class="row" id="form-facility">
-                <div id="room-facility" style="display: none">
-                    <div class="row">
-                        <div class="col-4 mb-3">
-                            <label for="">Facility free:</label>
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
+                <div class="col-4 mb-3" *ngIf="roomFacility">
+                    <label for="">Facility free:</label>
+                    <input type="text" class="form-control" formControlName="facilityFree">
                 </div>
-                <div id="house-facility" style="display: none">
-                    <div class="row">
-                        <div class="col-4 mb-3">
-                            <label for="">Number of floor:</label>
-                            <input type="text" class="form-control" id="numberOfFloor">
-                        </div>
-                        <div class="col-4 mb-3">
-                            <label for="">Description:</label>
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="col-4 mb-3">
-                            <label for="">Standard room:</label>
-                            <input type="text" class="form-control" >
-                        </div>
-                    </div>
+                <div class="col-4 mb-3" *ngIf="houseFacility">
+                    <label for="">Number of floor:</label>
+                    <input type="text" class="form-control" id="numberOfFloor" formControlName="numberOfFloor">
                 </div>
-                <div id="villa-facility" style="display: none">
-                    <div class="row">
-                        <div class="col-4 mb-3">
-                            <label for="">Pool area:</label>
-                            <input type="text" class="form-control" id="poolArea">
-                        </div>
-                    </div>
+                <div class="col-4 mb-3" *ngIf="houseFacility">
+                    <label for="">Description:</label>
+                    <input type="text" class="form-control" formControlName="description">
+                </div> 
+                <div class="col-4 mb-3" *ngIf="houseFacility">
+                    <label for="">Standard room:</label>
+                    <input type="text" class="form-control" formControlName="standardRoom">
+                </div>
+                <div class="col-4 mb-3" *ngIf="villaFacility">
+                    <label for="">Pool area:</label>
+                    <input type="text" class="form-control" id="poolArea" formControlName="poolArea">
                 </div>
             </div>
         </form>
         <div class="button-container">
-            <button class="btn btn-warning text-white mt-5 " id="btn-create">Create</button>
+            <button class="btn btn-warning text-white mt-5 mx-3" id="btn-create" (click)="createFacility()">Create</button>
             <button class="btn btn-secondary mt-5">
-                <a href="/furama/page/common/index.html" class="text-white text-decoration-none">Back</a>
+                <a routerLink="../list-facility" class="text-white text-decoration-none mx-3">Back</a>
             </button>
         </div>
     </div>
 </div>
 
 <div class="menu-side d-flex align-items-center justify-content-center">
-    <a href="/furama/page/common/index.html" class="d-flex align-items-center justify-content-center
+    <a routerLink="../list-facility/" class="d-flex align-items-center justify-content-center
     text-white circle circle-l menu-side-btn text-decoration-none">
         <i class="fa-solid fa-list"></i>
     </a>

@@ -1,0 +1,78 @@
+<form [formGroup]="account" (ngSubmit) = "signIn()">
+    <label for="email">Email</label>
+    <input type="email" required formControlName="email" name="email"> 
+    <div *ngIf="!email.valid && (email.dirty || email.touched)">
+    <p [hidden]="!email.errors.required" class="errors">Email is required</p>
+    <p [hidden]="!email.errors.email" class="errors">Email is not valid</p>
+    </div>
+    <br>
+    <br>
+    <label for="password">Password</label>
+    <input type="password" required formControlName="password" minlength="6">
+    <div *ngIf="!password.valid && (password.dirty || password.touched)">
+        <p [hidden]="!password.errors.required" class="errors">Password is required</p>
+        <p [hidden]="!password.errors.password" class="errors">Password is not valid</p>
+    </div>
+    <br>
+    <br>
+    <label for="confirmPassword">Confirm passwrod</label>
+    <input type="password" required formControlName="confirmPassword" (change)="checkPassword()"> 
+    <p *ngIf="invalid==false" class="errors">{{msg}}</p>
+    <br>
+    <br>
+    <label for="country">Country</label>
+    <input type="text" required formControlName="country"> 
+    <div *ngIf="!country.valid && (country.dirty || country.touched)">
+        <p [hidden]="!country.errors.required" class="errors">Country is required</p>
+        <p [hidden]="!country.errors.minlength" class="errors">Country is not valid</p>
+    </div>
+    <br>
+    <br>
+    <label for="age">Age</label>
+    <input type="text" required formControlName="age"> 
+    <div *ngIf="!age.valid && (age.dirty || age.touched)">
+        <p [hidden]="!age.errors.required" class="errors">Age is required</p>
+        <p [hidden]="!age.errors.min" class="errors">Age is not valid</p>
+    </div>
+    <br>
+    <br>
+    <label for="gender">Gender</label>
+    <input type="radio" required formControlName="gender" value="Nam">Nam 
+    <input type="radio" required formControlName="gender" value="Nữ">Nữ
+    <div *ngIf="!gender.valid && (gender.dirty || gender.touched)">
+        <p [hidden]="!gender.errors.required" class="errors">Gender is required</p>
+    </div>
+    <br>
+    <br>
+    <label for="phone">Phone</label>
+    <input type="text" required formControlName="phone">
+    <div *ngIf="!phone.valid && (phone.dirty || phone.touched)">
+        <p [hidden]="!phone.errors.required" class="errors">Phone is required</p>
+        <p [hidden]="!phone.errors.min" class="errors">Phone is not valid</p>
+        <p [hidden]="!phone.errors.pattern" class="errors">Phone is not valid pattern</p>
+    </div>
+    <br>
+    <br>
+    <button [disabled]="!account.valid">Sign in</button>
+</form>
+<br>
+<br>
+<div class="form-list">
+    <table border="1">
+        <thead>
+            <th>Email</th>
+            <th>Country</th>
+            <th>Gender</th>
+            <th>Phone</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let account of formsignList">
+                <td>{{account.email}}</td>
+                <td>{{account.country}}</td>
+                <td>{{account.gender}}</td>
+                <td>{{account.phone}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

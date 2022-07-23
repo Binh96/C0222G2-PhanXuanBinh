@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +15,8 @@ import { ListFacilityComponent } from './facility/list-facility/list-facility.co
 import { InsertFacilityComponent } from './facility/insert-facility/insert-facility.component';
 import { HomeComponent } from './home/home.component';
 import { EditFacilityComponent } from './facility/edit-facility/edit-facility.component';
+import { ListContractComponent } from './contract/list-contract/list-contract.component';
+import { InsertContractComponent } from './contract/insert-contract/insert-contract.component';
 
 @NgModule({
   declarations: [
@@ -29,12 +31,15 @@ import { EditFacilityComponent } from './facility/edit-facility/edit-facility.co
     ListFacilityComponent,
     InsertFacilityComponent,
     HomeComponent,
-    EditFacilityComponent
+    EditFacilityComponent,
+    ListContractComponent,
+    InsertContractComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

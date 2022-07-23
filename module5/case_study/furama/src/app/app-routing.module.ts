@@ -7,6 +7,8 @@ import { InsertCustomerComponent } from './customer/insert-customer/insert-custo
 import { EditCustomerComponent } from './customer/edit-customer/edit-customer.component';
 import { EditFacilityComponent } from './facility/edit-facility/edit-facility.component';
 import { HomeComponent } from './home/home.component';
+import { InsertContractComponent } from './contract/insert-contract/insert-contract.component';
+import { ListContractComponent } from './contract/list-contract/list-contract.component';
 
 
 const routes: Routes = [
@@ -16,7 +18,9 @@ const routes: Routes = [
   {path: 'facility/edit-facility', component: EditFacilityComponent},
   {path: 'customer/list-customer', component: ListCustomerComponent },
   {path: 'customer/insert-customer', component: InsertCustomerComponent },
-  {path: 'customer/edit-customer', component: EditCustomerComponent }
+  {path: 'customer/edit-customer', component: EditCustomerComponent },
+  {path: 'contract/insert-contract', component: InsertContractComponent },
+  {path: 'contract/list-contract', component: ListContractComponent }
 ];
 
 @NgModule({
@@ -25,4 +29,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 export const routingComponent = [HomeComponent, ListFacilityComponent, InsertFacilityComponent, EditFacilityComponent, ListCustomerComponent, 
-  InsertCustomerComponent, EditCustomerComponent];
+  InsertCustomerComponent, EditCustomerComponent, ListContractComponent, InsertContractComponent];
