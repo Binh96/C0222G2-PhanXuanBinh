@@ -9,7 +9,9 @@ export class FacilityService {
   
   facility: Facility[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    
+  }
 
   getAll(): Facility[]{
     return this.facility;
