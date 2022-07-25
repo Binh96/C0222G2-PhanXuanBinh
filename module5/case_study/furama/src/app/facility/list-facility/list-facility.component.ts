@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Facility } from 'src/app/facility/facility';
+import { FacilityService } from '../facility-service.service';
 
 @Component({
   selector: 'app-list-facility',
@@ -8,11 +9,12 @@ import { Facility } from 'src/app/facility/facility';
 })
 export class ListFacilityComponent implements OnInit {
 
+  p: number=1;
+
   facilities: Facility[] = [];
 
-  constructor() {
-    this.facilities.push({id: 'SV-1234', nameService: 'Ocean Outit', type: 'villa', typeRent: 'month', quantity: '2', 
-  area: '32.3', facilityFree: null, numberOfFloor: '2', description: 'Mới thuê', standardRoom: 'vip', poolArea: '32.3'});
+  constructor(private facilityService: FacilityService) {
+    this.facilities = this.facilityService.getAll();
   }
 
 

@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +19,7 @@ import { HomeComponent } from './home/home.component';
 import { EditFacilityComponent } from './facility/edit-facility/edit-facility.component';
 import { ListContractComponent } from './contract/list-contract/list-contract.component';
 import { InsertContractComponent } from './contract/insert-contract/insert-contract.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 
 @NgModule({
   declarations: [
@@ -33,13 +36,16 @@ import { InsertContractComponent } from './contract/insert-contract/insert-contr
     HomeComponent,
     EditFacilityComponent,
     ListContractComponent,
-    InsertContractComponent
+    InsertContractComponent,
+    FileUploadComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

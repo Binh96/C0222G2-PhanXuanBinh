@@ -12,9 +12,10 @@
             <div class="row">
                 <div class="col-4 mb-3">
                     <label for="">Code service:</label>
-                    <input type="text" class="form-control" id="name" formControlName="id">
-                    <div *ngIf="facility.controls.id.errors.required && facility.controls.id.errors.touched">
-                        Is not valid
+                    <input type="text" class="form-control" id="name" formControlName="id" required>
+                    <div *ngIf="!facility.controls.id.valid && facility.controls.id.touched">
+                        <p *ngIf="facility.controls.id.errors.required" class="text-danger">Code service is required</p>
+                        <p *ngIf="facility.controls.id.errors.pattern" class="text-danger">Code service is not valid</p>
                     </div>
                 </div>
                 <div class="col-4 mb-3">
@@ -25,14 +26,25 @@
                         <option value="house">House</option>
                         <option value="room">Room</option>
                     </select>
+                    <div *ngIf="!facility.controls.type.valid && facility.controls.type.touched">
+                        <p *ngIf="facility.controls.type.errors.required" class="text-danger">Type service is required</p>
+                    </div>
                 </div>
                 <div class="col-4 mb-3">
                     <label for="">Name service:</label>
                     <input type="text" class="form-control" id="name" formControlName="nameService">
+                    <div *ngIf="!facility.controls.nameService.valid && facility.controls.nameService.touched">
+                        <p *ngIf="facility.controls.nameService.errors.required" class="text-danger">Name service is required</p>
+                        <p *ngIf="facility.controls.nameService.errors.minlength" class="text-danger">Name service less than 6</p>
+                    </div>
                 </div>
                 <div class="col-4 mb-3">
                     <label for="">Cost:</label>
                     <input type="text" class="form-control" id="cost" formControlName="cost">
+                    <div *ngIf="!facility.controls.cost.valid && facility.controls.cost.touched">
+                        <p *ngIf="facility.controls.cost.errors.required" class="text-danger">Cost is required</p>
+                        <p *ngIf="facility.controls.cost.errors.min" class="text-danger">Cost less than 0</p>
+                    </div>
                 </div>
                 <div class="col-4 mb-3">
                     <label for="">Type rent:</label>
@@ -43,34 +55,62 @@
                         <option value="Year">Year</option>
                         <option value="Hour">Hour</option>
                     </select>
+                    <div *ngIf="!facility.controls.typeRent.valid && facility.controls.typeRent.touched">
+                        <p *ngIf="facility.controls.typeRent.errors.required" class="text-danger">Type rent is required</p>
+                    </div>
                 </div>
                 <div class="col-4 mb-3">
                     <label for="">Quantity People:</label>
                     <input type="text" class="form-control" id="maxPeople" formControlName="quantity">
+                    <div *ngIf="!facility.controls.quantity.valid && facility.controls.quantity.touched">
+                        <p *ngIf="facility.controls.quantity.errors.required" class="text-danger">Quantity is required</p>
+                        <p *ngIf="facility.controls.quantity.errors.min" class="text-danger">Quantity less than 0</p>
+                    </div>
                 </div>
                 <div class="col-4 mb-3">
                     <label for="">Area:</label>
                     <input type="text" class="form-control" id="area" formControlName="area">
+                    <div *ngIf="!facility.controls.area.valid && facility.controls.area.touched">
+                        <p *ngIf="facility.controls.area.errors.required" class="text-danger">Area is required</p>
+                        <p *ngIf="facility.controls.area.errors.min" class="text-danger">Area less than 0</p>
+                    </div>
                 </div>
                 <div class="col-4 mb-3" *ngIf="roomFacility">
                     <label for="">Facility free:</label>
                     <input type="text" class="form-control" formControlName="facilityFree">
+                    <div *ngIf="!facility.controls.facilityFree.valid && facility.controls.facilityFree.touched">
+                        <p *ngIf="facility.controls.facilityFree.errors.required" class="text-danger">Facility free is required</p>
+                    </div>
                 </div>
                 <div class="col-4 mb-3" *ngIf="houseFacility">
                     <label for="">Number of floor:</label>
                     <input type="text" class="form-control" id="numberOfFloor" formControlName="numberOfFloor">
+                    <div *ngIf="!facility.controls.numberOfFloor.valid && facility.controls.numberOfFloor.touched">
+                        <p *ngIf="facility.controls.numberOfFloor.errors.required" class="text-danger">Number of floor is required</p>
+                        <p *ngIf="facility.controls.numberOfFloor.errors.min" class="text-danger">Number of floor less than 0</p>
+                    </div>
                 </div>
                 <div class="col-4 mb-3" *ngIf="houseFacility">
                     <label for="">Description:</label>
                     <input type="text" class="form-control" formControlName="description">
+                    <div *ngIf="!facility.controls.description.valid && facility.controls.description.touched">
+                        <p *ngIf="facility.controls.description.errors.required" class="text-danger">Description is required</p>
+                    </div>
                 </div> 
                 <div class="col-4 mb-3" *ngIf="houseFacility">
                     <label for="">Standard room:</label>
                     <input type="text" class="form-control" formControlName="standardRoom">
+                    <div *ngIf="!facility.controls.standardRoom.valid && facility.controls.standardRoom.touched">
+                        <p *ngIf="facility.controls.standardRoom.errors.required" class="text-danger">Standard room is required</p>
+                    </div>
                 </div>
                 <div class="col-4 mb-3" *ngIf="villaFacility">
                     <label for="">Pool area:</label>
                     <input type="text" class="form-control" id="poolArea" formControlName="poolArea">
+                    <div *ngIf="!facility.controls.poolArea.valid && facility.controls.poolArea.touched">
+                        <p *ngIf="facility.controls.poolArea.errors.required" class="text-danger">Pool area is required</p>
+                        <p *ngIf="facility.controls.poolArea.errors.min" class="text-danger">Pool area less than 0</p>
+                    </div>
                 </div>
             </div>
         </form>
