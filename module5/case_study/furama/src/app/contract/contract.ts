@@ -2,7 +2,7 @@ export interface Contract {
     codeContract?: string;
     nameCustomer?: string;
     facilityInfor?: string;
-    startDate?: Date;
-    endDate?: Date;
+    startDate?: string;
+    endDate?: string;
     cost?: string;
 }

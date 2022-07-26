@@ -1,6 +1,8 @@
 {
     "header": "api/furama",
     "data": {
-        "customer"
+        "customer": [],
+        "facility": [],
+        "contract": []
     }
 }

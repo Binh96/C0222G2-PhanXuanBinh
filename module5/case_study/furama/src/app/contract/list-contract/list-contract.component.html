@@ -9,32 +9,30 @@
     </div>
     <div class="container list-container py-5">
         <p class="text-danger"></p>
-        <table class="table">
+        <table class="table table-hover">
             <thead>
             <tr>
                 <th class="table-list">#</th>
-                <th class="table-list">Facility</th>
                 <th class="table-list">Customer</th>
+                <th class="table-list">Facility</th>
                 <th class="table-list">Date Start</th>
                 <th class="table-list">Date End</th>
                 <th class="table-list">Deposit</th>
-                <th class="table-list">Total</th>
-                <th class="table-list">Option</th>
+                <th class="table-list text-center">Option</th>
             </tr>
             </thead>
             <tbody>
-                <tr *ngFor="contract of contracts">
-                    <td class="table-list"></td>
-                    <td class="table-list"></td>
-                    <td class="table-list"></td>
-                    <td class="table-list"></td>
-                    <td class="table-list"></td>
-                    <td class="table-list"></td>
-                    <td class="table-list" id="total"></td>
-                    <td class="table-list">
+                <tr *ngFor="let contract of contracts | paginate: {itemsPerPage: 5, currentPage: p}; index as i">
+                    <td class="table-list">{{i+1}}</td>
+                    <td class="table-list">{{contract.nameCustomer}}</td>
+                    <td class="table-list">{{contract.facilityInfor}}</td>
+                    <td class="table-list">{{contract.startDate}}</td>
+                    <td class="table-list">{{contract.endDate}}</td>
+                    <td class="table-list">{{contract.cost}}</td>
+                    <td class="table-list text-center">
 <!--                        create Contract Detail-->
 
-                        <button type="button" class="btn text-white" style="background-color: #7633FA" data-bs-toggle="modal">
+                        <button type="button" class="btn text-white mx-2" style="background-color: #1fa9ab" data-bs-toggle="modal">
                             <i class="fa-solid fa-plus"></i>
                         </button>
 
@@ -75,7 +73,7 @@
                         </div>
 
 <!--                        Attach facilities-->
-                        <button type="button" class="btn text-white" style="background-color: #7633FA" data-bs-toggle="modal"
+                        <button type="button" class="btn text-white mx-2" style="background-color: #7633FA" data-bs-toggle="modal"
                             >
                             Attach Facilities List
                         </button>
@@ -112,6 +110,9 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+    <div class="container">
+        <pagination-controls (pageChange)="p = $event" class="d-flex flex-row-reverse"></pagination-controls>
     </div>
 </div>
 

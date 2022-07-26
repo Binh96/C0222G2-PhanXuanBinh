@@ -12,7 +12,7 @@ import { ListContractComponent } from './contract/list-contract/list-contract.co
 
 
 const routes: Routes = [
-  {path: 'home', component: HomeComponent},
+  {path: '', component: HomeComponent},
   {path: 'facility/list-facility', component: ListFacilityComponent },
   {path: 'facility/insert-facility', component: InsertFacilityComponent },
   {path: 'facility/edit-facility', component: EditFacilityComponent},

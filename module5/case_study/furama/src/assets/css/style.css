@@ -57,6 +57,10 @@ html{
     border: 3px solid #ffffff;
 }
 
+.ngx-pagination{
+    border-radius: 50%;
+}
+
 .icon{
     position: absolute;
     top: 50%;
