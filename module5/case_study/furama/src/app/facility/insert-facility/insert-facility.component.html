@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="container create-container py-5">
-        <form [formGroup] = "facility">
+        <form [formGroup] = "facility" (ngSubmit)="createFacility()">
             <div class="row">
                 <div class="col-4 mb-3">
                     <label for="">Code service:</label>
@@ -68,11 +68,11 @@
                     </div>
                 </div>
                 <div class="col-4 mb-3">
-                    <label for="">Area:</label>
+                    <label for="">Facility area:</label>
                     <input type="text" class="form-control" id="area" formControlName="area">
                     <div *ngIf="!facility.controls.area.valid && facility.controls.area.touched">
-                        <p *ngIf="facility.controls.area.errors.required" class="text-danger">Area is required</p>
-                        <p *ngIf="facility.controls.area.errors.min" class="text-danger">Area less than 0</p>
+                        <p *ngIf="facility.controls.area.errors.required" class="text-danger">Facility area is required</p>
+                        <p *ngIf="facility.controls.area.errors.min" class="text-danger">Facility area less than 0</p>
                     </div>
                 </div>
                 <div class="col-4 mb-3" *ngIf="roomFacility">
@@ -113,13 +113,13 @@
                     </div>
                 </div>
             </div>
+            <div class="button-container">
+                <button class="btn btn-warning text-white mt-5 mx-3" id="btn-create">Create</button>
+                <button class="btn btn-secondary mt-5">
+                    <a routerLink="../list-facility" class="text-white text-decoration-none mx-3">Back</a>
+                </button>
+            </div>
         </form>
-        <div class="button-container">
-            <button class="btn btn-warning text-white mt-5 mx-3" id="btn-create" (click)="createFacility()">Create</button>
-            <button class="btn btn-secondary mt-5">
-                <a routerLink="../list-facility" class="text-white text-decoration-none mx-3">Back</a>
-            </button>
-        </div>
     </div>
 </div>
 

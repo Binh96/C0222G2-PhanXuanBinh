@@ -1,0 +1,27 @@
+.gallery-container {
+    /* overflow: hidden; */
+    display: flex;
+}
+  
+.gallery-item {
+    width: 100%;
+    padding: 5px;
+    position: relative;
+    left: 0;
+}
+
+.active{
+    animation: slide 1s ease;
+}
+
+
+@keyframes slide {
+    from{
+        opacity: 0;
+        left: 100%;
+    }
+    to{
+        opacity: 1;
+        left: 0;
+    }
+}

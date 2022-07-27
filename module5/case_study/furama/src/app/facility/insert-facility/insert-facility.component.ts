@@ -58,7 +58,7 @@ export class InsertFacilityComponent implements OnInit {
     
     if(this.facility.valid){
       if(this.roomFacility || this.houseFacility || this.villaFacility){
-        this.facilityService.createFacility(this.facility.value);
+        this.facilityService.createFacility(this.facility.value).subscribe();
         this.facility.reset();
       }
     }

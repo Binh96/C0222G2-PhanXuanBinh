@@ -17,14 +17,39 @@
                             <i class="fa-solid fa-tent inner-card-service-house"></i>
                             <div class="inner-card-service-content text-center">
                                 <p class="inner-card-service-content-para text-white">Lorem ipsum dolor amet</p>
-                                <a routerLink="../edit-facility" class="inner-card-service-content-btn text-white mx-3">Edit</a>
-                                <a href="" class="inner-card-service-content-btn text-danger mx-3">Delete</a>
+                                <a [routerLink]="['../edit-facility', facility.id]" class="inner-card-service-content-btn text-white mx-3">Edit</a>
+                                <button type="button" class="inner-card-service-content-btn text-danger mx-3" data-bs-toggle="modal" data-bs-target="#modalDelete" (click)="findToDelete(facility.id)">
+                                    <a (click) = "findToDelete(facility.id)">Delete</a>
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <pagination-controls (pageChange)=" p = $event"></pagination-controls>
+                
+                <div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Erase facility </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p *ngIf="facilityToDelete">Do you want erase {{facilityToDelete.nameService}}</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-danger">
+                                <a class="text-white text-decoration-none" (click)="delete()">Delete</a>
+                            </button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
+        </div>
+        <div class="container">
+            <pagination-controls (pageChange)=" p = $event" class="d-flex flex-row-reverse"></pagination-controls>
         </div>
     </div>
 </div>

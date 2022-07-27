@@ -33,7 +33,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let customer of customers">
+            <tr *ngFor="let customer of customers | paginate: {itemsPerPage: 6, currentPage: p}">
                 <td class="table-list">{{customer.id}}</td>
                 <td class="table-list">{{customer.name}}</td>
                 <td class="table-list text-center">{{customer.gender}}</td>
@@ -45,7 +45,7 @@
                     <a class="btn btn-warning mx-2" routerLink="../edit-customer">
                         <i class="fa-solid fa-pen text-white"></i>
                     </a>
-                    <button type="button" class="btn btn-danger mx-2" data-bs-toggle="modal">
+                    <button type="button" class="btn btn-danger mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         <i class="fa-solid fa-trash-can text-white"></i>
                     </button>
 
@@ -73,20 +73,11 @@
             </tr>
             </tbody>
         </table>
-        <div class="pagination">
-            <a
-             class="pagination-button">
-                Previous
-            </a>
-        
-                <a
-                 class="pagination-button">
-                </a>
-        
-            <a
-             class="pagination-button"> Next </a>
-        </div>
     </div>
+    <div class="container">
+        <pagination-controls (pageChange)="p = $event" class="d-flex flex-row-reverse"></pagination-controls>
+    </div>
+
 </div>
 
 <div class="menu-side d-flex align-items-center justify-content-center">

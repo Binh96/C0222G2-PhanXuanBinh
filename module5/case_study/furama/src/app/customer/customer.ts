@@ -7,4 +7,5 @@ export interface Customer {
     email?: string;
     address?: string;
     type?: string;
+    idCard?: string;
 }

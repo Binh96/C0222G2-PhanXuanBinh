@@ -1,0 +1,10 @@
+<div class="gallery-container">
+    <div class="gallery-item" *ngIf="src"
+         [style.max-width.%]="itemWidth" [class.active]="active">
+      <app-image-card [src]="src"></app-image-card>
+    </div>
+  </div>
+<div class="button-container">
+    <button (click)="previous()">Previous</button>
+    <button (click)="next()">Next</button>
+</div>

@@ -18,7 +18,8 @@ export class InsertCustomerComponent implements OnInit {
     numberPhone: new FormControl("", [Validators.required, Validators.pattern("^(84+)[0-9]{9}$")]),
     email: new FormControl("", [Validators.required, Validators.email]),
     address: new FormControl("", [Validators.required, Validators.minLength(3)]),
-    type: new FormControl("", [Validators.required])
+    type: new FormControl("", [Validators.required]),
+    idCard: new FormControl("", [Validators.required, Validators.pattern("^[0-9]{9}$")])
   });
 
   constructor(private customerService: CustomerService, private routes: ActivatedRoute, private router: Router) { }

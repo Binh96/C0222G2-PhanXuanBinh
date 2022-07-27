@@ -8,13 +8,28 @@
         </div>
     </div>
     <div class="container create-contract-container py-5">
-        <form >
+        <form [formGroup]="contract" (ngSubmit)="createContract()">
+            <div class="row mb-3">
+                <div class="col-3">
+                    <p>Contract code:</p>
+                </div>
+                <div class="col-9">
+                    <input type="text" class="form-control" id="codeContract" formControlName="codeContract">
+                    <div *ngIf="!contract.controls.codeContract.valid && contract.controls.codeContract.touched">
+                        <p *ngIf="contract.controls.codeContract.errors.required" class="text-danger">Code contract is required</p>
+                        <p *ngIf="contract.controls.codeContract.errors.pattern" class="text-danger">Code contract is not valid</p>
+                    </div>
+                </div>
+            </div>
             <div class="row mb-3">
                 <div class="col-3">
                     <p>Day start:</p>
                 </div>
                 <div class="col-9">
-                    <input type="date" class="form-control" id="startDate">
+                    <input type="date" class="form-control" id="startDate" formControlName="startDate">
+                    <div *ngIf="!contract.controls.startDate.valid && contract.controls.startDate.touched">
+                        <p *ngIf="contract.controls.startDate.errors.required" class="text-danger">Start date is required</p>
+                    </div>
                 </div>
             </div>
             <div class="row mb-3">
@@ -22,7 +37,10 @@
                     <p>Day end:</p>
                 </div>
                 <div class="col-9">
-                    <input type="date" class="form-control" id="endDate">
+                    <input type="date" class="form-control" id="endDate" formControlName="endDate">
+                    <div *ngIf="!contract.controls.endDate.valid && contract.controls.endDate.touched">
+                        <p *ngIf="contract.controls.endDate.errors.required" class="text-danger">Start end is required</p>
+                    </div>
                 </div>
             </div>
             <div class="row mb-3">
@@ -30,15 +48,11 @@
                     <p>Deposit:</p>
                 </div>
                 <div class="col-9">
-                    <input type="text" class="form-control" id="deposit">
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-3">
-                    <p>Total pay:</p>
-                </div>
-                <div class="col-9">
-                    <input type="text" class="form-control" id="total" value="0" readonly>
+                    <input type="text" class="form-control" id="deposit" formControlName="deposit">
+                    <div *ngIf="!contract.controls.deposit.valid && contract.controls.deposit.touched">
+                        <p *ngIf="contract.controls.deposit.errors.required" class="text-danger">Deposit is required</p>
+                        <p *ngIf="contract.controls.deposit.errors.min" class="text-danger">Deposit less than 0</p>
+                    </div>
                 </div>
             </div>
             <div class="row mb-3">
@@ -46,21 +60,16 @@
                     <p>Customer:</p>
                 </div>
                 <div class="col-9">
-                    <select name="" id="selectCustomer" class="form-control">
-                        <option value='' class='form-control'>--Select Customer--</option>
-                        <option></option>
+                    <select name="" id="selectCustomer" class="form-control" formControlName="nameCustomer">
+                        <option value='' class='form-control' [selected]="ngSelectCustomer">{{ngSelectCustomer}}</option>
+                        <option value="Michale Kean">Michale Kean</option>
+                        <option value="Stephen Curry">Stephen Curry</option>
+                        <option value="Lebron James">Lebron James</option>
+                        <option value="Chou Tie Tie">Chou Tie Tie</option>
                     </select>
-                </div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-3">
-                    <p>Employee:</p>
-                </div>
-                <div class="col-9">
-                    <select name="" id="selectEmployee" class="form-control">
-                        <option value='' class='form-control'>--Select Employee--</option>
-                        <option></option>
-                    </select>
+                    <div *ngIf="!contract.controls.nameCustomer.valid && contract.controls.nameCustomer.touched">
+                        <p *ngIf="contract.controls.nameCustomer.errors.required" class="text-danger">Customer is required</p>
+                    </div>
                 </div>
             </div>
             <div class="row mb-3">
@@ -68,10 +77,16 @@
                     <p>Service type:</p>
                 </div>
                 <div class="col-9">
-                    <select name="" id="selectService" class="form-control">
-                        <option value='' class='form-control'>--Select Facility--</option>
-                        <option></option>
+                    <select name="" id="selectService" class="form-control" formControlName="facilityInfor">
+                        <option value='' class='form-control' [selected]="ngSelectFacility">{{ngSelectFacility}}</option>
+                        <option Value="Ocean Outis">Ocean Outis</option>
+                        <option Value="Ocean Villa 1">Ocean Villa 1</option>
+                        <option Value="Ocean Home 2">Ocean Home 2</option>
+                        <option Value="Ocean Room 1">Ocean Room 1</option>
                     </select>
+                    <div *ngIf="!contract.controls.facilityInfor.valid && contract.controls.facilityInfor.touched">
+                        <p *ngIf="contract.controls.facilityInfor.errors.required" class="text-danger">Facility is required</p>
+                    </div>
                 </div>
             </div>
             <div class="row mb-3">
@@ -93,7 +108,7 @@
                                 </div>
                                 <div class="modal-body" th:object="${contractDetail}">
                                     <select name="" id="attachForContract" class="form-control">
-                                        <option value="" class="form-control">--Select Attach Facility</option>
+                                        <option value="" class="form-control">--Select Attach Facility--</option>
                                         <option></option>
                                     </select>
                                 </div>

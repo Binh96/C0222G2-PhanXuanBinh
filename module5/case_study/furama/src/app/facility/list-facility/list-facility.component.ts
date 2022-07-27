@@ -13,12 +13,34 @@ export class ListFacilityComponent implements OnInit {
 
   facilities: Facility[] = [];
 
+  facilityToDelete: Facility;
+
   constructor(private facilityService: FacilityService) {
-    this.facilities = this.facilityService.getAll();
+   
   }
 
 
   ngOnInit(): void {
+    this.getAll();
+  }
+
+  getAll(){
+    // this.facilities = this.facilityService.getList();
+    this.facilityService.getAll().subscribe(facilities =>{
+      this.facilities = facilities;
+    });
+  }
+
+  findToDelete(id: string){
+    this.facilityService.findById(id).subscribe(
+      (facility: Facility) => {
+        this.facilityToDelete = facility;
+      }
+    );
+  }
+
+  delete(){
+    this.facilityService.deleteFacility(this.facilityToDelete.id).subscribe();
   }
 
 }

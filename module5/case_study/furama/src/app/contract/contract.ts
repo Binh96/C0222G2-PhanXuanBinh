@@ -4,5 +4,5 @@ export interface Contract {
     facilityInfor?: string;
     startDate?: string;
     endDate?: string;
-    cost?: string;
+    deposit?: string;
 }

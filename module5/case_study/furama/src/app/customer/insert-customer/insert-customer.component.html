@@ -9,48 +9,79 @@
     </div>
     <div class="container create-container py-5">
         <p class="menu-header-text text-align-center">Create Service</p>
-        <form action="/furama/customer/create" method="post">
+        <form [formGroup]="customer" (ngSubmit)="createCustomer()">
             <div class="row">
                 <div class="col-4 mb-3">
                     <label for="">Type customer:</label>
-                    <select id="selectType" name="" class="form-control">
+                    <select id="selectType" name="" class="form-control" formControlName="type">
                         <option value="">---Option Type Customer---</option>
                         <option value="Platinium">Platinium</option>
                         <option value="Diamond">Diamond</option>
                         <option value="Gold">Gold</option>
                         <option value="Member">Member</option>
                     </select>
+                    <div *ngIf="!customer.controls.type.valid && customer.controls.type.touched">
+                        <p *ngIf="customer.controls.type.errors.required" class="text-danger">Type is empty</p>
+                    </div>
                 </div>
                 <div class="col-4 mb-3">
                     <label for="">Name customer:</label>
-                    <input type="text" class="form-control" id="name">
+                    <input type="text" class="form-control" id="name" formControlName="name">
+                    <div *ngIf="!customer.controls.name.valid && customer.controls.name.touched">
+                        <p *ngIf="customer.controls.name.errors.required" class="text-danger">Name is empty</p>
+                        <p *ngIf="customer.controls.name.errors.minlength" class="text-danger">Name less than 6</p>
+                        <p *ngIf="customer.controls.name.errors.pattern" class="text-danger">Name is not valid</p>
+                    </div>
                 </div>
                 <div class="col-4 mb-3">
                     <label for="">Date of birth:</label>
-                    <input type="date" class="form-control" id="dob">
+                    <input type="date" class="form-control" id="dob" formControlName="dob">
+                    <div *ngIf="!customer.controls.dob.valid && customer.controls.dob.touched">
+                        <p *ngIf="customer.controls.dob.errors.required" class="text-danger">dob is empty</p>
+                    </div>
                 </div>
                 <div class="col-4 mb-3">
                     <label for="">Gender:</label>
-                    <select name="" class="form-control" id="gender">
+                    <select name="" class="form-control" id="gender" formControlName="gender">
                         <option value="1">Nam</option>
                         <option value="0">Nữ</option>
                     </select>
+                    <div *ngIf="!customer.controls.gender.valid && customer.controls.gender.touched">
+                        <p *ngIf="customer.controls.gender.errors.required" class="text-danger">Gender is empty</p>
+                    </div>
                 </div>
                 <div class="col-4 mb-3">
                     <label for="">Identity card:</label>
-                    <input type="text" class="form-control" id="idCard">
+                    <input type="text" class="form-control" id="idCard" formControlName="idCard">
+                    <div *ngIf="!customer.controls.idCard.valid && customer.controls.idCard.touched">
+                        <p *ngIf="customer.controls.idCard.errors.required" class="text-danger">Identity card is empty</p>
+                        <p *ngIf="customer.controls.idCard.errors.pattern" class="text-danger">Identity card is not valid</p>
+                    </div>
                 </div>
                 <div class="col-4 mb-3">
                     <label for="">Phone number:</label>
-                    <input type="text" class="form-control" id="phoneNumber">
+                    <input type="text" class="form-control" id="phoneNumber" formControlName="numberPhone">
+                    <div *ngIf="!customer.controls.numberPhone.valid && customer.controls.numberPhone.touched">
+                        <p *ngIf="customer.controls.numberPhone.errors.required" class="text-danger">Phone is empty</p>
+                        <p *ngIf="customer.controls.numberPhone.errors.pattern" class="text-danger">Phone is not valid</p>
+                    </div>
                 </div>
                 <div class="col-4 mb-3">
                     <label for="">Email:</label>
-                    <input type="text" class="form-control" id="email">
+                    <input type="text" class="form-control" id="email" formControlName="email">
+                    <div *ngIf="!customer.controls.email.valid && customer.controls.email.touched">
+                        <p *ngIf="customer.controls.email.errors.required" class="text-danger">Email is empty</p>
+                        <p *ngIf="customer.controls.email.errors.pattern" class="text-danger">Email is not valid</p>
+                    </div>
                 </div>
                 <div class="col-4 mb-3">
                     <label for="">Address:</label>
-                    <input type="text" class="form-control" id="address">
+                    <input type="text" class="form-control" id="address" formControlName="address">
+                    <div *ngIf="!customer.controls.address.valid && customer.controls.address.touched">
+                        <p *ngIf="customer.controls.address.errors.required" class="text-danger">Address is empty</p>
+                        <p *ngIf="customer.controls.address.errors.pattern" class="text-danger">Address is not valid</p>
+                        <p *ngIf="customer.controls.address.errors.minlength" class="text-danger">Address less than 3</p>
+                    </div>
                 </div>
             </div>
             <div class="button-container">

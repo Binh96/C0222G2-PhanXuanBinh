@@ -1,8 +1,118 @@
 {
-    "header": "api/furama",
-    "data": {
-        "customer": [],
-        "facility": [],
-        "contract": []
+  "customer": [],
+  "contract": [],
+  "facility": [
+    {
+      "id": "SV-1234",
+      "nameService": "Ocean Outis",
+      "type": "Villa",
+      "cost": "200000",
+      "typeRent": "Day",
+      "quantity": "2",
+      "area": "32",
+      "facilityFree": "",
+      "numberOfFloor": "2",
+      "description": "New",
+      "standardRoom": "Vip",
+      "poolArea": "32"
+    },
+    {
+      "id": "SV-1235",
+      "nameService": "Ocean House 1",
+      "type": "House",
+      "cost": "200000",
+      "typeRent": "Day",
+      "quantity": "2",
+      "area": "32",
+      "facilityFree": "",
+      "numberOfFloor": "2",
+      "description": "New",
+      "standardRoom": "Vip",
+      "poolArea": ""
+    },
+    {
+      "id": "SV-1236",
+      "nameService": "Ocean Room",
+      "type": "Room",
+      "cost": "200000",
+      "typeRent": "Day",
+      "quantity": "2",
+      "area": "32",
+      "facilityFree": "Food",
+      "numberOfFloor": "",
+      "description": "",
+      "standardRoom": "",
+      "poolArea": ""
+    },
+    {
+      "id": "SV-1237",
+      "nameService": "Ocean Room 1",
+      "type": "Room",
+      "cost": "200000",
+      "typeRent": "Day",
+      "quantity": "2",
+      "area": "32",
+      "facilityFree": "",
+      "numberOfFloor": "2",
+      "description": "New",
+      "standardRoom": "Vip",
+      "poolArea": "32"
+    },
+    {
+      "id": "SV-1240",
+      "nameService": "Ocean Room 4",
+      "type": "Room",
+      "cost": "200000",
+      "typeRent": "Day",
+      "quantity": "2",
+      "area": "32",
+      "facilityFree": "",
+      "numberOfFloor": "2",
+      "description": "New",
+      "standardRoom": "Vip",
+      "poolArea": "32"
+    },
+    {
+      "id": "SV-1241",
+      "nameService": "Ocean Villa 3",
+      "type": "House",
+      "cost": "200000",
+      "typeRent": "Day",
+      "quantity": "2",
+      "area": "32",
+      "facilityFree": "",
+      "numberOfFloor": "2",
+      "description": "New",
+      "standardRoom": "Vip",
+      "poolArea": "32"
+    },
+    {
+      "id": "SV-1242",
+      "nameService": "Ocean Villa 6",
+      "type": "Room",
+      "cost": "200000",
+      "typeRent": "Day",
+      "quantity": "2",
+      "area": "32",
+      "facilityFree": "",
+      "numberOfFloor": "2",
+      "description": "New",
+      "standardRoom": "Normal",
+      "poolArea": "32"
+    },
+    {
+      "id": "SV-1254",
+      "type": "house",
+      "nameService": "Ocean House 7",
+      "cost": "100000",
+      "typeRent": "Day",
+      "quantity": "2",
+      "area": "32",
+      "facilityFree": "",
+      "numberOfFloor": "2",
+      "description": "New",
+      "standardRoom": "Vip",
+      "poolArea": ""
     }
+  ]
 }
