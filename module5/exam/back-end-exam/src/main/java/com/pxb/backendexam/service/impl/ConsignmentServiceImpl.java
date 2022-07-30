@@ -24,8 +24,8 @@ public class ConsignmentServiceImpl implements ConsignmentService {
     }
 
     @Override
-    public List<Consignment> findByAll(String name) {
-        return consignmentRepository.findByName('%'+ name + '%');
+    public List<Consignment> findByAll(int id) {
+        return consignmentRepository.findByName(id);
     }
 
     @Override

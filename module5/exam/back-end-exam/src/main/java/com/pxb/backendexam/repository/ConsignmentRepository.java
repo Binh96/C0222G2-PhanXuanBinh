@@ -20,6 +20,6 @@ public interface ConsignmentRepository extends JpaRepository<Consignment, Intege
     @Query(value = "delete from lo_hang where id = :id", nativeQuery = true)
     Integer delete(@Param("id") int id);
 
-    @Query(value = "select * from lo_hang where name like :name", nativeQuery = true)
-    List<Consignment> findByName(@Param("name") String name);
+    @Query(value = "select * from lo_hang where id = :id", nativeQuery = true)
+    List<Consignment> findByName(@Param("id") int id);
 }

@@ -13,6 +13,7 @@ export class ListConsigmentComponent implements OnInit {
 
   consigments: Consigment[] = [];
   consigmentHasToDelete: Consigment;
+  consignment: Consigment;
 
   p: number = 1;
   search = new FormGroup({
@@ -43,19 +44,12 @@ export class ListConsigmentComponent implements OnInit {
 
   findConsigment(){
     const search = this.search.value;
-    console.log(search);
     
-    if(search.nameProduct == null){
-      this.getAll();
-    }
-    else{
-      // , search.dateInStart, search.endOfDate, search.dateInEnd
-      this.consigmentService.getConsigmentByName(search.nameProduct).subscribe((consigments)=>{
-        this.consigments = consigments;
-        this.search.reset();
-        this.ngOnInit();
+    this.consigmentService.getConsigmentByName(search).subscribe((consigments)=>{
+      this.consigments = consigments;
+      this.search.reset();
+      this.ngOnInit();
     });
-    }
   }
 
   delete(id: number){

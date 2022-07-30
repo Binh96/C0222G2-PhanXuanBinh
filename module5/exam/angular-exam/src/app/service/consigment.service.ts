@@ -30,8 +30,8 @@ export class ConsigmentService {
   }
 
   // , dateInStart: string, endOfDate: string, dateInEnd: string, &dateIn_where=${dateInStart}&dateIn_where=${dateInEnd}&endOfDate_where=${endOfDate}
-  getConsigmentByName(name: string): Observable<Consigment[]>{
-    return this.http.get<Consigment[]>(baseUrlGetConsignmentByAll+`?product_like=${name}`);
+  getConsigmentByName(consignment: Consigment): Observable<Consigment[]>{
+    return this.http.get<Consigment[]>(baseUrlGetConsignmentByAll);
   }
 
   createConsigment(consigment: Consigment): Observable<Consigment>{

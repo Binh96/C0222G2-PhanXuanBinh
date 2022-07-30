@@ -35,8 +35,9 @@ public class ConsignmentRestController {
     }
 
     @GetMapping("/getConsignmentByAll")
-    public ResponseEntity<List<Consignment>> getConsignmentByName(@RequestParam String name){
-        List<Consignment> consignments = consignmentService.findByAll(name);
+    public ResponseEntity<List<Consignment>> getConsignmentByName(@RequestBody Consignment consignment){
+        System.out.println(consignment.getProduct().getNameProduct());
+        List<Consignment> consignments = consignmentService.findByAll(consignment.getId()r);
         return new ResponseEntity<>(consignments, HttpStatus.OK);
     }
 

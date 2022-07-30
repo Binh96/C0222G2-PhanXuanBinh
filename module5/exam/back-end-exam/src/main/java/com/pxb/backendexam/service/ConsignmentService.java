@@ -10,7 +10,7 @@ public interface ConsignmentService {
 
     Consignment findById(int id);
 
-    List<Consignment> findByAll(String name);
+    List<Consignment> findByAll(int id);
 
     Consignment createConsignment(Consignment consignment);
 
