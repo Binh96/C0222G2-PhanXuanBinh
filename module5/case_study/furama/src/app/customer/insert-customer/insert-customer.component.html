@@ -14,14 +14,11 @@
                 <div class="col-4 mb-3">
                     <label for="">Type customer:</label>
                     <select id="selectType" name="" class="form-control" formControlName="type">
-                        <option value="">---Option Type Customer---</option>
-                        <option value="Platinium">Platinium</option>
-                        <option value="Diamond">Diamond</option>
-                        <option value="Gold">Gold</option>
-                        <option value="Member">Member</option>
+                        <option value="" [selected]="ngTypeCustomer">{{ngTypeCustomer}}</option>
+                        <option value="{{types.id}}" *ngFor="let types of customerType">{{types.name}}</option>
                     </select>
-                    <div *ngIf="!customer.controls.type.valid && customer.controls.type.touched">
-                        <p *ngIf="customer.controls.type.errors.required" class="text-danger">Type is empty</p>
+                    <div *ngIf="!customer.controls.types.valid && customer.controls.types.touched">
+                        <p *ngIf="customer.controls.types.errors.required" class="text-danger">Type is empty</p>
                     </div>
                 </div>
                 <div class="col-4 mb-3">

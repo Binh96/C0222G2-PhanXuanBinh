@@ -1,6 +1,8 @@
+import { TypeFacility } from "./type-facility";
+
 export interface Facility {
     id?: string;
-    type?: string;
+    type?: TypeFacility;
     nameService?: string;
     cost?: string;
     typeRent?: string;

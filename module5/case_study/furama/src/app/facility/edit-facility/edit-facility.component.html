@@ -11,20 +11,9 @@
         <form *ngIf="facilityForm" [formGroup]="facilityForm" (ngSubmit)="editFacility()">
             <div class="row">
                 <div class="col-4 mb-3">
-                    <label for="">Code service:</label>
-                    <input type="text" class="form-control" id="name" formControlName="id" required>
-                    <div *ngIf="!facilityForm.controls.id.valid && facilityForm.controls.id.touched">
-                        <p *ngIf="facilityForm.controls.id.errors.required" class="text-danger">Code service is required</p>
-                        <p *ngIf="facilityForm.controls.id.errors.pattern" class="text-danger">Code service is not valid</p>
-                    </div>
-                </div>
-                <div class="col-4 mb-3">
                     <label for="">Type service:</label> 
-                    <select id="selectType" name="" #selectType class="form-control" formControlName="type" (change)="changeForm(selectType.value)">
-                        <option value="" [selected]="ngTypeService">{{ngTypeService}}</option>
-                        <option value="villa">Villa</option>
-                        <option value="house">House</option>
-                        <option value="room">Room</option>
+                    <select id="selectType" #selectType class="form-control" formControlName="type" (change)="changeForm(selectType.value)">
+                        <option value="{{type.id}}" *ngFor="let type of typeFacilities">{{type.name}}</option>
                     </select>
                     <div *ngIf="!facilityForm.controls.type.valid && facilityForm.controls.type.touched">
                         <p *ngIf="facilityForm.controls.type.errors.required" class="text-danger">Type service is required</p>
@@ -49,7 +38,6 @@
                 <div class="col-4 mb-3">
                     <label for="">Type rent:</label>
                     <select name="" class="form-control" id="rentType" formControlName="typeRent">
-                        <option value="" [selected]="ngTypeOfRent">{{ngTypeOfRent}}</option>
                         <option value="Month">Month</option>
                         <option value="Day">Day</option>
                         <option value="Year">Year</option>

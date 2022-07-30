@@ -20,6 +20,7 @@ import { EditFacilityComponent } from './facility/edit-facility/edit-facility.co
 import { ListContractComponent } from './contract/list-contract/list-contract.component';
 import { InsertContractComponent } from './contract/insert-contract/insert-contract.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
+import { SearchComponent } from './facility/search/search.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
     EditFacilityComponent,
     ListContractComponent,
     InsertContractComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

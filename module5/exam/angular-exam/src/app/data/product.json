@@ -1,0 +1,128 @@
+{
+  "product": [
+    {
+      "id": 1,
+      "nameProduct": "M&M",
+      "price": "1000",
+      "unit": "package"
+    },
+    {
+      "id": 2,
+      "nameProduct": "Chocolate",
+      "price": "2000",
+      "unit": "package"
+    },
+    {
+      "id": 3,
+      "nameProduct": "McDonal's",
+      "price": "5000",
+      "unit": "box"
+    },
+    {
+      "id": 4,
+      "nameProduct": "Milk tea",
+      "price": "3000",
+      "unit": "cup"
+    }
+  ],
+  "consigment": [
+    {
+      "codeConsigment": "LH-1234",
+      "product": {
+        "id": 2,
+        "nameProduct": "Chocolate",
+        "price": "2000",
+        "unit": "package"
+      },
+      "quantity": "2",
+      "dateIn": "2022-07-05",
+      "dateOut": "2022-07-05",
+      "endOfDate": "2022-07-12",
+      "id": 1
+    },
+    {
+      "codeConsigment": "LH-1234",
+      "product": {
+        "id": 2,
+        "nameProduct": "Chocolate",
+        "price": "2000",
+        "unit": "package"
+      },
+      "quantity": "2",
+      "dateIn": "2022-07-05",
+      "dateOut": "2022-07-05",
+      "endOfDate": "2022-07-12",
+      "id": 1
+    },
+    {
+      "codeConsigment": "LH-1236",
+      "product": {
+        "id": 3,
+        "nameProduct": "McDonal's",
+        "price": "5000",
+        "unit": "box"
+      },
+      "quantity": "2",
+      "dateIn": "2022-07-01",
+      "dateOut": "2022-07-20",
+      "endOfDate": "2022-07-30",
+      "id": 2
+    },
+    {
+      "codeConsigment": "LH-1236",
+      "product": {
+        "id": 2,
+        "nameProduct": "Chocolate",
+        "price": "2000",
+        "unit": "package"
+      },
+      "quantity": "2",
+      "dateIn": "2022-07-15",
+      "dateOut": "2022-07-15",
+      "endOfDate": "2022-07-23",
+      "id": 3
+    },
+    {
+      "codeConsigment": "LH-1234",
+      "product": {
+        "id": 2,
+        "nameProduct": "Chocolate",
+        "price": "2000",
+        "unit": "package"
+      },
+      "quantity": "2",
+      "dateIn": "2022-07-05",
+      "dateOut": "2022-07-05",
+      "endOfDate": "2022-07-12",
+      "id": 1
+    },
+    {
+      "codeConsigment": "LH-1236",
+      "product": {
+        "id": 3,
+        "nameProduct": "McDonal's",
+        "price": "5000",
+        "unit": "box"
+      },
+      "quantity": "2",
+      "dateIn": "2022-07-01",
+      "dateOut": "2022-07-20",
+      "endOfDate": "2022-07-30",
+      "id": 2
+    },
+    {
+      "codeConsigment": "LH-1236",
+      "product": {
+        "id": 2,
+        "nameProduct": "Chocolate",
+        "price": "2000",
+        "unit": "package"
+      },
+      "quantity": "2",
+      "dateIn": "2022-07-15",
+      "dateOut": "2022-07-15",
+      "endOfDate": "2022-07-23",
+      "id": 3
+    }
+  ]
+}

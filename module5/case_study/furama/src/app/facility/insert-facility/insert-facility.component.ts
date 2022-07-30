@@ -1,7 +1,9 @@
 import { Component, ElementRef, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Facility } from 'src/app/facility/facility';
 import { FacilityService } from '../facility-service.service';
+import { TypeFacility } from '../type-facility';
 
 @Component({
   selector: 'app-insert-facility',
@@ -16,68 +18,58 @@ export class InsertFacilityComponent implements OnInit {
   houseFacility: boolean;
   villaFacility: boolean;
 
-  facility = new FormGroup({
-    id: new FormControl('', [Validators.required, Validators.pattern("^(SV-)[0-9]{4}$")]),
-    type: new FormControl('', [Validators.required]),
-    nameService: new FormControl('', [Validators.required, Validators.minLength(6)]),
-    cost: new FormControl('', [Validators.required, Validators.min(1)]),
-    typeRent: new FormControl('', [Validators.required]),
-    quantity: new FormControl('', [Validators.required, Validators.min(1)]),
-    area: new FormControl('', [Validators.required, Validators.min(1)]),
-    facilityFree: new FormControl('', [Validators.required]),
-    numberOfFloor: new FormControl('', [Validators.required, Validators.min(1)]),
-    description: new FormControl('', [Validators.required]),
-    standardRoom: new FormControl('', [Validators.required]),
-    poolArea: new FormControl('', [Validators.required, Validators.min(1)])
-  });
+  typeFacilities: TypeFacility[] = [];
 
+  facility: FormGroup;
   // facility:  FormGroup;
 
-  constructor(private facilityService: FacilityService, private facilityBuilder: FormBuilder) { 
-    // this.facility = this.facilityBuilder.group({
-    //   id: ["", [Validators.required, Validators.pattern("^(SV-)[0-9]{4}$")]],
-    //   type: ['', [Validators.required]],
-    //   nameService: ['', [Validators.required, Validators.minLength(6)]],
-    //   cost: ['', [Validators.required, Validators.min(1)]],
-    //   typeRent: ['', [Validators.required]],
-    //   quantity: ['', [Validators.required, Validators.min(1)]],
-    //   area: ['', [Validators.required, Validators.min(1)]],
-    //   facilityFree: ['', [Validators.required]],
-    //   numberOfFloor: ['', [Validators.required, Validators.min(1)]],
-    //   description: ['', [Validators.required]],
-    //   standardRoom: ['', [Validators.required]],
-    //   poolArea: ['', [Validators.required, Validators.min(1)]]
-    // });
+  constructor(private facilityService: FacilityService, private facilityBuilder: FormBuilder, private route: Router) { 
+
   }
 
   ngOnInit(): void {
-    
+    this.gettAllFacilytiesType();
+    this.facility = new FormGroup({
+      id: new FormControl('', [Validators.required, Validators.pattern("^(SV-)[0-9]{4}$")]),
+      type: new FormControl('', [Validators.required]),
+      nameService: new FormControl('', [Validators.required, Validators.minLength(6)]),
+      cost: new FormControl('', [Validators.required, Validators.min(1)]),
+      typeRent: new FormControl('', [Validators.required]),
+      quantity: new FormControl('', [Validators.required, Validators.min(1)]),
+      area: new FormControl('', [Validators.required, Validators.min(1)]),
+      facilityFree: new FormControl('', [Validators.required]),
+      numberOfFloor: new FormControl('', [Validators.required, Validators.min(1)]),
+      description: new FormControl('', [Validators.required]),
+      standardRoom: new FormControl('', [Validators.required]),
+      poolArea: new FormControl('', [Validators.required, Validators.min(1)])
+    });
   }
 
   createFacility(){
     
     if(this.facility.valid){
       if(this.roomFacility || this.houseFacility || this.villaFacility){
-        this.facilityService.createFacility(this.facility.value).subscribe();
-        this.facility.reset();
+        this.facilityService.createFacility(this.facility.value).subscribe(()=>{
+          this.route.navigateByUrl('facility/list-facility');
+        });
       }
     }
   }
 
   changeForm(item: string){
-    if(item == 'room'){
+    if(item == '3'){
       this.roomFacility = true;
       this.villaFacility = false;
       this.houseFacility = false;
       this.checkValidator();
     }
-    if(item == 'house'){
+    if(item == '2'){
       this.houseFacility = true;
       this.roomFacility = false;
       this.villaFacility = false;
       this.checkValidator();
     }
-    if(item == 'villa'){
+    if(item == '1'){
       this.houseFacility = true;
       this.roomFacility = false;
       this.villaFacility = true;
@@ -107,6 +99,12 @@ export class InsertFacilityComponent implements OnInit {
       this.facility.get("facilityFree").setErrors(null);
     }
     this.facility.updateValueAndValidity();
+  }
+
+  gettAllFacilytiesType(){
+    this.facilityService.getAllFacilitiesType().subscribe(typeFacilities => {
+        this.typeFacilities = typeFacilities;
+    });
   }
 
 

@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Facility } from '../facility';
 import { FacilityService } from '../facility-service.service';
+import { TypeFacility } from '../type-facility';
 
 @Component({
   selector: 'app-edit-facility',
@@ -20,15 +21,17 @@ export class EditFacilityComponent implements OnInit {
   villaFacility: boolean;
 
   id: string;
+  typeFacilities: TypeFacility[] = [];
 
   facility: Facility;
   facilityForm: FormGroup;
 
-  constructor(private facilityService: FacilityService, private activatedRoute: ActivatedRoute) { 
+  constructor(private facilityService: FacilityService, private activatedRoute: ActivatedRoute, private router: Router) { 
      
   }
 
   ngOnInit(): void {
+    this.gettAllFacilytiesType();
     this.activatedRoute.paramMap.subscribe((p : ParamMap)=>{
       this.id = p.get('id');
       this.getFacilty(this.id);
@@ -37,6 +40,8 @@ export class EditFacilityComponent implements OnInit {
 
   getFacilty(id: string){
     this.facilityService.findById(id).subscribe(facility => {
+      this.facility = facility;
+      
       this.facilityForm = new FormGroup({
         id: new FormControl(facility.id, [Validators.required, Validators.pattern("^(SV-)[0-9]{4}$")]),
         type: new FormControl(facility.type, [Validators.required]),
@@ -79,19 +84,19 @@ export class EditFacilityComponent implements OnInit {
   }
 
   changeForm(item: string){
-    if(item == 'room'){
+    if(item == '3'){
       this.roomFacility = true;
       this.villaFacility = false;
       this.houseFacility = false;
       this.checkValidator();
     }
-    if(item == 'house'){
+    if(item == '2'){
       this.houseFacility = true;
       this.roomFacility = false;
       this.villaFacility = false;
       this.checkValidator();
     }
-    if(item == 'villa'){
+    if(item == '1'){
       this.houseFacility = true;
       this.roomFacility = false;
       this.villaFacility = true;
@@ -99,8 +104,17 @@ export class EditFacilityComponent implements OnInit {
     }
   }
 
-  editFacility(){
 
+  editFacility(){
+    this.facilityService.editFacility(this.facilityForm.value, this.id).subscribe(()=>{
+      this.router.navigateByUrl('facility/list-facility');
+    });
+  }
+
+  gettAllFacilytiesType(){
+    this.facilityService.getAllFacilitiesType().subscribe(typeFacilities => {
+        this.typeFacilities = typeFacilities;
+    });
   }
 
 }

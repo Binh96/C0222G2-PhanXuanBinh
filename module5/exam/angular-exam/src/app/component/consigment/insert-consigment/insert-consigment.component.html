@@ -1,0 +1,75 @@
+<div class="content">
+    <div class="menu-container container py-5">
+        <div class="introduce-header col-6">
+            <p class="introduce-header-text">Create customer</p>
+            <h1 class="introduce-header-heading">Exam</h1>
+            <p class="introduce-header-para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequuntur cupiditate
+                ipsam iste molestias neque, numquam quo rerum tenetur vitae!</p>
+        </div>
+    </div>
+    <div class="container create-container py-5">
+        <form [formGroup]="consigmentForm" (ngSubmit)="createConsigment()">
+            <div class="row">
+                <div class="col-4 mb-3">
+                    <label for="">Code Cosigment:</label>
+                    <input type="text" class="form-control" formControlName="codeConsignment">
+                    <div *ngIf="!consigmentForm.controls.codeConsignment.valid && consigmentForm.controls.codeConsignment.touched">
+                        <p *ngIf="consigmentForm.controls.codeConsignment.errors.required" class="text-danger">Code Consignment is empty.</p>
+                        <p *ngIf="consigmentForm.controls.codeConsignment.errors.pattern" class="text-danger">Code consignment is not valid.</p>
+                    </div>
+                </div>
+                <div class="col-4 mb-3">
+                    <label for="">Product:</label>
+                    <select id="selectType" name="" class="form-control" formControlName="product">
+                        <option value="" [selected]="ngProduct">{{ngProduct}}</option>
+                        <option [ngValue]="products" *ngFor="let products of products">{{products.nameProduct}}</option>
+                    </select>
+                    <div *ngIf="!consigmentForm.controls.product.valid && consigmentForm.controls.product.touched">
+                        <p *ngIf="consigmentForm.controls.product.errors.required" class="text-danger">Product is empty.</p>
+                    </div>
+                </div>
+                <div class="col-4 mb-3">
+                    <label for="">Quantity:</label>
+                    <input type="text" class="form-control" formControlName="quantity">
+                    <div *ngIf="!consigmentForm.controls.quantity.valid && consigmentForm.controls.quantity.touched">
+                        <p *ngIf="consigmentForm.controls.quantity.errors.required" class="text-danger">Quantity is empty</p>
+                        <p *ngIf="consigmentForm.controls.quantity.errors.min" class="text-danger">Quantity is negative</p>
+                    </div>
+                </div>
+                <div class="col-4 mb-3">
+                    <label for="">Date in product:</label>
+                    <input type="date" class="form-control" formControlName="dateIn">
+                    <div *ngIf="!consigmentForm.controls.dateIn.valid && consigmentForm.controls.dateIn.touched">
+                        <p *ngIf="consigmentForm.controls.dateIn.errors.required" class="text-danger">Date is empty</p>
+                    </div>
+                </div>
+                <div class="col-4 mb-3">
+                    <label for="">Date out product:</label>
+                    <input type="date" class="form-control" formControlName="dateOut">
+                    <div *ngIf="!consigmentForm.controls.dateOut.valid && consigmentForm.controls.dateOut.touched">
+                        <p *ngIf="consigmentForm.controls.dateOut.errors.required" class="text-danger">Date is empty</p>
+                    </div>
+                </div>
+                <div class="col-4 mb-3">
+                    <label for="">Date in product:</label>
+                    <input type="date" class="form-control" formControlName="endOfDate">
+                    <div *ngIf="!consigmentForm.controls.endOfDate.valid && consigmentForm.controls.endOfDate.touched">
+                        <p *ngIf="consigmentForm.controls.endOfDate.errors.required" class="text-danger">Date is empty</p>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <button class="btn btn-warning text-white mt-5 mx-2">Create</button>
+                <button class="btn btn-secondary text-white mt-5 mx-2" type="button" routerLink="">Back</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="menu-side d-flex align-items-center justify-content-center">
+    <a routerLink="/home" class="d-flex align-items-center justify-content-center
+    text-white circle circle-l menu-side-btn text-decoration-none">
+        <i class="fa-solid fa-list"></i>
+    </a>
+</div>
+

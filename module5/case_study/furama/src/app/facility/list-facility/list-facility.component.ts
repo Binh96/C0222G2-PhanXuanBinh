@@ -9,6 +9,8 @@ import { FacilityService } from '../facility-service.service';
 })
 export class ListFacilityComponent implements OnInit {
 
+  search = '';
+
   p: number=1;
 
   facilities: Facility[] = [];

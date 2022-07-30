@@ -22,12 +22,10 @@
                     <label for="">Type service:</label> 
                     <select id="selectType" name="" #selectType class="form-control" formControlName="type" (change)="changeForm(selectType.value)">
                         <option value="" [selected]="ngTypeService">{{ngTypeService}}</option>
-                        <option value="villa">Villa</option>
-                        <option value="house">House</option>
-                        <option value="room">Room</option>
+                        <option value="{{type.id}}" *ngFor="let type of typeFacilities">{{type.name}}</option>
                     </select>
                     <div *ngIf="!facility.controls.type.valid && facility.controls.type.touched">
-                        <p *ngIf="facility.controls.type.errors.required" class="text-danger">Type service is required</p>
+                        <p *ngIf="facility.controls.type.errors.required" class="text-danger">Type service must select</p>
                     </div>
                 </div>
                 <div class="col-4 mb-3">

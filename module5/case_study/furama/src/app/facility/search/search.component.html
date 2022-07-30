@@ -1,0 +1,43 @@
+
+<div class="content">
+    <div class="show-service py-5">
+        <div class="show-service-header-container" id="facility">
+            <div class="show-service-header col-5">
+                <h1 class="show-service-heading">Service</h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora non facere explicabo architecto ratione quod?</p>
+            </div>
+        </div>
+        <div class="show-service-container container py-3">
+            <div class="row">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="table-list ">Name Service</th>
+                            <th class="table-list text-center">Type</th>
+                            <th class="table-list text-center">Cost</th>
+                            <th class="table-list text-center">Area Facility</th>
+                            <th class="table-list text-center">Description</th>
+                            <th class="table-list text-center">Type Rent</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let facility of facilities">
+                            <td class="table-list">{{facility.nameService}}</td>
+                            <td class="table-list text-center">{{facility.type}}</td>
+                            <td class="table-list text-center">{{facility.cost}}</td>
+                            <td class="table-list text-center">{{facility.area}}</td>
+                            <td class="table-list text-center">{{facility.description}}</td>
+                            <td class="table-list text-center">{{facility.typeRent}}</td>
+                        </tr>   
+                    </tbody>   
+                </table>      
+            </div>
+        </div>
+    </div>
+</div>
+<div class="menu-side d-flex align-items-center justify-content-center">
+    <a routerLink="../insert-facility" class="d-flex align-items-center justify-content-center
+    text-white circle circle-l menu-side-btn text-decoration-none">
+        <i class="fa-solid fa-plus"></i>
+    </a>
+</div>

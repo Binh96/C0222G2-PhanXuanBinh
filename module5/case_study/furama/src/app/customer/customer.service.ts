@@ -2,8 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Customer } from './customer';
+import { Customertype } from './customertype';
 
 const baseUrl = "http://localhost:3300/customer";
+const baseUrlCustomertype = "http://localhost:3300/customer-type";
 
 @Injectable({
   providedIn: 'root'
@@ -32,5 +34,9 @@ export class CustomerService {
 
   editCustomer(customer: Customer, id: number): Observable<Customer>{
     return this.http.patch<Customer>(baseUrl+`/${id}`, customer);
+  }
+
+  getAllCustomerType(): Observable<Customertype[]>{
+    return this.http.get<Customertype[]>(baseUrlCustomertype);
   }
 }

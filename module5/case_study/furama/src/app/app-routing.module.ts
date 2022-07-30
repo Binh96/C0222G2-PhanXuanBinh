@@ -9,6 +9,7 @@ import { EditFacilityComponent } from './facility/edit-facility/edit-facility.co
 import { HomeComponent } from './home/home.component';
 import { InsertContractComponent } from './contract/insert-contract/insert-contract.component';
 import { ListContractComponent } from './contract/list-contract/list-contract.component';
+import { SearchComponent } from './facility/search/search.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'facility/list-facility', component: ListFacilityComponent },
   {path: 'facility/insert-facility', component: InsertFacilityComponent },
   {path: 'facility/edit-facility/:id', component: EditFacilityComponent},
+  {path: 'facility/search/:search', component: SearchComponent},
   {path: 'customer/list-customer', component: ListCustomerComponent },
   {path: 'customer/insert-customer', component: InsertCustomerComponent },
   {path: 'customer/edit-customer', component: EditCustomerComponent },
